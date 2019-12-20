@@ -1,0 +1,36 @@
+{
+  "stanza1": 
+      {
+          "type": "verse",
+          "line1":{
+              "lyric": "Today is goinna be the day that they're", 
+              "start_beat": 1, 
+              "end_beat": 7},  
+          "line2":{
+              "lyric": "goinna throw it back to you",
+              "start": 8, 
+              "end": 12}
+       },
+          "verse_chords":[
+              {
+                  "symbol":"Em7",
+                  "chord_beat":0 
+              },
+              {
+                  "symbol":"D#",
+                  "chord_beat":4
+              },
+              {
+                  "symbol":"Dsus4",
+                  "chord_beat":8
+              },
+              {
+                  "symbol":"A7sus4",
+                  "chord_beat":12
+              }
+
+              ]
+
+   
+   
+}

@@ -1,0 +1,6 @@
+.SongText{
+    background-color: aliceblue;
+    width: calc(200px + 60%);
+    margin-left: auto;
+    margin-right: auto;
+}

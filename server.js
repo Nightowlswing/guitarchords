@@ -19,8 +19,25 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/profile", function(req, res){
-  pool.query("SELECT text FROM Songs", function(err, data) {
+app.get("/song/", function(req, res){
+  const song = {
+    id: req.query.id
+  }
+  pool.query(
+    `SELECT * 
+    FROM Songs LEFT JOIN Compositors on Songs.comp_id = Compositors.id
+    WHERE Songs.id = '${song.id}'`,song, function(err, data) {
+    if(err) {
+      return console.log(err);
+    }
+    res.json(data);
+    //console.log(data);
+  });
+  
+});
+
+app.get("/allSongs", function(req, res){
+  pool.query("SELECT * FROM Songs LEFT JOIN Compositors on Songs.comp_id = Compositors.id", function(err, data) {
     if(err) {
       return console.log(err);
     }
@@ -28,6 +45,7 @@ app.get("/profile", function(req, res){
     //console.log(data);
   });
 });
+
 
 app.listen(port);
 

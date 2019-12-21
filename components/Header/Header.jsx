@@ -81,7 +81,7 @@ const MenuButton = props =>(
 const Menu = props =>(
     <ul className = 'nav'>
         <MenuButton name = 'Main' href = '#'/>
-        <MenuButton name = 'Songs' href = './song'/>
+        <MenuButton name = 'Songs' href = './songs'/>
         <MenuButton name = 'Compositors' href = '#'/>
         <MenuButton name = 'Chords' href = '#'/>
         <MenuButton name = 'Articles' href = '#'/>
@@ -121,7 +121,7 @@ const SideMenu = props =>(
     <div id = "side-menu" className = "side-nav">
         <a href="#" className = "btn-close" onClick = {props.onClick}>&times;</a>
         <MenuButton name = 'Main' href = '#'/>
-        <MenuButton name = 'Songs' href = '../../pages/song'/>
+        <MenuButton name = 'Songs' href = '../../pages/songs'/>
         <MenuButton name = 'Compositors' href = '#'/>
         <MenuButton name = 'Chords' href = '#'/>
         <MenuButton name = 'Articles' href = '#'/>

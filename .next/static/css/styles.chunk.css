@@ -92,6 +92,10 @@ img{
     margin-left: auto;
     margin-right: auto;
 }
+
+.word{
+    display: inline-block;
+}
 body{
     background: linear-gradient(#679999, #d5d7ec) fixed no-repeat;
 }

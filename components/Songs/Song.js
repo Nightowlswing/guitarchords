@@ -21,17 +21,17 @@ class Song extends Component{
       render(){
         
       return(
-        <div>
-            {/* <SongHead compName = 'Billie Eilish' name = 'All The Good Girls Go to Hell' capo = '4th fret'/> */}
+        <div className = "songText">
+            <SongHead compName = 'Billie Eilish' name = 'All The Good Girls Go to Hell' capo = '4th fret'/>
             <button onClick = {this.GetProfiles.bind(this)}/>
                 {this.state.tracks.map((value) => {
                     return (
                         <SongText
-                            adress = {value.adress}
-                            avatar = {value.avatar}
-                            email = {value.email}
-                            id = {value.id}
-                            name = {value.name}
+                       // adress = {value.adress}
+                        text = {value.text}    // avatar = {value.avatar}
+                            // email = {value.email}
+                            // id = {value.id}
+                           // name = {value.name}
                         />
                     );
                 })}
@@ -52,13 +52,45 @@ const SongHead = props =>(
 
 const SongText = props =>(
   <div>
-    <span>{`adress: ${props.adress}`}</span><br/>
-    <span>{`avatar: ${props.avatar}`}</span><br/>
-    <span>{`email: ${props.email}`}</span><br/>
-    <span>{`id: ${props.id}`}</span><br/>
-    <span>{`name: ${props.name}`}</span><br/>
+    {props.text.map((value, index) => {console.log(index)
+      return(
+        <SongVerse verse = {value}/>
+      );
+    })}
   </div>
 )
 
+const SongVerse = props =>(
+    <div>
+      {props.verse.map((value,index)=>{
+        return (
+          <SongLine line = {value}/>
+        );
+      })}
+      <br/><br/>
+    </div>
+);
+
+const SongLine = props =>(
+  <div>
+    <span>
+    {props.line.map((value,index) =>{
+      return(
+        <WordBlock words = {value.words} chord = {value.chord}/>
+      );
+    })}
+
+    </span>
+    <br/>
+  </div>
+);
+
+const WordBlock = props =>(
+  <div className = "word">
+    {props.chord}<br/>
+    {props.words}&nbsp;
+    <br/>
+  </div>
+);
 export default Song;
 

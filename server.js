@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/profile", function(req, res){
-  pool.query("SELECT * FROM profile", function(err, data) {
+  pool.query("SELECT text FROM Songs", function(err, data) {
     if(err) {
       return console.log(err);
     }

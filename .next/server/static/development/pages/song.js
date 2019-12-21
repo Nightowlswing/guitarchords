@@ -541,12 +541,22 @@ class Song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   render() {
     return __jsx("div", {
+      className: "songText",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 24
       },
       __self: this
-    }, __jsx("button", {
+    }, __jsx(SongHead, {
+      compName: "Billie Eilish",
+      name: "All The Good Girls Go to Hell",
+      capo: "4th fret",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    }), __jsx("button", {
       onClick: this.GetProfiles.bind(this),
       __source: {
         fileName: _jsxFileName,
@@ -554,12 +564,13 @@ class Song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __self: this
     }), this.state.tracks.map(value => {
-      return __jsx(SongText, {
-        adress: value.adress,
-        avatar: value.avatar,
-        email: value.email,
-        id: value.id,
-        name: value.name,
+      return __jsx(SongText // adress = {value.adress}
+      , {
+        text: value.text // avatar = {value.avatar}
+        // email = {value.email}
+        // id = {value.id}
+        // name = {value.name}
+        ,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 29
@@ -621,64 +632,94 @@ const SongText = props => __jsx("div", {
     lineNumber: 54
   },
   __self: undefined
+}, props.text.map((value, index) => {
+  console.log(index);
+  return __jsx(SongVerse, {
+    verse: value,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  });
+}));
+
+const SongVerse = props => __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 64
+  },
+  __self: undefined
+}, props.verse.map((value, index) => {
+  return __jsx(SongLine, {
+    line: value,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  });
+}), __jsx("br", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 70
+  },
+  __self: undefined
+}), __jsx("br", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 70
+  },
+  __self: undefined
+}));
+
+const SongLine = props => __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 75
+  },
+  __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 55
+    lineNumber: 76
   },
   __self: undefined
-}, `adress: ${props.adress}`), __jsx("br", {
+}, props.line.map((value, index) => {
+  return __jsx(WordBlock, {
+    words: value.words,
+    chord: value.chord,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: undefined
+  });
+})), __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 55
+    lineNumber: 84
   },
   __self: undefined
-}), __jsx("span", {
+}));
+
+const WordBlock = props => __jsx("div", {
+  className: "word",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 56
+    lineNumber: 89
   },
   __self: undefined
-}, `avatar: ${props.avatar}`), __jsx("br", {
+}, props.chord, __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 56
+    lineNumber: 90
   },
   __self: undefined
-}), __jsx("span", {
+}), props.words, "\xA0", __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 57
-  },
-  __self: undefined
-}, `email: ${props.email}`), __jsx("br", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 57
-  },
-  __self: undefined
-}), __jsx("span", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 58
-  },
-  __self: undefined
-}, `id: ${props.id}`), __jsx("br", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 58
-  },
-  __self: undefined
-}), __jsx("span", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 59
-  },
-  __self: undefined
-}, `name: ${props.name}`), __jsx("br", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 59
+    lineNumber: 92
   },
   __self: undefined
 }));

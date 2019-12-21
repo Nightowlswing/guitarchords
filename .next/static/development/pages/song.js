@@ -496,12 +496,22 @@ function (_Component) {
     key: "render",
     value: function render() {
       return __jsx("div", {
+        className: "songText",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 24
         },
         __self: this
-      }, __jsx("button", {
+      }, __jsx(SongHead, {
+        compName: "Billie Eilish",
+        name: "All The Good Girls Go to Hell",
+        capo: "4th fret",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        },
+        __self: this
+      }), __jsx("button", {
         onClick: this.GetProfiles.bind(this),
         __source: {
           fileName: _jsxFileName,
@@ -509,12 +519,13 @@ function (_Component) {
         },
         __self: this
       }), this.state.tracks.map(function (value) {
-        return __jsx(SongText, {
-          adress: value.adress,
-          avatar: value.avatar,
-          email: value.email,
-          id: value.id,
-          name: value.name,
+        return __jsx(SongText // adress = {value.adress}
+        , {
+          text: value.text // avatar = {value.avatar}
+          // email = {value.email}
+          // id = {value.id}
+          // name = {value.name}
+          ,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 29
@@ -581,64 +592,100 @@ var SongText = function SongText(props) {
       lineNumber: 54
     },
     __self: this
+  }, props.text.map(function (value, index) {
+    console.log(index);
+    return __jsx(SongVerse, {
+      verse: value,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 57
+      },
+      __self: this
+    });
+  }));
+};
+
+var SongVerse = function SongVerse(props) {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: this
+  }, props.verse.map(function (value, index) {
+    return __jsx(SongLine, {
+      line: value,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67
+      },
+      __self: this
+    });
+  }), __jsx("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: this
+  }), __jsx("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: this
+  }));
+};
+
+var SongLine = function SongLine(props) {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: this
   }, __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 76
     },
     __self: this
-  }, "adress: ".concat(props.adress)), __jsx("br", {
+  }, props.line.map(function (value, index) {
+    return __jsx(WordBlock, {
+      words: value.words,
+      chord: value.chord,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 79
+      },
+      __self: this
+    });
+  })), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 84
     },
     __self: this
-  }), __jsx("span", {
+  }));
+};
+
+var WordBlock = function WordBlock(props) {
+  return __jsx("div", {
+    className: "word",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 89
     },
     __self: this
-  }, "avatar: ".concat(props.avatar)), __jsx("br", {
+  }, props.chord, __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 90
     },
     __self: this
-  }), __jsx("span", {
+  }), props.words, "\xA0", __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
-    },
-    __self: this
-  }, "email: ".concat(props.email)), __jsx("br", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 57
-    },
-    __self: this
-  }), __jsx("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 58
-    },
-    __self: this
-  }, "id: ".concat(props.id)), __jsx("br", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 58
-    },
-    __self: this
-  }), __jsx("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 59
-    },
-    __self: this
-  }, "name: ".concat(props.name)), __jsx("br", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 92
     },
     __self: this
   }));

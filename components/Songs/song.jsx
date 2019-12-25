@@ -1,6 +1,7 @@
 import React, {Component, createElement} from 'react';
-import './SongStyle/SongStyle.css';
+import '../../Styles/SongStyle/SongStyle.css';
 import Axios from 'axios';
+import Link from 'next/link';
 
 
 

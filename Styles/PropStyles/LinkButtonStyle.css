@@ -1,0 +1,32 @@
+.LinkButton{
+    background-color: rgb(29, 27, 27);
+    width: 100px;
+    height: 36px;
+    top: calc(50% - 16px/2);
+    /* background: #98BF1F; */
+    border-radius: 4px;
+    /* button */
+    color: rgb(238, 227, 227);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.ButtonRef{
+    width: 150px;
+    height: 36px;
+    color: rgb(238, 227, 227);
+}
+
+.ButtonRef:hover { 
+    text-decoration: none; /* Добавляем подчеркивание при наведении курсора на ссылку */
+    color: rgb(238, 227, 227); /* Ссылка красного цвета */
+   } 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../Styles/global.css';
 import Header from '../components/Header/Header';
 import AddSong from '../components/AddSong/AddSong';
 

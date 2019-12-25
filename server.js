@@ -109,7 +109,7 @@ app.get("/addsong/", function(req, res){
     genre: req.query.genre,
     text: req.query.text
   }
-  console.log(req.query.cname);
+  
   pool.query(
     `SELECT COUNT(*) AS N
     FROM Compositors 
@@ -119,6 +119,7 @@ app.get("/addsong/", function(req, res){
         return console.log('it is err0', err);
       }
       if(data[0].N === 0){
+        
         pool.query(
           `
           INSERT INTO Compositors(cname) VALUES('${song.cname}');
@@ -161,6 +162,7 @@ app.get("/addsong/", function(req, res){
             if(err) {
               return console.log('it is err', err);
             }
+            console.log(req.query.cname);
             if(data[0].M===0){
               pool.query(
                 `
@@ -170,7 +172,7 @@ app.get("/addsong/", function(req, res){
                 if(err) {
                   return console.log('it is err', err);
                 }
-                res.json(data);
+                song.cname = data[0].cid;
                 pool.query(
                   `
                     INSERT INTO Songs(capo,comp_id,genre,name,text) VALUES('${song.capo}','${song.cname}','${song.genre}','${song.sname}','${song.text}')
@@ -179,9 +181,8 @@ app.get("/addsong/", function(req, res){
                   if(err) {
                     return console.log('it is err', err);
                   }
-                    song.cname = data[0].cid;
+                    
                   
-                  res.json(data);
               
                 }                    
                 );
@@ -197,6 +198,132 @@ app.get("/addsong/", function(req, res){
   );
 });
 
+app.get("/searchC/", function(req, res){
+  const search = {
+    Q: req.query.Q
+  }
+  
+  pool.query(
+    `
+    SELECT * FROM Compositors WHERE (cname LIKE "'${search.Q}'%" OR cname LIKE "%'${search.Q}'" OR cname LIKE "${search.Q}%" OR cname = '${search.Q}')
+    `
+    , search,
+    function(err, data) {
+    if(err) {
+      return console.log('it is err', err);
+    }
+    res.json(data);
+
+  });
+});
+
+app.get("/allSongsOfC", function(req, res){
+  const comp = {
+    id: req.query.id
+  }
+  
+  pool.query(`
+  SELECT Songs.id, Songs.name, Songs.comp_id, Songs.genre, Songs.text, Songs.capo, Compositors.cname 
+  FROM Songs LEFT JOIN Compositors 
+  on Songs.comp_id = Compositors.id WHERE comp_id = '${comp.id}'`
+  ,comp, function(err, data) {
+    if(err) {
+      return console.log(err);
+    }
+    res.json(data);
+    //console.log(data);
+  });
+});
+
+app.get("/allComp/", function(req, res){
+  const search = {
+    Q: req.query.Q
+  }
+  
+  pool.query(
+    `
+    SELECT * FROM Compositors
+    `
+    , search,
+    function(err, data) {
+    if(err) {
+      return console.log('it is err', err);
+    }
+    res.json(data);
+
+  });
+});
+
+app.get("/allArticles/", function(req, res){
+  pool.query(
+    `
+    SELECT * FROM Articles 
+    `
+    , 
+    function(err, data) {
+    if(err) {
+      return console.log('it is err', err);
+    }
+    res.json(data);
+
+  });
+});
+
+app.get("/article/", function(req, res){
+  const article = {
+    id: req.query.id
+  }
+  pool.query(
+    `
+    SELECT * FROM Articles WHERE id = '${article.id}}'
+    `
+    , article,
+    function(err, data) {
+    if(err) {
+      return console.log('it is err', err);
+    }
+
+    res.json(data);
+
+  });
+});
+
+app.get("/addArticle/", function(req, res){
+  const article = {
+    name: req.query.name,
+    text: req.query.text
+  }
+  pool.query(
+    `
+    SELECT COUNT(*) AS N FROM Articles
+    WHERE (name = '${article.name}' OR text = '${article.text}')
+    `
+    ,article,
+    function(err, data) {
+    if(err) {
+      return console.log('it is err1', err);
+    }
+    if(data[0].N === 1){
+      res.json(data[0].N);
+    }
+    // console.log(data);
+    else{
+      pool.query(
+          `
+        INSERT INTO Articles (name,text) VALUES ('${article.name}','${article.text}')
+        `
+        ,article,
+        function(err, data) {
+        if(err) {
+          return console.log('it is err2', err);
+        }
+        res.json(data);
+      });
+      
+    }
+
+  });
+});
 
 app.listen(port);
 

@@ -1,11 +1,10 @@
-//import { store } from 'react-notifications-component';
 import React, { Component } from 'react'
 import Link from 'next/link';
-//import '../../styles/FormStyles/Form.css';
 import { useRouter } from 'next/router';
-import LoginStyle from './LoginStyle/LoginStyle.css';
+import LoginStyle from '../../Styles/LoginStyle/LoginStyle.css';
 import { FormText } from 'reactstrap';
 import Axios from 'axios';
+import {connect} from 'react-redux';
 
 const formValid = formErrors =>{
     let valid = true;

@@ -3,30 +3,24 @@ import Link from 'next/link';
 import logo from '../../static/logo.png';
 import search from '../../static/search.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardText, CardHeader, CardBody, Button } from 'reactstrap';
-import './HeaderStyle/Header.css';
-//import openSlideMenu from './openSlideMenu';
-//import closeSlideMenu from './closeSlideMenu';
+import '../../Styles/HeaderStyle/HeaderStyle.css';
 import $ from 'jquery';
-import Popper from 'popper.js';
 import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
+import EditQuery from './EditQuery/EditQuery';
 
 
 class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isLoggedIn: false,
-            userID: '',
-            userNick: '',
-            userSongList: ''
+            Search: ""
         };
     }
 
     openSlideMenu = e => {
         // e.preventDefault();
         document.querySelector("#side-menu").style.width = "250px";
-        document.querySelector("body").style.marginLeft = "250px";
+       // document.querySelector("body").style.marginLeft = "250px";
         
     }
 
@@ -34,8 +28,16 @@ class Header extends Component{
         // e.preventDefault();
        
         document.querySelector("#side-menu").style.width = "0px";
-        document.querySelector("body").style.marginLeft = "0px";
+       // document.querySelector("body").style.marginLeft = "0px";
         
+    }
+
+
+    handleChange = e =>{
+        e.preventDefault();
+        const {name, value} = e.target;
+        this.setState({Search: EditQuery(value)});
+        console.log(this.state.Search);
     }
 
     render(){
@@ -47,10 +49,10 @@ class Header extends Component{
                     <SideMenu onClick = {this.closeSlideMenu}/>
                     <Burger onClick = {this.openSlideMenu}/>
                     <Menu/>
-                    <Ref link = './addsong' text = 'add new song'/>
+                    {/* <Ref link = './addsong' text = 'add new song'/>
                     <Ref link = './login' text = 'sing in'/>
-                    <Ref link = './singup' text = 'sing up'/>
-                    <SearchBox />
+                    <Ref link = './singup' text = 'sing up'/> */}
+                    <SearchBox onChange = {this.handleChange} search = {this.state.Search}/>
                     </div>
                 </nav>
 
@@ -100,11 +102,11 @@ const MenuButton = props =>(
 
 const Menu = props =>(
     <ul className = 'nav'>
-        <MenuButton name = 'Main' href = '#'/>
-        <MenuButton name = 'Songs' href = './songs'/>
-        <MenuButton name = 'Compositors' href = '#'/>
-        <MenuButton name = 'Chords' href = '#'/>
-        <MenuButton name = 'Articles' href = '#'/>
+        <MenuButton name = 'Main' href = '/'/>
+        <MenuButton name = 'Songs' href = '/songs'/>
+        <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
+        {/* <MenuButton name = 'Chords' href = '#'/> */}
+        <MenuButton name = 'Articles' href = '/Articles/articles'/>
         
     </ul>
 
@@ -115,9 +117,14 @@ const SearchBox = props =>(
     <div className="searchBox">
         
         <div id = 'group' className="input-group"> 
-            <input type="text" className="form-control" name="x" placeholder="Search"/>
+            <input onChange = {props.onChange} type="text" className="form-control" name="x" placeholder="Search"/>
             <span className="input-group-btn">
-                <button className = 'searchButton' type="button"><span className="glyphicon glyphicon-search"></span><img  src={search} alt = 'search'/></button>
+                <button  className = 'searchButton' type="button">
+                    <span className="glyphicon glyphicon-search"></span>                    
+                    <Link href='/SearchPages/[search]' as = {`/SearchPages/${props.search}`}>
+                        <a>search</a>
+                    </Link>
+                </button>
             </span>
         </div> 
     </div>
@@ -141,15 +148,14 @@ const SideMenu = props =>(
     <div id = "side-menu" className = "side-nav">
         <a href="#" className = "btn-close" onClick = {props.onClick}>&times;</a>
         <MenuButton name = 'Main' href = '/'/>
-        <MenuButton name = 'Songs' href = '../../pages/songs'/>
-        <MenuButton name = 'Compositors' href = '#'/>
-        <MenuButton name = 'Chords' href = '#'/>
-        <MenuButton name = 'Articles' href = '#'/>
+        <MenuButton name = 'Songs' href = '/songs'/>
+        <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
+        <MenuButton name = 'Articles' href = '/Articles/articles'/>
     </div>
 );
 
 const Ref = props =>(
-    <Link href = {`${props.link}`}>
+    <Link href = {`/${props.link}`}>
         <a>{props.text}</a>
     </Link>
 )

@@ -1,9 +1,7 @@
-//import { store } from 'react-notifications-component';
 import React, { Component } from 'react'
 import Link from 'next/link';
-//import '../../styles/FormStyles/Form.css';
 import { useRouter } from 'next/router';
-import LoginStyle from './LoginStyle/LoginStyle.css';
+import LoginStyle from '../../Styles/LoginStyle/LoginStyle.css';
 import { FormText } from 'reactstrap';
 import Axios from 'axios';
 import {connect} from 'react-redux';
@@ -111,7 +109,7 @@ class Login extends Component{
                 <form onSubmit = {this.handleSubmit} onChange = {this.handleChange} noValidate>
                   <Input onChange = {this.handleChange} name = 'Email' placeholder = 'user@mail.com' type = 'email'/>
                   <Input name = 'Password' placeholder = '••••••••' type = 'password'/>
-                  <Button divclassname = 'SingIn' buttonclassname = 'SubmitButton' type = 'submit' name = 'sing in/sing up'/>
+                  <Button divclassname = 'SingIn' buttonclassname = 'SubmitButton' type = 'submit' name = 'sing in'/>
                 </form>
                 
             </div>
@@ -145,4 +143,4 @@ const Input = props => (
   )
 
 
-export default connect(mapStateToProps)(Login);
+export default Login;

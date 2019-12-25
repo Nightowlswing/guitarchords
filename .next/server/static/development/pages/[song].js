@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -123,6 +123,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! popper.js */ "popper.js");
 /* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(popper_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var next_dist_next_server_lib_utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! next/dist/next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+/* harmony import */ var next_dist_next_server_lib_utils__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_dist_next_server_lib_utils__WEBPACK_IMPORTED_MODULE_11__);
 
 var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx";
 
@@ -135,6 +137,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
  //import openSlideMenu from './openSlideMenu';
 //import closeSlideMenu from './closeSlideMenu';
+
 
 
 
@@ -155,7 +158,12 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       document.querySelector("body").style.marginLeft = "0px";
     });
 
-    this.state = {};
+    this.state = {
+      isLoggedIn: false,
+      userID: '',
+      userNick: '',
+      userSongList: ''
+    };
   }
 
   render() {
@@ -163,76 +171,156 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "jsx-2081448487",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 44
       },
       __self: this
     }, __jsx("nav", {
       className: "jsx-2081448487" + " " + 'navbar',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 45
       },
       __self: this
     }, __jsx("div", {
       className: "jsx-2081448487" + " " + 'container-fluid',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 46
       },
       __self: this
     }, __jsx(SideMenu, {
       onClick: this.closeSlideMenu,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 47
       },
       __self: this
     }), __jsx(Burger, {
       onClick: this.openSlideMenu,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 48
       },
       __self: this
     }), __jsx(Menu, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 49
+      },
+      __self: this
+    }), __jsx(Ref, {
+      link: "./addsong",
+      text: "add new song",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
+      },
+      __self: this
+    }), __jsx(Ref, {
+      link: "./login",
+      text: "sing in",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }), __jsx(Ref, {
+      link: "./singup",
+      text: "sing up",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
       },
       __self: this
     }), __jsx(SearchBox, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 53
       },
       __self: this
     }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
       id: "2081448487",
       __self: this
-    }, ".navbar.jsx-2081448487{background:#82A3A1;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQW9ENEIsQUFHNEMsbUJBQ3ZCIiwiZmlsZSI6Ii9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XG5pbXBvcnQgbG9nbyBmcm9tICcuLi8uLi9zdGF0aWMvbG9nby5wbmcnO1xuaW1wb3J0IHNlYXJjaCBmcm9tICcuLi8uLi9zdGF0aWMvc2VhcmNoLnBuZyc7XG5pbXBvcnQgJ2Jvb3RzdHJhcC9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzcyc7XG5pbXBvcnQgeyBDYXJkLCBDYXJkVGV4dCwgQ2FyZEhlYWRlciwgQ2FyZEJvZHksIEJ1dHRvbiB9IGZyb20gJ3JlYWN0c3RyYXAnO1xuaW1wb3J0ICcuL0hlYWRlclN0eWxlL0hlYWRlci5jc3MnO1xuLy9pbXBvcnQgb3BlblNsaWRlTWVudSBmcm9tICcuL29wZW5TbGlkZU1lbnUnO1xuLy9pbXBvcnQgY2xvc2VTbGlkZU1lbnUgZnJvbSAnLi9jbG9zZVNsaWRlTWVudSc7XG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xuaW1wb3J0IFBvcHBlciBmcm9tICdwb3BwZXIuanMnO1xuXG5cbmNsYXNzIEhlYWRlciBleHRlbmRzIENvbXBvbmVudHtcbiAgICBjb25zdHJ1Y3Rvcihwcm9wcyl7XG4gICAgICAgIHN1cGVyKHByb3BzKTtcbiAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgIFxuXG4gICAgICAgIH07XG4gICAgfVxuXG4gICAgb3BlblNsaWRlTWVudSA9IGUgPT4ge1xuICAgICAgICAvLyBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjc2lkZS1tZW51XCIpLnN0eWxlLndpZHRoID0gXCIyNTBweFwiO1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiYm9keVwiKS5zdHlsZS5tYXJnaW5MZWZ0ID0gXCIyNTBweFwiO1xuICAgICAgICBcbiAgICB9XG5cbiAgICBjbG9zZVNsaWRlTWVudSA9IGUgPT4ge1xuICAgICAgICAvLyBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgXG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjc2lkZS1tZW51XCIpLnN0eWxlLndpZHRoID0gXCIwcHhcIjtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImJvZHlcIikuc3R5bGUubWFyZ2luTGVmdCA9IFwiMHB4XCI7XG4gICAgICAgIFxuICAgIH1cblxuICAgIHJlbmRlcigpe1xuICAgICAgICByZXR1cm4oXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIDxkaXYgPlxuICAgICAgICAgICAgICAgIDxuYXYgY2xhc3NOYW1lID0gJ25hdmJhcic+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lID0gJ2NvbnRhaW5lci1mbHVpZCc+XG4gICAgICAgICAgICAgICAgICAgIDxTaWRlTWVudSBvbkNsaWNrID0ge3RoaXMuY2xvc2VTbGlkZU1lbnV9Lz5cbiAgICAgICAgICAgICAgICAgICAgPEJ1cmdlciBvbkNsaWNrID0ge3RoaXMub3BlblNsaWRlTWVudX0vPlxuICAgICAgICAgICAgICAgICAgICA8TWVudS8+XG4gICAgICAgICAgICAgICAgICAgIDxTZWFyY2hCb3ggLz5cbiAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvbmF2PlxuXG4gICAgICAgICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgICAgICAgICAgICAubmF2YmFye1xuICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogIzgyQTNBMTtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGB9PC9zdHlsZT5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICApO1xuICAgIH1cbn1cblxuY29uc3QgTG9nbyA9IHByb3BzID0+IChcbiAgICA8ZGl2IGNsYXNzTmFtZSA9ICcnPlxuICAgICAgICA8TGluayBocmVmID0gJyMnPlxuICAgICAgICAgICAgPGEgY2xhc3NOYW1lID0gJ25hdmJhci1icmFuZCc+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz17bG9nb30gYWx0ID0gJ2xvZ28nLz5cbiAgICAgICAgICAgIDwvYT5cbiAgICAgICAgPC9MaW5rPlxuXG4gICAgICAgIFxuICAgIDwvZGl2PlxuKTtcblxuY29uc3QgTWVudUJ1dHRvbiA9IHByb3BzID0+KFxuICAgIDxMaW5rIGhyZWYgPSB7YCR7cHJvcHMuaHJlZn1gfT5cbiAgICAgICAgPGxpIGNsYXNzTmFtZSA9ICduYXYtaXRlbSc+PGEgY2xhc3NOYW1lID0gJ25hdi1saW5rJz57YCR7cHJvcHMubmFtZX1gfTwvYT48L2xpPiAgICBcbiAgICA8L0xpbms+XG4pO1xuXG5jb25zdCBNZW51ID0gcHJvcHMgPT4oXG4gICAgPHVsIGNsYXNzTmFtZSA9ICduYXYnPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ01haW4nIGhyZWYgPSAnIycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ1NvbmdzJyBocmVmID0gJy4vc29uZ3MnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDb21wb3NpdG9ycycgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnQ2hvcmRzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdBcnRpY2xlcycgaHJlZiA9ICcjJy8+XG4gICAgICAgIFxuICAgIDwvdWw+XG5cbiAgICBcbik7XG5cbmNvbnN0IFNlYXJjaEJveCA9IHByb3BzID0+KFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic2VhcmNoQm94XCI+XG4gICAgICAgIFxuICAgICAgICA8ZGl2IGlkID0gJ2dyb3VwJyBjbGFzc05hbWU9XCJpbnB1dC1ncm91cFwiPiBcbiAgICAgICAgICAgIDxpbnB1dCB0eXBlPVwidGV4dFwiIGNsYXNzTmFtZT1cImZvcm0tY29udHJvbFwiIG5hbWU9XCJ4XCIgcGxhY2Vob2xkZXI9XCJTZWFyY2hcIi8+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbnB1dC1ncm91cC1idG5cIj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZSA9ICdzZWFyY2hCdXR0b24nIHR5cGU9XCJidXR0b25cIj48c3BhbiBjbGFzc05hbWU9XCJnbHlwaGljb24gZ2x5cGhpY29uLXNlYXJjaFwiPjwvc3Bhbj48aW1nICBzcmM9e3NlYXJjaH0gYWx0ID0gJ3NlYXJjaCcvPjwvYnV0dG9uPlxuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICA8L2Rpdj4gXG4gICAgPC9kaXY+XG5cbik7XG5cbmNvbnN0IEJ1cmdlciA9IHByb3BzID0+KFxuICAgIDxzcGFuIGNsYXNzTmFtZSA9XCJvcGVuLXNsaWRlXCI+XG4gICAgICAgIDxhIGhyZWY9XCIjXCIgb25DbGljayA9IHtwcm9wcy5vbkNsaWNrfT5cbiAgICAgICAgICAgIDxzdmcgd2lkdGggPSBcIjMwXCIgaGVpZ2h0ID0gXCIzMFwiPlxuICAgICAgICAgICAgICAgIDxwYXRoIGQgPSBcIk0wLCA1LCAzMCwgNVwiIHN0cm9rZSA9IFwiI2ZmZlwiIHN0cm9rZVdpZHRoPVwiNVwiLz5cbiAgICAgICAgICAgICAgICA8cGF0aCBkID0gXCJNMCwgMTQsIDMwLCAxNFwiIHN0cm9rZSA9IFwiI2ZmZlwiIHN0cm9rZVdpZHRoPVwiNVwiLz5cbiAgICAgICAgICAgICAgICA8cGF0aCBkID0gXCJNMCwgMjMsIDMwLCAyM1wiIHN0cm9rZSA9IFwiI2ZmZlwiIHN0cm9rZVdpZHRoPVwiNVwiLz5cbiAgICAgICAgICAgIDwvc3ZnPlxuICAgICAgICA8L2E+XG4gICAgPC9zcGFuPlxuICAgIFxuKTtcblxuY29uc3QgU2lkZU1lbnUgPSBwcm9wcyA9PihcbiAgICA8ZGl2IGlkID0gXCJzaWRlLW1lbnVcIiBjbGFzc05hbWUgPSBcInNpZGUtbmF2XCI+XG4gICAgICAgIDxhIGhyZWY9XCIjXCIgY2xhc3NOYW1lID0gXCJidG4tY2xvc2VcIiBvbkNsaWNrID0ge3Byb3BzLm9uQ2xpY2t9PiZ0aW1lczs8L2E+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnTWFpbicgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnU29uZ3MnIGhyZWYgPSAnLi4vLi4vcGFnZXMvc29uZ3MnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDb21wb3NpdG9ycycgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnQ2hvcmRzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdBcnRpY2xlcycgaHJlZiA9ICcjJy8+XG4gICAgPC9kaXY+XG4pO1xuXG5cblxuXG5cbmV4cG9ydCBkZWZhdWx0IEhlYWRlcjtcblxuXG4iXX0= */\n/*@ sourceURL=/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx */"));
+    }, ".navbar.jsx-2081448487{background:#82A3A1;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXdENEIsQUFHNEMsbUJBQ3ZCIiwiZmlsZSI6Ii9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XG5pbXBvcnQgbG9nbyBmcm9tICcuLi8uLi9zdGF0aWMvbG9nby5wbmcnO1xuaW1wb3J0IHNlYXJjaCBmcm9tICcuLi8uLi9zdGF0aWMvc2VhcmNoLnBuZyc7XG5pbXBvcnQgJ2Jvb3RzdHJhcC9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzcyc7XG5pbXBvcnQgeyBDYXJkLCBDYXJkVGV4dCwgQ2FyZEhlYWRlciwgQ2FyZEJvZHksIEJ1dHRvbiB9IGZyb20gJ3JlYWN0c3RyYXAnO1xuaW1wb3J0ICcuL0hlYWRlclN0eWxlL0hlYWRlci5jc3MnO1xuLy9pbXBvcnQgb3BlblNsaWRlTWVudSBmcm9tICcuL29wZW5TbGlkZU1lbnUnO1xuLy9pbXBvcnQgY2xvc2VTbGlkZU1lbnUgZnJvbSAnLi9jbG9zZVNsaWRlTWVudSc7XG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xuaW1wb3J0IFBvcHBlciBmcm9tICdwb3BwZXIuanMnO1xuaW1wb3J0IHsgbG9hZEdldEluaXRpYWxQcm9wcyB9IGZyb20gJ25leHQvZGlzdC9uZXh0LXNlcnZlci9saWIvdXRpbHMnO1xuXG5cbmNsYXNzIEhlYWRlciBleHRlbmRzIENvbXBvbmVudHtcbiAgICBjb25zdHJ1Y3Rvcihwcm9wcyl7XG4gICAgICAgIHN1cGVyKHByb3BzKTtcbiAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgIGlzTG9nZ2VkSW46IGZhbHNlLFxuICAgICAgICAgICAgdXNlcklEOiAnJyxcbiAgICAgICAgICAgIHVzZXJOaWNrOiAnJyxcbiAgICAgICAgICAgIHVzZXJTb25nTGlzdDogJydcbiAgICAgICAgfTtcbiAgICB9XG5cbiAgICBvcGVuU2xpZGVNZW51ID0gZSA9PiB7XG4gICAgICAgIC8vIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNzaWRlLW1lbnVcIikuc3R5bGUud2lkdGggPSBcIjI1MHB4XCI7XG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJib2R5XCIpLnN0eWxlLm1hcmdpbkxlZnQgPSBcIjI1MHB4XCI7XG4gICAgICAgIFxuICAgIH1cblxuICAgIGNsb3NlU2xpZGVNZW51ID0gZSA9PiB7XG4gICAgICAgIC8vIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICBcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNzaWRlLW1lbnVcIikuc3R5bGUud2lkdGggPSBcIjBweFwiO1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiYm9keVwiKS5zdHlsZS5tYXJnaW5MZWZ0ID0gXCIwcHhcIjtcbiAgICAgICAgXG4gICAgfVxuXG4gICAgcmVuZGVyKCl7XG4gICAgICAgIHJldHVybihcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgPGRpdiA+XG4gICAgICAgICAgICAgICAgPG5hdiBjbGFzc05hbWUgPSAnbmF2YmFyJz5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWUgPSAnY29udGFpbmVyLWZsdWlkJz5cbiAgICAgICAgICAgICAgICAgICAgPFNpZGVNZW51IG9uQ2xpY2sgPSB7dGhpcy5jbG9zZVNsaWRlTWVudX0vPlxuICAgICAgICAgICAgICAgICAgICA8QnVyZ2VyIG9uQ2xpY2sgPSB7dGhpcy5vcGVuU2xpZGVNZW51fS8+XG4gICAgICAgICAgICAgICAgICAgIDxNZW51Lz5cbiAgICAgICAgICAgICAgICAgICAgPFJlZiBsaW5rID0gJy4vYWRkc29uZycgdGV4dCA9ICdhZGQgbmV3IHNvbmcnLz5cbiAgICAgICAgICAgICAgICAgICAgPFJlZiBsaW5rID0gJy4vbG9naW4nIHRleHQgPSAnc2luZyBpbicvPlxuICAgICAgICAgICAgICAgICAgICA8UmVmIGxpbmsgPSAnLi9zaW5ndXAnIHRleHQgPSAnc2luZyB1cCcvPlxuICAgICAgICAgICAgICAgICAgICA8U2VhcmNoQm94IC8+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvbmF2PlxuXG4gICAgICAgICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgICAgICAgICAgICAubmF2YmFye1xuICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogIzgyQTNBMTtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGB9PC9zdHlsZT5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICApO1xuICAgIH1cbn1cblxuY29uc3QgU2luZ2VkT3V0ID0gcHJvcHMgPT4oXG4gICAgPGRpdj5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vbG9naW4nIHRleHQgPSAnc2luZyBpbicvPlxuICAgICAgICAvXG4gICAgICAgIDxSZWYgbGluayA9ICcuL3Npbmd1cCcgdGV4dCA9ICdzaW5nIHVwJy8+XG4gICAgPC9kaXY+XG4pO1xuXG5jb25zdCBTaW5nT3V0ID0gcHJvcHMgPT4oXG4gICAgPGRpdj5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vYWRkc29uZycgdGV4dCA9ICdhZGQgbmV3IHNvbmcnLz5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vcHJvZmlsZScgdGV4dCA9ICdzaW5nIHVwJy8+XG4gICAgICAgIDxSZWYgbGluayA9ICcuLycgdGV4dCA9ICdsb2cgb3V0Jy8+XG4gICAgPC9kaXY+XG4pO1xuXG5jb25zdCBMb2dvID0gcHJvcHMgPT4gKFxuICAgIDxkaXYgY2xhc3NOYW1lID0gJyc+XG4gICAgICAgIDxMaW5rIGhyZWYgPSAnIyc+XG4gICAgICAgICAgICA8YSBjbGFzc05hbWUgPSAnbmF2YmFyLWJyYW5kJz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPXtsb2dvfSBhbHQgPSAnbG9nbycvPlxuICAgICAgICAgICAgPC9hPlxuICAgICAgICA8L0xpbms+XG5cbiAgICAgICAgXG4gICAgPC9kaXY+XG4pO1xuXG5jb25zdCBNZW51QnV0dG9uID0gcHJvcHMgPT4oXG4gICAgPExpbmsgaHJlZiA9IHtgJHtwcm9wcy5ocmVmfWB9PlxuICAgICAgICA8bGkgY2xhc3NOYW1lID0gJ25hdi1pdGVtJz48YSBjbGFzc05hbWUgPSAnbmF2LWxpbmsnPntgJHtwcm9wcy5uYW1lfWB9PC9hPjwvbGk+ICAgIFxuICAgIDwvTGluaz5cbik7XG5cbmNvbnN0IE1lbnUgPSBwcm9wcyA9PihcbiAgICA8dWwgY2xhc3NOYW1lID0gJ25hdic+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnTWFpbicgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnU29uZ3MnIGhyZWYgPSAnLi9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDaG9yZHMnIGhyZWYgPSAnIycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0FydGljbGVzJyBocmVmID0gJyMnLz5cbiAgICAgICAgXG4gICAgPC91bD5cblxuICAgIFxuKTtcblxuY29uc3QgU2VhcmNoQm94ID0gcHJvcHMgPT4oXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzZWFyY2hCb3hcIj5cbiAgICAgICAgXG4gICAgICAgIDxkaXYgaWQgPSAnZ3JvdXAnIGNsYXNzTmFtZT1cImlucHV0LWdyb3VwXCI+IFxuICAgICAgICAgICAgPGlucHV0IHR5cGU9XCJ0ZXh0XCIgY2xhc3NOYW1lPVwiZm9ybS1jb250cm9sXCIgbmFtZT1cInhcIiBwbGFjZWhvbGRlcj1cIlNlYXJjaFwiLz5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImlucHV0LWdyb3VwLWJ0blwiPlxuICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lID0gJ3NlYXJjaEJ1dHRvbicgdHlwZT1cImJ1dHRvblwiPjxzcGFuIGNsYXNzTmFtZT1cImdseXBoaWNvbiBnbHlwaGljb24tc2VhcmNoXCI+PC9zcGFuPjxpbWcgIHNyYz17c2VhcmNofSBhbHQgPSAnc2VhcmNoJy8+PC9idXR0b24+XG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgIDwvZGl2PiBcbiAgICA8L2Rpdj5cblxuKTtcblxuY29uc3QgQnVyZ2VyID0gcHJvcHMgPT4oXG4gICAgPHNwYW4gY2xhc3NOYW1lID1cIm9wZW4tc2xpZGVcIj5cbiAgICAgICAgPGEgaHJlZj1cIiNcIiBvbkNsaWNrID0ge3Byb3BzLm9uQ2xpY2t9PlxuICAgICAgICAgICAgPHN2ZyB3aWR0aCA9IFwiMzBcIiBoZWlnaHQgPSBcIjMwXCI+XG4gICAgICAgICAgICAgICAgPHBhdGggZCA9IFwiTTAsIDUsIDMwLCA1XCIgc3Ryb2tlID0gXCIjZmZmXCIgc3Ryb2tlV2lkdGg9XCI1XCIvPlxuICAgICAgICAgICAgICAgIDxwYXRoIGQgPSBcIk0wLCAxNCwgMzAsIDE0XCIgc3Ryb2tlID0gXCIjZmZmXCIgc3Ryb2tlV2lkdGg9XCI1XCIvPlxuICAgICAgICAgICAgICAgIDxwYXRoIGQgPSBcIk0wLCAyMywgMzAsIDIzXCIgc3Ryb2tlID0gXCIjZmZmXCIgc3Ryb2tlV2lkdGg9XCI1XCIvPlxuICAgICAgICAgICAgPC9zdmc+XG4gICAgICAgIDwvYT5cbiAgICA8L3NwYW4+XG4gICAgXG4pO1xuXG5jb25zdCBTaWRlTWVudSA9IHByb3BzID0+KFxuICAgIDxkaXYgaWQgPSBcInNpZGUtbWVudVwiIGNsYXNzTmFtZSA9IFwic2lkZS1uYXZcIj5cbiAgICAgICAgPGEgaHJlZj1cIiNcIiBjbGFzc05hbWUgPSBcImJ0bi1jbG9zZVwiIG9uQ2xpY2sgPSB7cHJvcHMub25DbGlja30+JnRpbWVzOzwvYT5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdNYWluJyBocmVmID0gJy8nLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdTb25ncycgaHJlZiA9ICcuLi8uLi9wYWdlcy9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDaG9yZHMnIGhyZWYgPSAnIycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0FydGljbGVzJyBocmVmID0gJyMnLz5cbiAgICA8L2Rpdj5cbik7XG5cbmNvbnN0IFJlZiA9IHByb3BzID0+KFxuICAgIDxMaW5rIGhyZWYgPSB7YCR7cHJvcHMubGlua31gfT5cbiAgICAgICAgPGE+e3Byb3BzLnRleHR9PC9hPlxuICAgIDwvTGluaz5cbilcblxuXG5leHBvcnQgZGVmYXVsdCBIZWFkZXI7XG5cblxuIl19 */\n/*@ sourceURL=/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx */"));
   }
 
 }
+
+const SingedOut = props => __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 68
+  },
+  __self: undefined
+}, __jsx(Ref, {
+  link: "./login",
+  text: "sing in",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 69
+  },
+  __self: undefined
+}), "/", __jsx(Ref, {
+  link: "./singup",
+  text: "sing up",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 71
+  },
+  __self: undefined
+}));
+
+const SingOut = props => __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 76
+  },
+  __self: undefined
+}, __jsx(Ref, {
+  link: "./addsong",
+  text: "add new song",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 77
+  },
+  __self: undefined
+}), __jsx(Ref, {
+  link: "./profile",
+  text: "sing up",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 78
+  },
+  __self: undefined
+}), __jsx(Ref, {
+  link: "./",
+  text: "log out",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 79
+  },
+  __self: undefined
+}));
 
 const Logo = props => __jsx("div", {
   className: "",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 64
+    lineNumber: 84
   },
   __self: undefined
 }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 65
+    lineNumber: 85
   },
   __self: undefined
 }, __jsx("a", {
   className: "navbar-brand",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 66
+    lineNumber: 86
   },
   __self: undefined
 }, __jsx("img", {
@@ -240,7 +328,7 @@ const Logo = props => __jsx("div", {
   alt: "logo",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 67
+    lineNumber: 87
   },
   __self: undefined
 }))));
@@ -249,21 +337,21 @@ const MenuButton = props => __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default
   href: `${props.href}`,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 76
+    lineNumber: 96
   },
   __self: undefined
 }, __jsx("li", {
   className: "nav-item",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 77
+    lineNumber: 97
   },
   __self: undefined
 }, __jsx("a", {
   className: "nav-link",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 77
+    lineNumber: 97
   },
   __self: undefined
 }, `${props.name}`)));
@@ -272,7 +360,7 @@ const Menu = props => __jsx("ul", {
   className: "nav",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 82
+    lineNumber: 102
   },
   __self: undefined
 }, __jsx(MenuButton, {
@@ -280,7 +368,7 @@ const Menu = props => __jsx("ul", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 83
+    lineNumber: 103
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -288,7 +376,7 @@ const Menu = props => __jsx("ul", {
   href: "./songs",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 84
+    lineNumber: 104
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -296,7 +384,7 @@ const Menu = props => __jsx("ul", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 85
+    lineNumber: 105
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -304,7 +392,7 @@ const Menu = props => __jsx("ul", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 86
+    lineNumber: 106
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -312,7 +400,7 @@ const Menu = props => __jsx("ul", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 87
+    lineNumber: 107
   },
   __self: undefined
 }));
@@ -321,7 +409,7 @@ const SearchBox = props => __jsx("div", {
   className: "searchBox",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 95
+    lineNumber: 115
   },
   __self: undefined
 }, __jsx("div", {
@@ -329,7 +417,7 @@ const SearchBox = props => __jsx("div", {
   className: "input-group",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 97
+    lineNumber: 117
   },
   __self: undefined
 }, __jsx("input", {
@@ -339,14 +427,14 @@ const SearchBox = props => __jsx("div", {
   placeholder: "Search",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 98
+    lineNumber: 118
   },
   __self: undefined
 }), __jsx("span", {
   className: "input-group-btn",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 99
+    lineNumber: 119
   },
   __self: undefined
 }, __jsx("button", {
@@ -354,14 +442,14 @@ const SearchBox = props => __jsx("div", {
   type: "button",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 100
+    lineNumber: 120
   },
   __self: undefined
 }, __jsx("span", {
   className: "glyphicon glyphicon-search",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 100
+    lineNumber: 120
   },
   __self: undefined
 }), __jsx("img", {
@@ -369,7 +457,7 @@ const SearchBox = props => __jsx("div", {
   alt: "search",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 100
+    lineNumber: 120
   },
   __self: undefined
 })))));
@@ -378,7 +466,7 @@ const Burger = props => __jsx("span", {
   className: "open-slide",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 108
+    lineNumber: 128
   },
   __self: undefined
 }, __jsx("a", {
@@ -386,7 +474,7 @@ const Burger = props => __jsx("span", {
   onClick: props.onClick,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 109
+    lineNumber: 129
   },
   __self: undefined
 }, __jsx("svg", {
@@ -394,7 +482,7 @@ const Burger = props => __jsx("span", {
   height: "30",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 110
+    lineNumber: 130
   },
   __self: undefined
 }, __jsx("path", {
@@ -403,7 +491,7 @@ const Burger = props => __jsx("span", {
   strokeWidth: "5",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 111
+    lineNumber: 131
   },
   __self: undefined
 }), __jsx("path", {
@@ -412,7 +500,7 @@ const Burger = props => __jsx("span", {
   strokeWidth: "5",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 112
+    lineNumber: 132
   },
   __self: undefined
 }), __jsx("path", {
@@ -421,7 +509,7 @@ const Burger = props => __jsx("span", {
   strokeWidth: "5",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 113
+    lineNumber: 133
   },
   __self: undefined
 }))));
@@ -431,7 +519,7 @@ const SideMenu = props => __jsx("div", {
   className: "side-nav",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 121
+    lineNumber: 141
   },
   __self: undefined
 }, __jsx("a", {
@@ -440,15 +528,15 @@ const SideMenu = props => __jsx("div", {
   onClick: props.onClick,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 122
+    lineNumber: 142
   },
   __self: undefined
 }, "\xD7"), __jsx(MenuButton, {
   name: "Main",
-  href: "#",
+  href: "/",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 123
+    lineNumber: 143
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -456,7 +544,7 @@ const SideMenu = props => __jsx("div", {
   href: "../../pages/songs",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 124
+    lineNumber: 144
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -464,7 +552,7 @@ const SideMenu = props => __jsx("div", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 125
+    lineNumber: 145
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -472,7 +560,7 @@ const SideMenu = props => __jsx("div", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 126
+    lineNumber: 146
   },
   __self: undefined
 }), __jsx(MenuButton, {
@@ -480,10 +568,25 @@ const SideMenu = props => __jsx("div", {
   href: "#",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 127
+    lineNumber: 147
   },
   __self: undefined
 }));
+
+const Ref = props => __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  href: `${props.link}`,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 152
+  },
+  __self: undefined
+}, __jsx("a", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 153
+  },
+  __self: undefined
+}, props.text));
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -497,6 +600,53 @@ const SideMenu = props => __jsx("div", {
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+
+/***/ "./components/Properties/ActiveLink.jsx":
+/*!**********************************************!*\
+  !*** ./components/Properties/ActiveLink.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ActiveLink; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Properties/ActiveLink.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ActiveLink({
+  children,
+  href
+}) {
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
+  const style = {
+    marginRight: 10,
+    color: router.pathname === href ? 'red' : 'black'
+  };
+
+  const handleClick = e => {
+    e.preventDefault();
+    router.push(href);
+  };
+
+  return __jsx("a", {
+    href: href,
+    onClick: handleClick,
+    style: style,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, children);
+}
 
 /***/ }),
 
@@ -520,22 +670,22 @@ const SideMenu = props => __jsx("div", {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SongStyle/SongStyle.css */ "./components/Songs/SongStyle/SongStyle.css");
-/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-int */ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SongStyle/SongStyle.css */ "./components/Songs/SongStyle/SongStyle.css");
+/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
 var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Songs/song.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
-
-class Song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+class Song extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   constructor(props) {
     super(props);
     this.state = {
@@ -545,16 +695,19 @@ class Song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   componentDidMount() {
-    //const router = useRouter()
-    //console.log(router.query)
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:3210/song', {
+    var dir = window.location.pathname.substr(1);
+
+    const sId = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(dir, 10);
+
+    console.log();
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('http://localhost:3210/song', {
       params: {
-        id: 1
+        id: sId
       }
     }).then(response => {
       this.setState({
         song: response.data
-      });
+      }); //console.log(song.response.data);
     });
   }
 
@@ -565,28 +718,34 @@ class Song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "songText",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 39
       },
       __self: this
-    }, __jsx(SongHead, {
-      compName: "Billie Eilish",
-      name: "All The Good Girls Go to Hell",
-      capo: "4th fret",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 33
-      },
-      __self: this
-    }), this.state.song.map(value => {
-      return __jsx(SongText, {
+    }, this.state.song.map(value => {
+      return __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43
+        },
+        __self: this
+      }, __jsx(SongHead, {
+        compName: this.state.song[0].cname,
+        name: this.state.song[0].name,
+        capo: `${this.state.song[0].capo}`,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        },
+        __self: this
+      }), __jsx(SongText, {
         text: value.text,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 45
         },
         __self: this
-      });
-    }));
+      }));
+    }), ";");
   }
 
 }
@@ -594,43 +753,43 @@ class Song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 const SongHead = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 50
+    lineNumber: 61
   },
   __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 51
+    lineNumber: 62
   },
   __self: undefined
 }, __jsx("h1", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 51
+    lineNumber: 62
   },
   __self: undefined
 }, props.compName), __jsx("h3", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 52
+    lineNumber: 63
   },
   __self: undefined
 }, props.name)), __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 53
+    lineNumber: 64
   },
   __self: undefined
 }, __jsx("h6", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 53
+    lineNumber: 64
   },
   __self: undefined
 }, "Capo: ", props.capo)), __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 54
+    lineNumber: 65
   },
   __self: undefined
 }, "----------------------------"));
@@ -638,7 +797,7 @@ const SongHead = props => __jsx("div", {
 const SongText = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 59
+    lineNumber: 70
   },
   __self: undefined
 }, props.text.map((value, index) => {
@@ -646,7 +805,7 @@ const SongText = props => __jsx("div", {
     verse: value,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 73
     },
     __self: undefined
   });
@@ -655,7 +814,7 @@ const SongText = props => __jsx("div", {
 const SongVerse = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 69
+    lineNumber: 80
   },
   __self: undefined
 }, props.verse.map((value, index) => {
@@ -663,20 +822,20 @@ const SongVerse = props => __jsx("div", {
     line: value,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 83
     },
     __self: undefined
   });
 }), __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 75
+    lineNumber: 86
   },
   __self: undefined
 }), __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 75
+    lineNumber: 86
   },
   __self: undefined
 }));
@@ -684,13 +843,13 @@ const SongVerse = props => __jsx("div", {
 const SongLine = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 80
+    lineNumber: 91
   },
   __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 81
+    lineNumber: 92
   },
   __self: undefined
 }, props.line.map((value, index) => {
@@ -699,14 +858,14 @@ const SongLine = props => __jsx("div", {
     chord: value.chord,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 95
     },
     __self: undefined
   });
 })), __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 89
+    lineNumber: 100
   },
   __self: undefined
 }));
@@ -715,19 +874,19 @@ const WordBlock = props => __jsx("div", {
   className: "word",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 94
+    lineNumber: 105
   },
   __self: undefined
 }, props.chord, __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 95
+    lineNumber: 106
   },
   __self: undefined
 }), props.words, "\xA0", __jsx("br", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 97
+    lineNumber: 108
   },
   __self: undefined
 }));
@@ -810,6 +969,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-prope
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "core-js/library/fn/object/keys");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/parse-int.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/parse-int */ "core-js/library/fn/parse-int");
 
 /***/ }),
 
@@ -2604,8 +2774,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Songs_song__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Songs/song */ "./components/Songs/song.jsx");
 /* harmony import */ var _components_global_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/global.css */ "./components/global.css");
 /* harmony import */ var _components_global_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_global_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Properties_ActiveLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Properties/ActiveLink */ "./components/Properties/ActiveLink.jsx");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/pages/[song].js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -2616,19 +2791,19 @@ class song extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 14
       },
       __self: this
     }, __jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 15
       },
       __self: this
     }), __jsx(_components_Songs_song__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 16
       },
       __self: this
     }));
@@ -2662,7 +2837,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABc
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/[song].js ***!
   \*******************************/
@@ -2748,6 +2923,17 @@ module.exports = require("core-js/library/fn/object/get-own-property-descriptor"
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/keys");
+
+/***/ }),
+
+/***/ "core-js/library/fn/parse-int":
+/*!***********************************************!*\
+  !*** external "core-js/library/fn/parse-int" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/parse-int");
 
 /***/ }),
 

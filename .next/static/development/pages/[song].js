@@ -34,6 +34,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var next_dist_next_server_lib_utils__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! next/dist/next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+/* harmony import */ var next_dist_next_server_lib_utils__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(next_dist_next_server_lib_utils__WEBPACK_IMPORTED_MODULE_17__);
 
 
 
@@ -52,6 +54,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
 
  //import openSlideMenu from './openSlideMenu';
 //import closeSlideMenu from './closeSlideMenu';
+
 
 
 
@@ -80,7 +83,12 @@ function (_Component) {
       document.querySelector("body").style.marginLeft = "0px";
     });
 
-    _this.state = {};
+    _this.state = {
+      isLoggedIn: false,
+      userID: '',
+      userNick: '',
+      userSongList: ''
+    };
     return _this;
   }
 
@@ -91,79 +99,163 @@ function (_Component) {
         className: "jsx-2081448487",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 44
         },
         __self: this
       }, __jsx("nav", {
         className: "jsx-2081448487" + " " + 'navbar',
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 45
         },
         __self: this
       }, __jsx("div", {
         className: "jsx-2081448487" + " " + 'container-fluid',
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 46
         },
         __self: this
       }, __jsx(SideMenu, {
         onClick: this.closeSlideMenu,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 47
         },
         __self: this
       }), __jsx(Burger, {
         onClick: this.openSlideMenu,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 48
         },
         __self: this
       }), __jsx(Menu, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 49
+        },
+        __self: this
+      }), __jsx(Ref, {
+        link: "./addsong",
+        text: "add new song",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
+        },
+        __self: this
+      }), __jsx(Ref, {
+        link: "./login",
+        text: "sing in",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        },
+        __self: this
+      }), __jsx(Ref, {
+        link: "./singup",
+        text: "sing up",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
         },
         __self: this
       }), __jsx(SearchBox, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 53
         },
         __self: this
       }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_7___default.a, {
         id: "2081448487",
         __self: this
-      }, ".navbar.jsx-2081448487{background:#82A3A1;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQW9ENEIsQUFHNEMsbUJBQ3ZCIiwiZmlsZSI6Ii9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XG5pbXBvcnQgbG9nbyBmcm9tICcuLi8uLi9zdGF0aWMvbG9nby5wbmcnO1xuaW1wb3J0IHNlYXJjaCBmcm9tICcuLi8uLi9zdGF0aWMvc2VhcmNoLnBuZyc7XG5pbXBvcnQgJ2Jvb3RzdHJhcC9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzcyc7XG5pbXBvcnQgeyBDYXJkLCBDYXJkVGV4dCwgQ2FyZEhlYWRlciwgQ2FyZEJvZHksIEJ1dHRvbiB9IGZyb20gJ3JlYWN0c3RyYXAnO1xuaW1wb3J0ICcuL0hlYWRlclN0eWxlL0hlYWRlci5jc3MnO1xuLy9pbXBvcnQgb3BlblNsaWRlTWVudSBmcm9tICcuL29wZW5TbGlkZU1lbnUnO1xuLy9pbXBvcnQgY2xvc2VTbGlkZU1lbnUgZnJvbSAnLi9jbG9zZVNsaWRlTWVudSc7XG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xuaW1wb3J0IFBvcHBlciBmcm9tICdwb3BwZXIuanMnO1xuXG5cbmNsYXNzIEhlYWRlciBleHRlbmRzIENvbXBvbmVudHtcbiAgICBjb25zdHJ1Y3Rvcihwcm9wcyl7XG4gICAgICAgIHN1cGVyKHByb3BzKTtcbiAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgIFxuXG4gICAgICAgIH07XG4gICAgfVxuXG4gICAgb3BlblNsaWRlTWVudSA9IGUgPT4ge1xuICAgICAgICAvLyBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjc2lkZS1tZW51XCIpLnN0eWxlLndpZHRoID0gXCIyNTBweFwiO1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiYm9keVwiKS5zdHlsZS5tYXJnaW5MZWZ0ID0gXCIyNTBweFwiO1xuICAgICAgICBcbiAgICB9XG5cbiAgICBjbG9zZVNsaWRlTWVudSA9IGUgPT4ge1xuICAgICAgICAvLyBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgXG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjc2lkZS1tZW51XCIpLnN0eWxlLndpZHRoID0gXCIwcHhcIjtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImJvZHlcIikuc3R5bGUubWFyZ2luTGVmdCA9IFwiMHB4XCI7XG4gICAgICAgIFxuICAgIH1cblxuICAgIHJlbmRlcigpe1xuICAgICAgICByZXR1cm4oXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIDxkaXYgPlxuICAgICAgICAgICAgICAgIDxuYXYgY2xhc3NOYW1lID0gJ25hdmJhcic+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lID0gJ2NvbnRhaW5lci1mbHVpZCc+XG4gICAgICAgICAgICAgICAgICAgIDxTaWRlTWVudSBvbkNsaWNrID0ge3RoaXMuY2xvc2VTbGlkZU1lbnV9Lz5cbiAgICAgICAgICAgICAgICAgICAgPEJ1cmdlciBvbkNsaWNrID0ge3RoaXMub3BlblNsaWRlTWVudX0vPlxuICAgICAgICAgICAgICAgICAgICA8TWVudS8+XG4gICAgICAgICAgICAgICAgICAgIDxTZWFyY2hCb3ggLz5cbiAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvbmF2PlxuXG4gICAgICAgICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgICAgICAgICAgICAubmF2YmFye1xuICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogIzgyQTNBMTtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGB9PC9zdHlsZT5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICApO1xuICAgIH1cbn1cblxuY29uc3QgTG9nbyA9IHByb3BzID0+IChcbiAgICA8ZGl2IGNsYXNzTmFtZSA9ICcnPlxuICAgICAgICA8TGluayBocmVmID0gJyMnPlxuICAgICAgICAgICAgPGEgY2xhc3NOYW1lID0gJ25hdmJhci1icmFuZCc+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz17bG9nb30gYWx0ID0gJ2xvZ28nLz5cbiAgICAgICAgICAgIDwvYT5cbiAgICAgICAgPC9MaW5rPlxuXG4gICAgICAgIFxuICAgIDwvZGl2PlxuKTtcblxuY29uc3QgTWVudUJ1dHRvbiA9IHByb3BzID0+KFxuICAgIDxMaW5rIGhyZWYgPSB7YCR7cHJvcHMuaHJlZn1gfT5cbiAgICAgICAgPGxpIGNsYXNzTmFtZSA9ICduYXYtaXRlbSc+PGEgY2xhc3NOYW1lID0gJ25hdi1saW5rJz57YCR7cHJvcHMubmFtZX1gfTwvYT48L2xpPiAgICBcbiAgICA8L0xpbms+XG4pO1xuXG5jb25zdCBNZW51ID0gcHJvcHMgPT4oXG4gICAgPHVsIGNsYXNzTmFtZSA9ICduYXYnPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ01haW4nIGhyZWYgPSAnIycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ1NvbmdzJyBocmVmID0gJy4vc29uZ3MnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDb21wb3NpdG9ycycgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnQ2hvcmRzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdBcnRpY2xlcycgaHJlZiA9ICcjJy8+XG4gICAgICAgIFxuICAgIDwvdWw+XG5cbiAgICBcbik7XG5cbmNvbnN0IFNlYXJjaEJveCA9IHByb3BzID0+KFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic2VhcmNoQm94XCI+XG4gICAgICAgIFxuICAgICAgICA8ZGl2IGlkID0gJ2dyb3VwJyBjbGFzc05hbWU9XCJpbnB1dC1ncm91cFwiPiBcbiAgICAgICAgICAgIDxpbnB1dCB0eXBlPVwidGV4dFwiIGNsYXNzTmFtZT1cImZvcm0tY29udHJvbFwiIG5hbWU9XCJ4XCIgcGxhY2Vob2xkZXI9XCJTZWFyY2hcIi8+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbnB1dC1ncm91cC1idG5cIj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZSA9ICdzZWFyY2hCdXR0b24nIHR5cGU9XCJidXR0b25cIj48c3BhbiBjbGFzc05hbWU9XCJnbHlwaGljb24gZ2x5cGhpY29uLXNlYXJjaFwiPjwvc3Bhbj48aW1nICBzcmM9e3NlYXJjaH0gYWx0ID0gJ3NlYXJjaCcvPjwvYnV0dG9uPlxuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICA8L2Rpdj4gXG4gICAgPC9kaXY+XG5cbik7XG5cbmNvbnN0IEJ1cmdlciA9IHByb3BzID0+KFxuICAgIDxzcGFuIGNsYXNzTmFtZSA9XCJvcGVuLXNsaWRlXCI+XG4gICAgICAgIDxhIGhyZWY9XCIjXCIgb25DbGljayA9IHtwcm9wcy5vbkNsaWNrfT5cbiAgICAgICAgICAgIDxzdmcgd2lkdGggPSBcIjMwXCIgaGVpZ2h0ID0gXCIzMFwiPlxuICAgICAgICAgICAgICAgIDxwYXRoIGQgPSBcIk0wLCA1LCAzMCwgNVwiIHN0cm9rZSA9IFwiI2ZmZlwiIHN0cm9rZVdpZHRoPVwiNVwiLz5cbiAgICAgICAgICAgICAgICA8cGF0aCBkID0gXCJNMCwgMTQsIDMwLCAxNFwiIHN0cm9rZSA9IFwiI2ZmZlwiIHN0cm9rZVdpZHRoPVwiNVwiLz5cbiAgICAgICAgICAgICAgICA8cGF0aCBkID0gXCJNMCwgMjMsIDMwLCAyM1wiIHN0cm9rZSA9IFwiI2ZmZlwiIHN0cm9rZVdpZHRoPVwiNVwiLz5cbiAgICAgICAgICAgIDwvc3ZnPlxuICAgICAgICA8L2E+XG4gICAgPC9zcGFuPlxuICAgIFxuKTtcblxuY29uc3QgU2lkZU1lbnUgPSBwcm9wcyA9PihcbiAgICA8ZGl2IGlkID0gXCJzaWRlLW1lbnVcIiBjbGFzc05hbWUgPSBcInNpZGUtbmF2XCI+XG4gICAgICAgIDxhIGhyZWY9XCIjXCIgY2xhc3NOYW1lID0gXCJidG4tY2xvc2VcIiBvbkNsaWNrID0ge3Byb3BzLm9uQ2xpY2t9PiZ0aW1lczs8L2E+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnTWFpbicgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnU29uZ3MnIGhyZWYgPSAnLi4vLi4vcGFnZXMvc29uZ3MnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDb21wb3NpdG9ycycgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnQ2hvcmRzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdBcnRpY2xlcycgaHJlZiA9ICcjJy8+XG4gICAgPC9kaXY+XG4pO1xuXG5cblxuXG5cbmV4cG9ydCBkZWZhdWx0IEhlYWRlcjtcblxuXG4iXX0= */\n/*@ sourceURL=/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx */"));
+      }, ".navbar.jsx-2081448487{background:#82A3A1;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXdENEIsQUFHNEMsbUJBQ3ZCIiwiZmlsZSI6Ii9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XG5pbXBvcnQgbG9nbyBmcm9tICcuLi8uLi9zdGF0aWMvbG9nby5wbmcnO1xuaW1wb3J0IHNlYXJjaCBmcm9tICcuLi8uLi9zdGF0aWMvc2VhcmNoLnBuZyc7XG5pbXBvcnQgJ2Jvb3RzdHJhcC9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzcyc7XG5pbXBvcnQgeyBDYXJkLCBDYXJkVGV4dCwgQ2FyZEhlYWRlciwgQ2FyZEJvZHksIEJ1dHRvbiB9IGZyb20gJ3JlYWN0c3RyYXAnO1xuaW1wb3J0ICcuL0hlYWRlclN0eWxlL0hlYWRlci5jc3MnO1xuLy9pbXBvcnQgb3BlblNsaWRlTWVudSBmcm9tICcuL29wZW5TbGlkZU1lbnUnO1xuLy9pbXBvcnQgY2xvc2VTbGlkZU1lbnUgZnJvbSAnLi9jbG9zZVNsaWRlTWVudSc7XG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xuaW1wb3J0IFBvcHBlciBmcm9tICdwb3BwZXIuanMnO1xuaW1wb3J0IHsgbG9hZEdldEluaXRpYWxQcm9wcyB9IGZyb20gJ25leHQvZGlzdC9uZXh0LXNlcnZlci9saWIvdXRpbHMnO1xuXG5cbmNsYXNzIEhlYWRlciBleHRlbmRzIENvbXBvbmVudHtcbiAgICBjb25zdHJ1Y3Rvcihwcm9wcyl7XG4gICAgICAgIHN1cGVyKHByb3BzKTtcbiAgICAgICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgICAgICAgIGlzTG9nZ2VkSW46IGZhbHNlLFxuICAgICAgICAgICAgdXNlcklEOiAnJyxcbiAgICAgICAgICAgIHVzZXJOaWNrOiAnJyxcbiAgICAgICAgICAgIHVzZXJTb25nTGlzdDogJydcbiAgICAgICAgfTtcbiAgICB9XG5cbiAgICBvcGVuU2xpZGVNZW51ID0gZSA9PiB7XG4gICAgICAgIC8vIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNzaWRlLW1lbnVcIikuc3R5bGUud2lkdGggPSBcIjI1MHB4XCI7XG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJib2R5XCIpLnN0eWxlLm1hcmdpbkxlZnQgPSBcIjI1MHB4XCI7XG4gICAgICAgIFxuICAgIH1cblxuICAgIGNsb3NlU2xpZGVNZW51ID0gZSA9PiB7XG4gICAgICAgIC8vIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICBcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNzaWRlLW1lbnVcIikuc3R5bGUud2lkdGggPSBcIjBweFwiO1xuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiYm9keVwiKS5zdHlsZS5tYXJnaW5MZWZ0ID0gXCIwcHhcIjtcbiAgICAgICAgXG4gICAgfVxuXG4gICAgcmVuZGVyKCl7XG4gICAgICAgIHJldHVybihcbiAgICAgICAgICAgIFxuICAgICAgICAgICAgPGRpdiA+XG4gICAgICAgICAgICAgICAgPG5hdiBjbGFzc05hbWUgPSAnbmF2YmFyJz5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWUgPSAnY29udGFpbmVyLWZsdWlkJz5cbiAgICAgICAgICAgICAgICAgICAgPFNpZGVNZW51IG9uQ2xpY2sgPSB7dGhpcy5jbG9zZVNsaWRlTWVudX0vPlxuICAgICAgICAgICAgICAgICAgICA8QnVyZ2VyIG9uQ2xpY2sgPSB7dGhpcy5vcGVuU2xpZGVNZW51fS8+XG4gICAgICAgICAgICAgICAgICAgIDxNZW51Lz5cbiAgICAgICAgICAgICAgICAgICAgPFJlZiBsaW5rID0gJy4vYWRkc29uZycgdGV4dCA9ICdhZGQgbmV3IHNvbmcnLz5cbiAgICAgICAgICAgICAgICAgICAgPFJlZiBsaW5rID0gJy4vbG9naW4nIHRleHQgPSAnc2luZyBpbicvPlxuICAgICAgICAgICAgICAgICAgICA8UmVmIGxpbmsgPSAnLi9zaW5ndXAnIHRleHQgPSAnc2luZyB1cCcvPlxuICAgICAgICAgICAgICAgICAgICA8U2VhcmNoQm94IC8+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvbmF2PlxuXG4gICAgICAgICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgICAgICAgICAgICAubmF2YmFye1xuICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogIzgyQTNBMTtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIGB9PC9zdHlsZT5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICApO1xuICAgIH1cbn1cblxuY29uc3QgU2luZ2VkT3V0ID0gcHJvcHMgPT4oXG4gICAgPGRpdj5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vbG9naW4nIHRleHQgPSAnc2luZyBpbicvPlxuICAgICAgICAvXG4gICAgICAgIDxSZWYgbGluayA9ICcuL3Npbmd1cCcgdGV4dCA9ICdzaW5nIHVwJy8+XG4gICAgPC9kaXY+XG4pO1xuXG5jb25zdCBTaW5nT3V0ID0gcHJvcHMgPT4oXG4gICAgPGRpdj5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vYWRkc29uZycgdGV4dCA9ICdhZGQgbmV3IHNvbmcnLz5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vcHJvZmlsZScgdGV4dCA9ICdzaW5nIHVwJy8+XG4gICAgICAgIDxSZWYgbGluayA9ICcuLycgdGV4dCA9ICdsb2cgb3V0Jy8+XG4gICAgPC9kaXY+XG4pO1xuXG5jb25zdCBMb2dvID0gcHJvcHMgPT4gKFxuICAgIDxkaXYgY2xhc3NOYW1lID0gJyc+XG4gICAgICAgIDxMaW5rIGhyZWYgPSAnIyc+XG4gICAgICAgICAgICA8YSBjbGFzc05hbWUgPSAnbmF2YmFyLWJyYW5kJz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxpbWcgc3JjPXtsb2dvfSBhbHQgPSAnbG9nbycvPlxuICAgICAgICAgICAgPC9hPlxuICAgICAgICA8L0xpbms+XG5cbiAgICAgICAgXG4gICAgPC9kaXY+XG4pO1xuXG5jb25zdCBNZW51QnV0dG9uID0gcHJvcHMgPT4oXG4gICAgPExpbmsgaHJlZiA9IHtgJHtwcm9wcy5ocmVmfWB9PlxuICAgICAgICA8bGkgY2xhc3NOYW1lID0gJ25hdi1pdGVtJz48YSBjbGFzc05hbWUgPSAnbmF2LWxpbmsnPntgJHtwcm9wcy5uYW1lfWB9PC9hPjwvbGk+ICAgIFxuICAgIDwvTGluaz5cbik7XG5cbmNvbnN0IE1lbnUgPSBwcm9wcyA9PihcbiAgICA8dWwgY2xhc3NOYW1lID0gJ25hdic+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnTWFpbicgaHJlZiA9ICcjJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnU29uZ3MnIGhyZWYgPSAnLi9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDaG9yZHMnIGhyZWYgPSAnIycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0FydGljbGVzJyBocmVmID0gJyMnLz5cbiAgICAgICAgXG4gICAgPC91bD5cblxuICAgIFxuKTtcblxuY29uc3QgU2VhcmNoQm94ID0gcHJvcHMgPT4oXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzZWFyY2hCb3hcIj5cbiAgICAgICAgXG4gICAgICAgIDxkaXYgaWQgPSAnZ3JvdXAnIGNsYXNzTmFtZT1cImlucHV0LWdyb3VwXCI+IFxuICAgICAgICAgICAgPGlucHV0IHR5cGU9XCJ0ZXh0XCIgY2xhc3NOYW1lPVwiZm9ybS1jb250cm9sXCIgbmFtZT1cInhcIiBwbGFjZWhvbGRlcj1cIlNlYXJjaFwiLz5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImlucHV0LWdyb3VwLWJ0blwiPlxuICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lID0gJ3NlYXJjaEJ1dHRvbicgdHlwZT1cImJ1dHRvblwiPjxzcGFuIGNsYXNzTmFtZT1cImdseXBoaWNvbiBnbHlwaGljb24tc2VhcmNoXCI+PC9zcGFuPjxpbWcgIHNyYz17c2VhcmNofSBhbHQgPSAnc2VhcmNoJy8+PC9idXR0b24+XG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgIDwvZGl2PiBcbiAgICA8L2Rpdj5cblxuKTtcblxuY29uc3QgQnVyZ2VyID0gcHJvcHMgPT4oXG4gICAgPHNwYW4gY2xhc3NOYW1lID1cIm9wZW4tc2xpZGVcIj5cbiAgICAgICAgPGEgaHJlZj1cIiNcIiBvbkNsaWNrID0ge3Byb3BzLm9uQ2xpY2t9PlxuICAgICAgICAgICAgPHN2ZyB3aWR0aCA9IFwiMzBcIiBoZWlnaHQgPSBcIjMwXCI+XG4gICAgICAgICAgICAgICAgPHBhdGggZCA9IFwiTTAsIDUsIDMwLCA1XCIgc3Ryb2tlID0gXCIjZmZmXCIgc3Ryb2tlV2lkdGg9XCI1XCIvPlxuICAgICAgICAgICAgICAgIDxwYXRoIGQgPSBcIk0wLCAxNCwgMzAsIDE0XCIgc3Ryb2tlID0gXCIjZmZmXCIgc3Ryb2tlV2lkdGg9XCI1XCIvPlxuICAgICAgICAgICAgICAgIDxwYXRoIGQgPSBcIk0wLCAyMywgMzAsIDIzXCIgc3Ryb2tlID0gXCIjZmZmXCIgc3Ryb2tlV2lkdGg9XCI1XCIvPlxuICAgICAgICAgICAgPC9zdmc+XG4gICAgICAgIDwvYT5cbiAgICA8L3NwYW4+XG4gICAgXG4pO1xuXG5jb25zdCBTaWRlTWVudSA9IHByb3BzID0+KFxuICAgIDxkaXYgaWQgPSBcInNpZGUtbWVudVwiIGNsYXNzTmFtZSA9IFwic2lkZS1uYXZcIj5cbiAgICAgICAgPGEgaHJlZj1cIiNcIiBjbGFzc05hbWUgPSBcImJ0bi1jbG9zZVwiIG9uQ2xpY2sgPSB7cHJvcHMub25DbGlja30+JnRpbWVzOzwvYT5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdNYWluJyBocmVmID0gJy8nLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdTb25ncycgaHJlZiA9ICcuLi8uLi9wYWdlcy9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJyMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDaG9yZHMnIGhyZWYgPSAnIycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0FydGljbGVzJyBocmVmID0gJyMnLz5cbiAgICA8L2Rpdj5cbik7XG5cbmNvbnN0IFJlZiA9IHByb3BzID0+KFxuICAgIDxMaW5rIGhyZWYgPSB7YCR7cHJvcHMubGlua31gfT5cbiAgICAgICAgPGE+e3Byb3BzLnRleHR9PC9hPlxuICAgIDwvTGluaz5cbilcblxuXG5leHBvcnQgZGVmYXVsdCBIZWFkZXI7XG5cblxuIl19 */\n/*@ sourceURL=/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx */"));
     }
   }]);
 
   return Header;
 }(react__WEBPACK_IMPORTED_MODULE_8__["Component"]);
 
+var SingedOut = function SingedOut(props) {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: this
+  }, __jsx(Ref, {
+    link: "./login",
+    text: "sing in",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: this
+  }), "/", __jsx(Ref, {
+    link: "./singup",
+    text: "sing up",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: this
+  }));
+};
+
+var SingOut = function SingOut(props) {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: this
+  }, __jsx(Ref, {
+    link: "./addsong",
+    text: "add new song",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: this
+  }), __jsx(Ref, {
+    link: "./profile",
+    text: "sing up",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: this
+  }), __jsx(Ref, {
+    link: "./",
+    text: "log out",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: this
+  }));
+};
+
 var Logo = function Logo(props) {
   return __jsx("div", {
     className: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 84
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 85
     },
     __self: this
   }, __jsx("a", {
     className: "navbar-brand",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 86
     },
     __self: this
   }, __jsx("img", {
@@ -171,7 +263,7 @@ var Logo = function Logo(props) {
     alt: "logo",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 87
     },
     __self: this
   }))));
@@ -182,21 +274,21 @@ var MenuButton = function MenuButton(props) {
     href: "".concat(props.href),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 96
     },
     __self: this
   }, __jsx("li", {
     className: "nav-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 97
     },
     __self: this
   }, __jsx("a", {
     className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 97
     },
     __self: this
   }, "".concat(props.name))));
@@ -207,7 +299,7 @@ var Menu = function Menu(props) {
     className: "nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 102
     },
     __self: this
   }, __jsx(MenuButton, {
@@ -215,7 +307,7 @@ var Menu = function Menu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 103
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -223,7 +315,7 @@ var Menu = function Menu(props) {
     href: "./songs",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 104
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -231,7 +323,7 @@ var Menu = function Menu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 105
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -239,7 +331,7 @@ var Menu = function Menu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 106
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -247,7 +339,7 @@ var Menu = function Menu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 107
     },
     __self: this
   }));
@@ -258,7 +350,7 @@ var SearchBox = function SearchBox(props) {
     className: "searchBox",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 115
     },
     __self: this
   }, __jsx("div", {
@@ -266,7 +358,7 @@ var SearchBox = function SearchBox(props) {
     className: "input-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97
+      lineNumber: 117
     },
     __self: this
   }, __jsx("input", {
@@ -276,14 +368,14 @@ var SearchBox = function SearchBox(props) {
     placeholder: "Search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98
+      lineNumber: 118
     },
     __self: this
   }), __jsx("span", {
     className: "input-group-btn",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 119
     },
     __self: this
   }, __jsx("button", {
@@ -291,14 +383,14 @@ var SearchBox = function SearchBox(props) {
     type: "button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 120
     },
     __self: this
   }, __jsx("span", {
     className: "glyphicon glyphicon-search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 120
     },
     __self: this
   }), __jsx("img", {
@@ -306,7 +398,7 @@ var SearchBox = function SearchBox(props) {
     alt: "search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 120
     },
     __self: this
   })))));
@@ -317,7 +409,7 @@ var Burger = function Burger(props) {
     className: "open-slide",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 128
     },
     __self: this
   }, __jsx("a", {
@@ -325,7 +417,7 @@ var Burger = function Burger(props) {
     onClick: props.onClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 129
     },
     __self: this
   }, __jsx("svg", {
@@ -333,7 +425,7 @@ var Burger = function Burger(props) {
     height: "30",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 130
     },
     __self: this
   }, __jsx("path", {
@@ -342,7 +434,7 @@ var Burger = function Burger(props) {
     strokeWidth: "5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111
+      lineNumber: 131
     },
     __self: this
   }), __jsx("path", {
@@ -351,7 +443,7 @@ var Burger = function Burger(props) {
     strokeWidth: "5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112
+      lineNumber: 132
     },
     __self: this
   }), __jsx("path", {
@@ -360,7 +452,7 @@ var Burger = function Burger(props) {
     strokeWidth: "5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113
+      lineNumber: 133
     },
     __self: this
   }))));
@@ -372,7 +464,7 @@ var SideMenu = function SideMenu(props) {
     className: "side-nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121
+      lineNumber: 141
     },
     __self: this
   }, __jsx("a", {
@@ -381,15 +473,15 @@ var SideMenu = function SideMenu(props) {
     onClick: props.onClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122
+      lineNumber: 142
     },
     __self: this
   }, "\xD7"), __jsx(MenuButton, {
     name: "Main",
-    href: "#",
+    href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123
+      lineNumber: 143
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -397,7 +489,7 @@ var SideMenu = function SideMenu(props) {
     href: "../../pages/songs",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124
+      lineNumber: 144
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -405,7 +497,7 @@ var SideMenu = function SideMenu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125
+      lineNumber: 145
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -413,7 +505,7 @@ var SideMenu = function SideMenu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126
+      lineNumber: 146
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -421,13 +513,76 @@ var SideMenu = function SideMenu(props) {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127
+      lineNumber: 147
     },
     __self: this
   }));
 };
 
+var Ref = function Ref(props) {
+  return __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
+    href: "".concat(props.link),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 153
+    },
+    __self: this
+  }, props.text));
+};
+
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/Properties/ActiveLink.jsx":
+/*!**********************************************!*\
+  !*** ./components/Properties/ActiveLink.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ActiveLink; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Properties/ActiveLink.jsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function ActiveLink(_ref) {
+  var children = _ref.children,
+      href = _ref.href;
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
+  var style = {
+    marginRight: 10,
+    color: router.pathname === href ? 'red' : 'black'
+  };
+
+  var handleClick = function handleClick(e) {
+    e.preventDefault();
+    router.push(href);
+  };
+
+  return __jsx("a", {
+    href: href,
+    onClick: handleClick,
+    style: style,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, children);
+}
 
 /***/ }),
 
@@ -440,27 +595,27 @@ var SideMenu = function SideMenu(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SongStyle/SongStyle.css */ "./components/Songs/SongStyle/SongStyle.css");
-/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-int */ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SongStyle/SongStyle.css */ "./components/Songs/SongStyle/SongStyle.css");
+/* harmony import */ var _SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
 
 
 var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Songs/song.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
-
+var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
 
@@ -468,14 +623,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 var Song =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Song, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Song, _Component);
 
   function Song(props) {
     var _this;
 
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Song);
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Song);
 
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Song).call(this, props));
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Song).call(this, props));
     _this.state = {
       song: [],
       data: null
@@ -483,101 +638,113 @@ function (_Component) {
     return _this;
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Song, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Song, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      //const router = useRouter()
-      //console.log(router.query)
-      axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('http://localhost:3210/song', {
+      var dir = window.location.pathname.substr(1);
+
+      var sId = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(dir, 10);
+
+      console.log();
+      axios__WEBPACK_IMPORTED_MODULE_8___default.a.get('http://localhost:3210/song', {
         params: {
-          id: 1
+          id: sId
         }
       }).then(function (response) {
         _this2.setState({
           song: response.data
-        });
+        }); //console.log(song.response.data);
+
       });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       // const router = useRouter()
       //const {id} = router.query
       return __jsx("div", {
         className: "songText",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 39
         },
         __self: this
-      }, __jsx(SongHead, {
-        compName: "Billie Eilish",
-        name: "All The Good Girls Go to Hell",
-        capo: "4th fret",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 33
-        },
-        __self: this
-      }), this.state.song.map(function (value) {
-        return __jsx(SongText, {
+      }, this.state.song.map(function (value) {
+        return __jsx("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43
+          },
+          __self: this
+        }, __jsx(SongHead, {
+          compName: _this3.state.song[0].cname,
+          name: _this3.state.song[0].name,
+          capo: "".concat(_this3.state.song[0].capo),
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 44
+          },
+          __self: this
+        }), __jsx(SongText, {
           text: value.text,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 45
           },
           __self: this
-        });
-      }));
+        }));
+      }), ";");
     }
   }]);
 
   return Song;
-}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_6__["Component"]);
 
 var SongHead = function SongHead(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 61
     },
     __self: this
   }, __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 62
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 62
     },
     __self: this
   }, props.compName), __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 63
     },
     __self: this
   }, props.name)), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 64
     },
     __self: this
   }, __jsx("h6", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 64
     },
     __self: this
   }, "Capo: ", props.capo)), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 65
     },
     __self: this
   }, "----------------------------"));
@@ -587,7 +754,7 @@ var SongText = function SongText(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 70
     },
     __self: this
   }, props.text.map(function (value, index) {
@@ -595,7 +762,7 @@ var SongText = function SongText(props) {
       verse: value,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62
+        lineNumber: 73
       },
       __self: this
     });
@@ -606,7 +773,7 @@ var SongVerse = function SongVerse(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 80
     },
     __self: this
   }, props.verse.map(function (value, index) {
@@ -614,20 +781,20 @@ var SongVerse = function SongVerse(props) {
       line: value,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 83
       },
       __self: this
     });
   }), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 86
     },
     __self: this
   }), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 86
     },
     __self: this
   }));
@@ -637,13 +804,13 @@ var SongLine = function SongLine(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 91
     },
     __self: this
   }, __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 92
     },
     __self: this
   }, props.line.map(function (value, index) {
@@ -652,14 +819,14 @@ var SongLine = function SongLine(props) {
       chord: value.chord,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 95
       },
       __self: this
     });
   })), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 100
     },
     __self: this
   }));
@@ -670,19 +837,19 @@ var WordBlock = function WordBlock(props) {
     className: "word",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 105
     },
     __self: this
   }, props.chord, __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 106
     },
     __self: this
   }), props.words, "\xA0", __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97
+      lineNumber: 108
     },
     __self: this
   }));
@@ -810,6 +977,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "./no
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ "./node_modules/core-js/library/fn/object/set-prototype-of.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/parse-int.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/parse-int */ "./node_modules/core-js/library/fn/parse-int.js");
 
 /***/ }),
 
@@ -3853,6 +4031,19 @@ module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/fn/parse-int.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/library/fn/parse-int.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../modules/es6.parse-int */ "./node_modules/core-js/library/modules/es6.parse-int.js");
+module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/core-js/library/modules/_core.js").parseInt;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/promise.js":
 /*!****************************************************!*\
   !*** ./node_modules/core-js/library/fn/promise.js ***!
@@ -5721,6 +5912,26 @@ module.exports = function (KEY, exec) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/_parse-int.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_parse-int.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $parseInt = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js").parseInt;
+var $trim = __webpack_require__(/*! ./_string-trim */ "./node_modules/core-js/library/modules/_string-trim.js").trim;
+var ws = __webpack_require__(/*! ./_string-ws */ "./node_modules/core-js/library/modules/_string-ws.js");
+var hex = /^[-+]?0[xX]/;
+
+module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? function parseInt(str, radix) {
+  var string = $trim(String(str), 3);
+  return $parseInt(string, (radix >>> 0) || (hex.test(string) ? 16 : 10));
+} : $parseInt;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/_perform.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/library/modules/_perform.js ***!
@@ -6038,6 +6249,60 @@ module.exports = function (TO_STRING) {
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_string-trim.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_string-trim.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+var defined = __webpack_require__(/*! ./_defined */ "./node_modules/core-js/library/modules/_defined.js");
+var fails = __webpack_require__(/*! ./_fails */ "./node_modules/core-js/library/modules/_fails.js");
+var spaces = __webpack_require__(/*! ./_string-ws */ "./node_modules/core-js/library/modules/_string-ws.js");
+var space = '[' + spaces + ']';
+var non = '\u200b\u0085';
+var ltrim = RegExp('^' + space + space + '*');
+var rtrim = RegExp(space + space + '*$');
+
+var exporter = function (KEY, exec, ALIAS) {
+  var exp = {};
+  var FORCE = fails(function () {
+    return !!spaces[KEY]() || non[KEY]() != non;
+  });
+  var fn = exp[KEY] = FORCE ? exec(trim) : spaces[KEY];
+  if (ALIAS) exp[ALIAS] = fn;
+  $export($export.P + $export.F * FORCE, 'String', exp);
+};
+
+// 1 -> String#trimLeft
+// 2 -> String#trimRight
+// 3 -> String#trim
+var trim = exporter.trim = function (string, TYPE) {
+  string = String(defined(string));
+  if (TYPE & 1) string = string.replace(ltrim, '');
+  if (TYPE & 2) string = string.replace(rtrim, '');
+  return string;
+};
+
+module.exports = exporter;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_string-ws.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_string-ws.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
+  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
 
 
 /***/ }),
@@ -6620,6 +6885,21 @@ $export($export.S, 'Object', { setPrototypeOf: __webpack_require__(/*! ./_set-pr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.parse-int.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.parse-int.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+var $parseInt = __webpack_require__(/*! ./_parse-int */ "./node_modules/core-js/library/modules/_parse-int.js");
+// 18.2.5 parseInt(string, radix)
+$export($export.G + $export.F * (parseInt != $parseInt), { parseInt: $parseInt });
 
 
 /***/ }),
@@ -38100,6 +38380,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Songs_song__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Songs/song */ "./components/Songs/song.jsx");
 /* harmony import */ var _components_global_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../components/global.css */ "./components/global.css");
 /* harmony import */ var _components_global_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_components_global_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_Properties_ActiveLink__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Properties/ActiveLink */ "./components/Properties/ActiveLink.jsx");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -38107,6 +38390,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/pages/[song].js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
+
 
 
 
@@ -38129,19 +38414,19 @@ function (_Component) {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 14
         },
         __self: this
       }, __jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_6__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 11
+          lineNumber: 15
         },
         __self: this
       }), __jsx(_components_Songs_song__WEBPACK_IMPORTED_MODULE_7__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 16
         },
         __self: this
       }));
@@ -38177,7 +38462,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABc
 
 /***/ }),
 
-/***/ 7:
+/***/ 1:
 /*!*********************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Foem%2FDocuments%2FDevelopment%2FCourswork%2Fguitarchords%2Fpages%2F%5Bsong%5D.js ***!
   \*********************************************************************************************************************************************************************/
@@ -38200,5 +38485,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[7,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[song].js.map

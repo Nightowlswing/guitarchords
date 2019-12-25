@@ -1,7 +1,7 @@
 import React, {Component, createElement} from 'react';
 import './SongStyle/SongStyle.css';
 import Axios from 'axios';
-import { useRouter } from 'next/router'
+
 
 
 class Song extends Component{
@@ -14,32 +14,43 @@ class Song extends Component{
         }
       }     
       
+     
+
       componentDidMount(){
-        //const router = useRouter()
-        //console.log(router.query)
+        var dir = window.location.pathname.substr(1);
+        const sId = parseInt(dir,10);
+        console.log()
         Axios.get('http://localhost:3210/song', {
           params: {
-            id:1
+            id: sId
+            
           }
           
         }).then ((response) => { 
-          this.setState({song: response.data})});   
+          this.setState({song: response.data});
+          //console.log(song.response.data);
+        });   
       }
       render(){
+        
        // const router = useRouter()
         //const {id} = router.query
       return(
-        <div className = "songText">
-            <SongHead compName   = 'Billie Eilish' name = 'All The Good Girls Go to Hell' capo = '4th fret'/>
-            {/* <button onClick = {this.GetProfiles.bind(this)}/> */}
-            
-                {this.state.song.map((value) => {
+        <div className = "songText">                
+                {
+                this.state.song.map((value) => {
                     return (
+                      <div>
+                        <SongHead compName = {this.state.song[0].cname} name = {this.state.song[0].name} capo = {`${this.state.song[0].capo}`}/>
                         <SongText
                         text = {value.text}
                         />
+                      </div>
                     );
-                })}
+                })
+                }
+                
+                ;
         </div>
       );
     }
@@ -98,4 +109,3 @@ const WordBlock = props =>(
   </div>
 );
 export default Song;
-

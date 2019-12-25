@@ -9,14 +9,17 @@ import './HeaderStyle/Header.css';
 //import closeSlideMenu from './closeSlideMenu';
 import $ from 'jquery';
 import Popper from 'popper.js';
+import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 
 
 class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            
-
+            isLoggedIn: false,
+            userID: '',
+            userNick: '',
+            userSongList: ''
         };
     }
 
@@ -44,9 +47,10 @@ class Header extends Component{
                     <SideMenu onClick = {this.closeSlideMenu}/>
                     <Burger onClick = {this.openSlideMenu}/>
                     <Menu/>
+                    <Ref link = './addsong' text = 'add new song'/>
+                    <Ref link = './login' text = 'sing in'/>
+                    <Ref link = './singup' text = 'sing up'/>
                     <SearchBox />
-                    
-                   
                     </div>
                 </nav>
 
@@ -59,6 +63,22 @@ class Header extends Component{
         );
     }
 }
+
+const SingedOut = props =>(
+    <div>
+        <Ref link = './login' text = 'sing in'/>
+        /
+        <Ref link = './singup' text = 'sing up'/>
+    </div>
+);
+
+const SingOut = props =>(
+    <div>
+        <Ref link = './addsong' text = 'add new song'/>
+        <Ref link = './profile' text = 'sing up'/>
+        <Ref link = './' text = 'log out'/>
+    </div>
+);
 
 const Logo = props => (
     <div className = ''>
@@ -120,7 +140,7 @@ const Burger = props =>(
 const SideMenu = props =>(
     <div id = "side-menu" className = "side-nav">
         <a href="#" className = "btn-close" onClick = {props.onClick}>&times;</a>
-        <MenuButton name = 'Main' href = '#'/>
+        <MenuButton name = 'Main' href = '/'/>
         <MenuButton name = 'Songs' href = '../../pages/songs'/>
         <MenuButton name = 'Compositors' href = '#'/>
         <MenuButton name = 'Chords' href = '#'/>
@@ -128,8 +148,11 @@ const SideMenu = props =>(
     </div>
 );
 
-
-
+const Ref = props =>(
+    <Link href = {`${props.link}`}>
+        <a>{props.text}</a>
+    </Link>
+)
 
 
 export default Header;

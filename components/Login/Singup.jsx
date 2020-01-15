@@ -5,6 +5,7 @@ import LoginStyle from '../../Styles/LoginStyle/LoginStyle.css';
 import { FormText } from 'reactstrap';
 import Axios from 'axios';
 import {connect} from 'react-redux';
+import '../../Styles/FormStyle/FormStyle.css'
 
 const formValid = formErrors =>{
     let valid = true;
@@ -57,23 +58,23 @@ class Login extends Component{
         switch(name) {
             case 'Email':
                 formErrors.email = 
-                    emeilRegex.test(value) && value.length > 6
+                    emeilRegex.test(value) && value.length > 6 && value.length < 64
                         ?""
                         :'invalid email';
                 this.setState({email: value});
                 break;
             case 'Password':
                     formErrors.password = 
-                        value.length < 6
-                            ?'minimum 6 characters'
-                            : "";
+                        value.length > 6 && value.length < 64
+                            ?''
+                            : "minimum 6 characters";
                     this.setState({password: value});
                 break;
             case 'Nickname':
                 formErrors.nickname = 
-                value.length > 3
-                        ?'minimum 0 characters'
-                        : "";
+                value.length > 3 && value.length < 64
+                        ?''
+                        : "minimum 3 characters";
                 this.setState({nickname: value});
             break;
         }
@@ -91,11 +92,8 @@ class Login extends Component{
         })
         .then( (response) => {
           console.log(response.data[0])
-        if(response.data[0] == undefined)
-            {alert('User has been created')}
-          else{
-             alert('Operation failed. User already exists')
-         }
+             alert(response.data)
+
         }
         )
         
@@ -110,7 +108,7 @@ class Login extends Component{
                 <form onSubmit = {this.handleSubmit} onChange = {this.handleChange} noValidate>
                   <Input onChange = {this.handleChange} name = 'Email' placeholder = 'user@mail.com' type = 'email'/>
                   <Input onChange = {this.handleChange} name = 'Password' placeholder = '••••••••' type = 'password'/>
-                  <Input onChange = {this.handleChange} name = 'Nickname' placeholder = 'superguitarist228' type = 'nickname'/>
+                  <Input onChange = {this.handleChange} name = '  ' placeholder = 'superguitarist228' type = 'nickname'/>
                   <Button divclassname = 'SingIn' buttonclassname = 'SubmitButton' type = 'submit' name = 'sing up'/>
                 </form>
                 

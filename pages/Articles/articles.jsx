@@ -13,11 +13,12 @@ class comp extends Component{
       return(
         <div>
             <Header/>
-                  
-                <Link href='./addarticle'>
-                    <a className = 'ButtonRef'>add article</a>
-                </Link>
-
+              <div className = 'littleHeader'>
+                {/* <span className = 'addNew'>Articles</span> */}
+                  <Link href='./addarticle'>
+                      <a className = 'addNew'>add article</a>
+                  </Link>
+              </div>
             <ArticleList/>      
         </div>
       );

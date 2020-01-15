@@ -2,7 +2,8 @@ import React, {Component, createElement} from 'react';
 import '../../Styles/SongStyle/SongStyle.css';
 import Axios from 'axios';
 import Link from 'next/link';
-
+import '../../Styles/SearchStyle/SearchResault.css'
+import '../../Styles/global.css';
 
 class CompList extends Component{
     constructor(props){
@@ -17,7 +18,7 @@ class CompList extends Component{
     }
     render(){
         return(
-            <ul>
+            <ul className = 'searchResults'>
                 {this.state.songs.map((value) => {
                     return (                       
                         <SongRef
@@ -38,7 +39,7 @@ class CompList extends Component{
 
 const SongRef = props =>(
     <Link href = '/CompPages/[comp]/' as ={`/CompPages/${props.id}`}>
-        <li><a>{props.cname}</a></li>
+        <li className = 'searchResult'><a>{props.cname}</a></li>
     </Link>
 );
 

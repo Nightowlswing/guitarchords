@@ -1,6 +1,6 @@
 .songText{
 
-    width: calc(200px + 60%);
+    width: calc(200px + 40%);
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -8,6 +8,7 @@
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     border-radius: 10px;
     padding-top: 10px;
+    padding-left: 10%;
 }
 
 .word{

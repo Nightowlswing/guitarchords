@@ -11,10 +11,12 @@ class Songs extends Component{
     render(){
         return(
             <div>
-                <Header/>                
-                    <Link href='./addsong'>
-                        <a className = 'ButtonRef'>add song</a>
-                    </Link>
+                <Header/>
+                    <div className = 'littleHeader'>             
+                        <Link href='./addsong'>
+                            <a className = 'addNew'>add song</a>
+                        </Link>
+                    </div>   
                 <SongList/>
             </div>
         );  

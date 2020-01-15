@@ -1,3 +1,45 @@
 body{
-    background: linear-gradient(#679999, #d5d7ec) fixed no-repeat;
+    background: linear-gradient(#064e4e, #b0b1bd) fixed no-repeat;
+}
+
+.LightDiv{
+    width: calc(200px + 60%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: aliceblue;
+    
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    padding-top: 10px;   
+    opacity: 0.9;
+    min-height: 1000px;
+}
+#me{
+    image-resolution: 1000dpi;
+}
+
+.littleHeader{
+    width: calc(200px + 60%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color:  #47454d;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    padding-top: 10px;   
+    opacity: 0.9;
+    min-height: 30px;
+}
+
+.addNew{
+    color: #ece1e1;
+    margin-left:calc(50% - 100px);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.addNew:hover{
+    color: #ece1e1;
 }

@@ -1,5 +1,5 @@
 export default function EditText(text) {
-    return norm1(text).replace(/'/g,"");
+    return norm1(text).replace(/'/g,"").replace(/`/g,"");
     
   }
   

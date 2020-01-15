@@ -1,0 +1,9 @@
+{
+    "env": {
+      "MYSQL_HOST": "zanner.org.ua",
+      "MYSQL_USER": "ka7508",
+      "MYSQL_PASSWORD": "123456",
+      "MYSQL_DATABASE": "ka7508"
+    }
+  }
+

@@ -5,6 +5,7 @@ import '../../Styles/AddSong.css';
 import { FormText } from 'reactstrap';
 import Axios from 'axios';
 import EditArticle from './EditArticle/EditArticle';
+import '../../Styles/FormStyle/FormStyle.css'
 
 const formValid = formErrors =>{
     let valid = true;
@@ -50,6 +51,7 @@ class AddSong extends Component{
             })
             .then( (response) => {
               console.log(response.data)
+              document.querySelector('#articleForm').innerHTML = response.data
             }
             )
             .catch(function (error) {
@@ -64,14 +66,14 @@ class AddSong extends Component{
         switch(name) {
             case 'name':
                 formErrors.cname = 
-                    value.length > 0
+                    value.length > 0 & value.length < 256
                         ?""
                         :"invalid articls name";
                 this.setState({name: value});
                 break;
             case 'text':
                 formErrors.text = 
-                    value.length > 255
+                    value.length > 255 & value.length < 32000
                         ?""
                         :"invalid text";
                 this.setState({text: value});
@@ -84,8 +86,9 @@ class AddSong extends Component{
         return(
  
             <div className = "whiteBlock">
+                <span id = 'articleForm'></span>
                 <form onSubmit = {this.handleSubmit}>
-                    <LineInput onChange = {this.handleChange} placeholder = 'Name of article' name = 'name'/>
+                    <LineInput onChange = {this.handleChange} placeholder = 'Fingerstyle' name = 'name' label = 'Name of article'/>
                     <Button divclassname = 'SingIn' buttonclassname = 'SubmitButton' type = 'submit' name = 'submit'/>
                     <TextInput onChange = {this.handleChange} classdiv = 'textblock' classtext = 'classtext' placeholder = "article text" name = 'text'/>
                 </form>
@@ -98,7 +101,7 @@ class AddSong extends Component{
 
 const LineInput = props =>(
     <div className = {`${props.name}`}>
-    <label className= 'FormLabel'>{props.name}</label><br/>
+    <label className= 'FormLabel'>{props.label}</label><br/>
     <input 
     className = 'FormInput' 
     placeholder = {`${props.placeholder}`}

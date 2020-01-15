@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import logo from '../../static/logo.png';
-import search from '../../static/search.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Styles/HeaderStyle/HeaderStyle.css';
-import $ from 'jquery';
-import { loadGetInitialProps } from 'next/dist/next-server/lib/utils';
 import EditQuery from './EditQuery/EditQuery';
 
 
@@ -13,7 +10,10 @@ class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            Search: ""
+            Search: "",
+            formErrors:{
+                search: true
+            }
         };
     }
 
@@ -36,8 +36,19 @@ class Header extends Component{
     handleChange = e =>{
         e.preventDefault();
         const {name, value} = e.target;
-        this.setState({Search: EditQuery(value)});
-        console.log(this.state.Search);
+        
+        if(value.length > 0 && value.length < 64)
+        {this.setState({Search: EditQuery(value)});}
+        else{
+            alert('Invalid search data');
+            document.querySelector('#search').value = '';
+        }
+        //console.log(this.state.Search);
+    }
+
+    handleClick = e =>{
+        e.preventDefault();
+        window.location.href = '/SearchPages/' + this.Search;
     }
 
     render(){
@@ -52,7 +63,7 @@ class Header extends Component{
                     {/* <Ref link = './addsong' text = 'add new song'/>
                     <Ref link = './login' text = 'sing in'/>
                     <Ref link = './singup' text = 'sing up'/> */}
-                    <SearchBox onChange = {this.handleChange} search = {this.state.Search}/>
+                    <SearchBox onChange = {this.handleChange}  search = {this.state.Search} onClick = {this.onClick}/>
                     </div>
                 </nav>
 
@@ -102,12 +113,13 @@ const MenuButton = props =>(
 
 const Menu = props =>(
     <ul className = 'nav'>
-        <MenuButton name = 'Main' href = '/'/>
+        <MenuButton name = 'Info' href = '/'/>
         <MenuButton name = 'Songs' href = '/songs'/>
         <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
         {/* <MenuButton name = 'Chords' href = '#'/> */}
         <MenuButton name = 'Articles' href = '/Articles/articles'/>
-        
+        <MenuButton name = 'Sing in' href = '/login'/>
+        <MenuButton name = 'Sing up' href = '/singup' />
     </ul>
 
     
@@ -117,19 +129,24 @@ const SearchBox = props =>(
     <div className="searchBox">
         
         <div id = 'group' className="input-group"> 
-            <input onChange = {props.onChange} type="text" className="form-control" name="x" placeholder="Search"/>
+            <input id = 'search' onChange = {props.onChange} type="text" className="form-control" name="x" placeholder="Search"/>
             <span className="input-group-btn">
-                <button  className = 'searchButton' type="button">
+                <button  className = 'searchButton' type="button" onClick = {props.onClick}>
                     <span className="glyphicon glyphicon-search"></span>                    
-                    <Link href='/SearchPages/[search]' as = {`/SearchPages/${props.search}`}>
-                        <a>search</a>
-                    </Link>
+                    {/* <Link href='/SearchPages/[search]' as = {`/SearchPages/${props.search}`}>
+                        <a>
+                            <img className = '.logo' src = '../../static/search.png' />
+                        </a>
+                    </Link> */}
+                    <img className = '.logo' src = '../../static/search.png' />
                 </button>
             </span>
         </div> 
     </div>
 
 );
+
+
 
 const Burger = props =>(
     <span className ="open-slide">
@@ -147,10 +164,12 @@ const Burger = props =>(
 const SideMenu = props =>(
     <div id = "side-menu" className = "side-nav">
         <a href="#" className = "btn-close" onClick = {props.onClick}>&times;</a>
-        <MenuButton name = 'Main' href = '/'/>
+        <MenuButton name = 'Info' href = '/'/>
         <MenuButton name = 'Songs' href = '/songs'/>
         <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
         <MenuButton name = 'Articles' href = '/Articles/articles'/>
+        <MenuButton name = 'Sing in' href = '/login'/>
+        <MenuButton name = 'Sing up' href = '/singup' />
     </div>
 );
 

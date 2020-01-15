@@ -1,0 +1,108 @@
+.FormInput{
+    height: 24px;
+    left: 16px;
+    right: 79px;
+    top: 22px;
+    margin-left: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    width: 209px;
+    height: 28px;
+    letter-spacing: 0.15px;
+    background-color: transparent;
+    color: rgba(71, 40, 40, 0.87);
+    border: none;
+}
+
+
+.FormLabel{
+    margin-top: 8px;
+    margin-left: 16px;
+    width: 100px;
+    height: 16px;
+    left: 16px;
+    top: 8px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    letter-spacing: 0.4px;
+
+    color: rgba(126, 98, 98, 0.87);
+}
+
+.Password{
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px 4px 0px 0px;
+    width: 304px;
+    height: 56px;
+}
+
+.Email{
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px 4px 0px 0px;
+    width: 304px;
+    height: 56px;
+    margin-bottom: 0px;
+}
+.Nickname{
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px 4px 0px 0px;
+    width: 304px;
+    height: 56px;
+    margin-bottom: 0px;
+}
+
+::placeholder
+{
+    color: rgba(126, 98, 98, 0.87);
+}
+    
+.SubmitButton{
+
+    width: 208px;
+    height: 36px;
+    margin-left: calc(50% - 208px/2 + 0.5px);
+    top: calc(50% - 16px/2);
+    background: #98BF1F;
+    border-radius: 4px;
+    /* button */
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    background: rgb(69, 70, 66);
+}
+
+.formdiv
+{
+    width:200px;
+    display: inline-block;
+}
+
+.exImg{
+    width: 350px;
+    height:300px;
+}
+
+.SingIn{
+    background: rgb(255, 240, 240);
+}

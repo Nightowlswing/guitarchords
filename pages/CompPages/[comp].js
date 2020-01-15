@@ -10,11 +10,12 @@ class comp extends Component{
 
   render(){
       return(
-        <div>
+        <div >
             <Header/>
-            
-            <Compositor/>
-            
+            <div className = 'littleHeader'><span className = 'addNew'>songs of..</span></div>
+            <div className = 'LightDiv'>
+              <Compositor/>
+            </div>
         </div>
       );
       

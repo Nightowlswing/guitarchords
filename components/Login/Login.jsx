@@ -5,6 +5,7 @@ import LoginStyle from '../../Styles/LoginStyle/LoginStyle.css';
 import { FormText } from 'reactstrap';
 import Axios from 'axios';
 import {connect} from 'react-redux';
+import '../../Styles/FormStyle/FormStyle.css'
 
 const formValid = formErrors =>{
     let valid = true;
@@ -18,7 +19,7 @@ const formValid = formErrors =>{
 
 
 
-const emeilRegex = RegExp(/[a-zA-Z_]$/);
+const emeilRegex = RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
 
 
 class Login extends Component{
@@ -62,14 +63,14 @@ class Login extends Component{
         switch(name) {
             case 'Email':
                 formErrors.email = 
-                    emeilRegex.test(value) && value.length > 6
+                    emeilRegex.test(value) && value.length > 6 && value.length < 64
                         ?""
                         :'invalid email';
                 this.setState({email: value});
                 break;
             case 'Password':
                     formErrors.password = 
-                        value.length < 6 && value.length > 0 
+                        value.length < 6 && value.length > 0 && value.length < 64
                             ?'minimum 6 characters'
                             : "";
                     this.setState({password: value});

@@ -1,5 +1,5 @@
 .navbar{
-    background: #82A3A1;
+    color: #47454d;
 }
 
 img{
@@ -30,8 +30,8 @@ img{
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #111;
-	opacity: 0.9;
+	background-color: rgb(206, 189, 189);
+	opacity: 0.8;
 	overflow-x: hidden;
 	padding-top: 60px;
 	transition: 0.5s;
@@ -47,21 +47,23 @@ img{
 	margin-left: 50px;
 }
 
-.side-nav a:hover{
+/* .side-nav a:hover{
 	color: #fff;
-}
+} */
 .side-nav .btn-close{
 	position: absolute;
 	top: 0;
 	right: 22px;
 	font-size: 36px;
-	margin-left: 50px;
+    margin-left: 50px;
+    color: #fff;
 }
 
 
-@media(max-width: 1225px) {
+@media(max-width: 1415px) {
     .nav{       
         display: none;
+        list-style: none;
     }
     .searchBox{
         width: 80%; 
@@ -70,7 +72,7 @@ img{
         color: #fff;
     }
 }
-@media(min-width: 1225px){
+@media(min-width: 1415px){
     .open-slide{
         display: none;
     }

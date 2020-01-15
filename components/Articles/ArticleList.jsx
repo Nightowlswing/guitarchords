@@ -2,6 +2,8 @@ import React, {Component, createElement} from 'react';
 import Axios from 'axios';
 import Link from 'next/link';
 import ArticleCut from './ArticleCut/ArticleCut';
+import '../../Styles/global.css';
+import '../../Styles/SearchStyle/SearchResault.css'
 
 class ArticleList extends Component{
     constructor(props){
@@ -17,18 +19,20 @@ class ArticleList extends Component{
     }
     render(){
         return(
-            <ul>
-                {this.state.articles.map((value) => {   
-                    return (                       
-                        <ArticleRef
-                        id = {value.id}
-                        name = {value.name}
-                        text = {value.text}
-                        />
-                    );
-                   
-                })}
-            </ul>
+            <div className = 'LightDiv'>
+                <ul className = 'searchResults'>
+                    {this.state.articles.map((value) => {   
+                        return (                       
+                            <ArticleRef
+                            id = {value.id}
+                            name = {value.name}
+                            text = {value.text}
+                            />
+                        );
+                    
+                    })}
+                </ul>
+            </div>
         );
     }
 
@@ -38,15 +42,15 @@ class ArticleList extends Component{
 
 
 const ArticleRef = props =>(
-    <div>
+    <div className = 'articleBlock'>
     <span>
-    <h6>
+
     <Link href = '/Articles/[article]' as ={`/Articles/${props.id}`}>
-        <li><a>{props.name}</a></li>
+        <li className = 'searchResult headLine'><a>{props.name}</a></li>
     </Link>
-    </h6>
+
     </span>
-    <div>
+    <div className = 'subResaults'>
         {ArticleCut(props.text)}
     </div>
     </div>

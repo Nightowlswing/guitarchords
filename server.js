@@ -89,13 +89,13 @@ app.get("/singup/", function(req, res){
           if(err) {
             return console.log('it is err', err);
           }
-          res.json(data);
+          res.json('User created');
       
         }
       );
     }
     else{
-      res.json(data);
+      res.json('User alredy exists');
     }
   });
 
@@ -144,7 +144,7 @@ app.get("/addsong/", function(req, res){
                     return console.log('it is err', err);
                   }
                   
-                  res.json(data);
+                  res.json('Song successfuly added!');//Succes
               
                 }                    
                 );
@@ -181,16 +181,18 @@ app.get("/addsong/", function(req, res){
                   if(err) {
                     return console.log('it is err', err);
                   }
-                    
+                  res.json('Song successfuly added!')//success
                   
               
                 }                    
                 );
               });
 
+            }else{
+              res.json('Failed! Song already exists!');//fail
             }
             
-          res.json(data);
+          
       
         });
       }
@@ -304,7 +306,7 @@ app.get("/addArticle/", function(req, res){
       return console.log('it is err1', err);
     }
     if(data[0].N === 1){
-      res.json(data[0].N);
+      res.json('Failed! Article already Exists');
     }
     // console.log(data);
     else{
@@ -317,10 +319,48 @@ app.get("/addArticle/", function(req, res){
         if(err) {
           return console.log('it is err2', err);
         }
-        res.json(data);
+        res.json('Article added successfully!');
       });
       
     }
+
+  });
+});
+
+app.get("/searchS/", function(req, res){
+  const search = {
+    Q: req.query.Q
+  }
+  
+  pool.query(
+    `
+    SELECT * FROM Songs WHERE (name LIKE "'${search.Q}'%" OR name LIKE "%'${search.Q}'" OR name LIKE "${search.Q}%" OR name = '${search.Q}')
+    `
+    , search,
+    function(err, data) {
+    if(err) {
+      return console.log('it is err', err);
+    }
+    res.json(data);
+
+  });
+});
+
+app.get("/searchA/", function(req, res){
+  const search = {
+    Q: req.query.Q
+  }
+  
+  pool.query(
+    `
+    SELECT * FROM Articles WHERE (name LIKE "'${search.Q}'%" OR name LIKE "%'${search.Q}'" OR name LIKE "${search.Q}%" OR name = '${search.Q}')
+    `
+    , search,
+    function(err, data) {
+    if(err) {
+      return console.log('it is err', err);
+    }
+    res.json(data);
 
   });
 });

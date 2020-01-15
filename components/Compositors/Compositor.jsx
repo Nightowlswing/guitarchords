@@ -3,6 +3,8 @@ import '../../Styles/SongStyle/SongStyle.css';
 import Axios from 'axios';
 import Link from 'next/link';
 import EditDir from '../Search/EditDir/EditDir';
+import '../../Styles/SearchStyle/SearchResault.css'
+import '../../Styles/global.css';
 
 class SongList extends Component{
     constructor(props){
@@ -26,7 +28,7 @@ class SongList extends Component{
                 {/* <h1>{this.state.songs.cname}</h1> */}
                 <div>
                     
-                    <ul>
+                    <ul className = 'searchResults'>
                         {   
                         
                         this.state.songs.map((value) => {
@@ -57,7 +59,7 @@ const NoSongs = props =>(
 
 const SongRef = props =>(
     <Link href = '/[song]/' as ={`/${props.id}`}>
-        <li><a className = 'songref'>{props.cname} - {props.name}</a></li>
+        <li><a className = 'songref searchResult'>{props.cname} - {props.name}</a></li>
     </Link>
 );
 

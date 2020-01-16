@@ -12,7 +12,10 @@ class article extends Component{
       return(
         <div>
             <Header/>
+            <div className = 'LightDiv'>
             <Article/>
+            </div>
+
         </div>
       );
     }

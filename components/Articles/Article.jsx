@@ -46,8 +46,13 @@ class Article extends Component{
                     );
                 })
                 }
-                
+                            <style jsx>{`
+              div{
+                  padding: 10px;
+              }
+            `}</style>
         </div>
+        
       );
     }
     

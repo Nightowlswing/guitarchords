@@ -118,8 +118,8 @@ const Menu = props =>(
         <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
         {/* <MenuButton name = 'Chords' href = '#'/> */}
         <MenuButton name = 'Articles' href = '/Articles/articles'/>
-        <MenuButton name = 'Sing in' href = '/login'/>
-        <MenuButton name = 'Sing up' href = '/singup' />
+        {/* <MenuButton name = 'Sing in' href = '/login'/>
+        <MenuButton name = 'Sing up' href = '/singup' /> */}
     </ul>
 
     
@@ -168,8 +168,8 @@ const SideMenu = props =>(
         <MenuButton name = 'Songs' href = '/songs'/>
         <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
         <MenuButton name = 'Articles' href = '/Articles/articles'/>
-        <MenuButton name = 'Sing in' href = '/login'/>
-        <MenuButton name = 'Sing up' href = '/singup' />
+        {/* <MenuButton name = 'Sing in' href = '/login'/>
+        <MenuButton name = 'Sing up' href = '/singup' /> */}
     </div>
 );
 

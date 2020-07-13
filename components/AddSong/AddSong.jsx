@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import '../../Styles/AddSong.css';
-import { FormText } from 'reactstrap';
-import Axios from 'axios';
+
 import EditText from './EditText/editText';
 import '../../Styles/FormStyle/FormStyle.css';
-
+import {ADD_SONG} from '../urls';
 
 const formValid = formErrors =>{
     let valid = true;
@@ -40,11 +37,14 @@ class AddSong extends Component{
     
     handleSubmit = e => {
         e.preventDefault();
-        //console.log(EditText(this.state.text));
-        console.log(this.state.formErrors)
         if (formValid(this.state.formErrors)) {
-            console.log(EditText(this.state.text));
-            this.handleSongData(this.state.cname,this.state.sname,this.state.capo,EditText(this.state.text),this.state.genre)
+            let edited = EditText(this.state.text)
+            if (edited){
+                this.handleSongData(this.state.cname,this.state.sname,this.state.capo,edited,this.state.genre)
+            }
+            else{
+                alert('please, write songs that matches all the rules')
+            }
           }
           else {
             alert('Songs data is INVALID');
@@ -53,23 +53,26 @@ class AddSong extends Component{
     };
 
     handleSongData (cname,sname,capo,text,genre){
-        Axios.get('http://localhost:3210/addsong/', {
-            params: {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
                 cname: cname,
                 sname: sname,
                 capo: capo,
                 genre: genre,
                 text: text
-            }
             })
-            .then( (response) => {
-              console.log(response.data)
-              document.querySelector('#songForm').innerHTML = response.data;
+        };
+
+        fetch(ADD_SONG, requestOptions)
+        .then(response => {
+            if (!response.ok){
+                alert(response.status + '' + response.statusText)
             }
-            )
-            .catch(function (error) {
-                console.log(error);
-            })
+            else{
+                document.querySelector('#songForm').innerHTML = 'ok'
+            }})
     }
 
     handleChange = e => {
@@ -110,16 +113,12 @@ class AddSong extends Component{
                     value.length > 255 & value.length <8000
                         ?""
                         :"invalid text";
-                console.log(value.length)
                 this.setState({text: value});
             break;}
         this.setState({formErrors, [name]: value});
            
     }
     
-    componentDidMount(){
-       // Axios.get('http://localhost:3210/allSongs').then ((response) => { this.setState({songs: response.data})});
-    }
     render(){
         return(
             

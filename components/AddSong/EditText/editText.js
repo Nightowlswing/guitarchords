@@ -1,5 +1,16 @@
 export default function EditText(text) {
-    return norm1(text).replace(/'/g,"").replace(/`/g,"");
+    let res = (norm1(text) + "]")
+    .replace(/,]/g,"]")
+    .replace(/,]/g,"]")
+    .replace(/,]/g,"]")
+    .replace(/'/g,"")
+    try{
+        JSON.parse(res);
+    }
+    catch(e){
+        return false;
+    }
+    return res//.replace(/`/g,"").replace()//.replace(/'/g,"");
     
   }
   
@@ -11,7 +22,7 @@ export default function EditText(text) {
       {
           S = S + ',' + norm2(ntext[i]);
       }
-      S = '[' + S.substring(1,S.length - 5) + ']	';
+      S = '[' + S.substring(1,S.length - 5) + ']';
       return  S;
   }
   
@@ -23,7 +34,8 @@ export default function EditText(text) {
               S = S + ',' + norm3(nverse[i]);
       }
       //S = S.substr(1);
-          S = '[' + S.substring(1,S.length - 3) + ']	';
+        
+          S = '[' + S.substring(1,S.length - 2) + ']';
       return S;
   }
   
@@ -46,7 +58,7 @@ export default function EditText(text) {
   function norm4(chordword){
     var data = chordword.split("]");
       if (data[1] !== undefined){
-          return `{"chord":"` + data[0] + `","words":"`+ data[1] +`"}`;
+          return '{"chord":"' + data[0] + '","words":"'+ data[1] +'"}';
       }
       else
       {

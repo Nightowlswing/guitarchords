@@ -1,12 +1,11 @@
 import React, {Component, createElement} from 'react';
-//import '../../Styles/SongStyle/SongStyle.css';
 import Axios from 'axios';
 import Link from 'next/link';
 import EditDir from './EditDir/EditDir'; 
 import ArticleCut from '../Articles/ArticleCut/ArticleCut';
 import '../../Styles/SearchStyle/SearchResault.css';
 import '../../Styles/global.css';
-
+import {SEARH_SONG,SEARCH_ARTICLE,SEARCH_COMPOSITOR} from '../urls';
 class SearchResault extends Component{
     constructor(props){
         super(props)
@@ -19,38 +18,36 @@ class SearchResault extends Component{
             Articles: false
         }
     }
-
-    // handleClick = e =>{
-    //     e.preventDefault();
-    //     const {name, value} = e.target;
-
-    //     if(this.state.name){
-    //         e.target.style.backgroundColor = '#60f78a';
-    //         this.setState({name: false})
-            
-    //         document.getElementById(name).style.display = 'none';
-    //     }
-    //     else{
-    //         e.target.style.backgroundColor = '#8fffae';
-    //         this.setState({name: true})
-    //         document.getElementById(name).style.display = 'block';
-    //     }
-    // }
     componentDidMount(){
         const dir = EditDir(window.location.pathname);
-       // alert('h')
-        Axios.get('http://localhost:3210/searchC',{params: { Q: dir }}).then ((response) => { this.setState({compositors: response.data})});
-        Axios.get('http://localhost:3210/searchS',{params: { Q: dir }}).then ((response) => { this.setState({songs: response.data})});
-        Axios.get('http://localhost:3210/searchA',{params: { Q: dir }}).then ((response) => { this.setState({articles: response.data})});
+        Axios.get(SEARH_SONG + dir).then ((response) => { 
+            if(!response.ok){
+                this.setState({songs: response.data})
+            }
+            else{
+                alert('code ' + response.status + ' returned on song query')
+            }
+        });
+        Axios.get(SEARCH_ARTICLE + dir).then ((response) => {
+        { 
+            if(!response.ok){
+                this.setState({articles: response.data})
+            }
+            else{
+                alert('code ' + response.status + ' returned on article query')
+            }
+        }});
+        Axios.get(SEARCH_COMPOSITOR + dir).then ((response) =>  {
+            if(!response.ok){
+                this.setState({compositors: response.data})
+            }
+            else{
+                alert('code ' + response.status + ' returned on compositor query')
+            }});
     }
     render(){
         return(
             <div >
-                {/* <div className = 'optionButtons'>
-                    <Button  divclassname = 'buttonDiv' buttonclassname = 'optionButton' type = 'button' name = 'Songs' onClick = {this.handleClick}/>
-                    <Button  divclassname = 'buttonDiv' buttonclassname = 'optionButton' type = 'button' name = 'Compositors' onClick = {this.handleClick}/>
-                    <Button  divclassname = 'buttonDiv' buttonclassname = 'optionButton' type = 'button' name = 'Articles' onClick = {this.handleClick}/>
-                </div> */}
                 <div className = 'LightDiv'>
                     <div id = 'Compositors'>
                         <ul className = 'searchResults'>
@@ -58,7 +55,7 @@ class SearchResault extends Component{
                                 return (
                                     <CompRef
                                     id = {value.id}
-                                    cname = {value.cname}
+                                    cname = {value.name}
                                     />
                                 );
                             })}
@@ -70,9 +67,9 @@ class SearchResault extends Component{
                         {this.state.songs.map((value) => {
                             return (
                                 <SongRef
-                                id = {value.id}
-                                name = {value.name}
-                                cname = {value.cname}
+                                    id = {value.id}
+                                    name = {value.name}
+                                    cname = {value.cname}
                                 />
                             );
                         })}

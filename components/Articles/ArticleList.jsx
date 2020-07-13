@@ -3,8 +3,8 @@ import Axios from 'axios';
 import Link from 'next/link';
 import ArticleCut from './ArticleCut/ArticleCut';
 import '../../Styles/global.css';
-import '../../Styles/SearchStyle/SearchResault.css'
-
+import '../../Styles/SearchStyle/SearchResault.css';
+import {ALL_ARTICLES} from '../urls';
 class ArticleList extends Component{
     constructor(props){
         super(props)
@@ -13,8 +13,7 @@ class ArticleList extends Component{
         }
     }     
     componentDidMount(){
-        Axios.get('http://localhost:3210/allArticles').then ((response) => { this.setState({articles: response.data})
-        
+        Axios.get(ALL_ARTICLES).then ((response) => { this.setState({articles: response.data})
     });
     }
     render(){

@@ -4,7 +4,7 @@ import Axios from 'axios';
 import Link from 'next/link';
 import '../../Styles/global.css';
 import '../../Styles/SearchStyle/SearchResault.css';
-
+import {ALL_SONGS} from '../urls';
 class SongList extends Component{
     constructor(props){
         super(props)
@@ -14,7 +14,7 @@ class SongList extends Component{
         }
     }     
     componentDidMount(){
-        Axios.get('http://localhost:3210/allSongs').then ((response) => { this.setState({songs: response.data})});
+        Axios.get(ALL_SONGS).then ((response) => { console.log(response.data);this.setState({songs: response.data})});
     }
     render(){
         return(

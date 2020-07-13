@@ -1,61 +1,40 @@
-import React, {Component, createElement} from 'react';
+import React, {Component, createElement, useState, useEffect} from 'react';
 import Axios from 'axios';
 import Link from 'next/link';
 import EditDir from '../Search/EditDir/EditDir';
+import {ARTICLE} from '../urls';
+import Loader from 'react-loader-spinner'
 
-
-class Article extends Component{
-      constructor(props){
-
-        super(props)
-        this.state = {
-            article: []
-        }
-      }     
-      
-     
-
-      componentDidMount(){
-        var dir = EditDir(window.location.pathname);
-
-        
-        Axios.get('http://localhost:3210/article', {
-          params: {
-            id: dir
-            
-          }
-          
-        }).then ((response) => { 
-          this.setState({article: response.data});
-          console.log(response.data)
-        });   
-      }
-      render(){
-        
-       // const router = useRouter()
-        //const {id} = router.query
-      return(
-        <div className = "articleText">                
-                {
-                this.state.article.map((value) => {
-                    return (
-                      <div>
-                        <ArticleHead name = {this.state.article[0].name} />
-                        <ArticleText text = {`${this.state.article[0].text}`}/>
-                      </div>
-                    );
-                })
-                }
-                            <style jsx>{`
-              div{
-                  padding: 10px;
-              }
-            `}</style>
-        </div>
-        
-      );
+function Article(){
+    const [article, setArticle] = useState(undefined)
+    useEffect(() => {
+    var dir = EditDir(window.location.pathname);
+    Axios.get(ARTICLE + dir + '').then((response) => setArticle(response.data));      
+    })
+    if(article !== undefined){
+        return(
+            <div className = "articleText">                
+                <div>
+                    <ArticleHead name = {article.name} />
+                    <ArticleText text = {article.text}/>
+                </div>
+                <style jsx>{`
+                    div{
+                        padding: 10px;
+                    }
+                `}</style>
+            </div>
+        );
     }
-    
+    else{
+        return(<Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000}/>);
+    }
+
 }
   
 const ArticleHead = props =>(

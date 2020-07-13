@@ -4,32 +4,48 @@ import Axios from 'axios';
 import Link from 'next/link';
 import '../../Styles/SearchStyle/SearchResault.css'
 import '../../Styles/global.css';
+import {ALL_COMPOSITORS} from '../urls';
+import Loader from 'react-loader-spinner'
 
 class CompList extends Component{
     constructor(props){
         super(props)
         this.state = {
-          songs: [],
-          comp: []
+          comp: undefined
         }
     }     
     componentDidMount(){
-        Axios.get('http://localhost:3210/allComp').then ((response) => { this.setState({songs: response.data})});
+        Axios.get(ALL_COMPOSITORS).then ((response) => {
+            this.setState({comp: response.data})
+        });
     }
     render(){
-        return(
-            <ul className = 'searchResults'>
-                {this.state.songs.map((value) => {
-                    return (                       
-                        <SongRef
-                        id = {value.id}
-                        cname = {value.cname}
-                        />
-                    );
-                   
-                })}
-            </ul>
-        );
+        if (this.state.comp !== undefined){
+            return(
+                <ul className = 'searchResults'>
+                    {this.state.comp.map((value) => {
+                        return (                       
+                            <SongRef
+                            id = {value.id}
+                            cname = {value.name}
+                            />
+                        );
+                       
+                    })}
+                </ul>
+            );
+        }
+        else{
+            return(
+                <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000}/>
+            );
+        }
+
     }
 
     

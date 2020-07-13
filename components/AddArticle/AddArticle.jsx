@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import '../../Styles/AddSong.css';
-import { FormText } from 'reactstrap';
-import Axios from 'axios';
 import EditArticle from './EditArticle/EditArticle';
 import '../../Styles/FormStyle/FormStyle.css'
+import {ADD_ARTICLE} from '../urls';
+
 
 const formValid = formErrors =>{
     let valid = true;
@@ -32,7 +30,6 @@ class AddSong extends Component{
     
     handleSubmit = e => {
         e.preventDefault();
-        //console.log(EditText(this.state.text));
         if (formValid(this.state.formErrors)) {
             this.handleSongData(this.state.name,EditArticle(this.state.text))
           }
@@ -43,20 +40,24 @@ class AddSong extends Component{
     };
 
     handleSongData (name,text){
-        Axios.get('http://localhost:3210/addArticle/', {
-            params: {
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
                 name: name,
                 text: text
-            }
             })
-            .then( (response) => {
-              console.log(response.data)
-              document.querySelector('#articleForm').innerHTML = response.data
+        };
+
+        fetch(ADD_ARTICLE, requestOptions)
+        .then(response => {
+            if (!response.ok){
+                alert(response.status + '' + response.statusText)
             }
-            )
-            .catch(function (error) {
-                console.log(error);
-            })
+            else{
+                document.querySelector('#articleForm').innerHTML = response.data
+            }})
     }
 
     handleChange = e => {

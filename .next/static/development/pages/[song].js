@@ -52,7 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx";
+var _jsxFileName = "/home/vlad/Documents/Development/projects/YourChords/guitarchords/components/Header/Header.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
 
@@ -97,13 +97,12 @@ function (_Component) {
       } else {
         alert('Invalid search data');
         document.querySelector('#search').value = '';
-      } //console.log(this.state.Search);
-
+      }
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleClick", function (e) {
       e.preventDefault();
-      window.location.href = '/SearchPages/' + _this.Search;
+      window.location.href = '/SearchPages/' + _this.state.Search;
     });
 
     _this.state = {
@@ -162,16 +161,16 @@ function (_Component) {
       }), __jsx(SearchBox, {
         onChange: this.handleChange,
         search: this.state.Search,
-        onClick: this.onClick,
+        onClick: this.handleClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 63
         },
         __self: this
       }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_7___default.a, {
         id: "2081448487",
         __self: this
-      }, ".navbar.jsx-2081448487{background:#82A3A1;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXFFNEIsQUFHNEMsbUJBQ3ZCIiwiZmlsZSI6Ii9ob21lL29lbS9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvQ291cnN3b3JrL2d1aXRhcmNob3Jkcy9jb21wb25lbnRzL0hlYWRlci9IZWFkZXIuanN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XG5pbXBvcnQgbG9nbyBmcm9tICcuLi8uLi9zdGF0aWMvbG9nby5wbmcnO1xuaW1wb3J0ICdib290c3RyYXAvZGlzdC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MnO1xuaW1wb3J0ICcuLi8uLi9TdHlsZXMvSGVhZGVyU3R5bGUvSGVhZGVyU3R5bGUuY3NzJztcbmltcG9ydCBFZGl0UXVlcnkgZnJvbSAnLi9FZGl0UXVlcnkvRWRpdFF1ZXJ5JztcblxuXG5jbGFzcyBIZWFkZXIgZXh0ZW5kcyBDb21wb25lbnR7XG4gICAgY29uc3RydWN0b3IocHJvcHMpe1xuICAgICAgICBzdXBlcihwcm9wcyk7XG4gICAgICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICAgICAgICBTZWFyY2g6IFwiXCIsXG4gICAgICAgICAgICBmb3JtRXJyb3JzOntcbiAgICAgICAgICAgICAgICBzZWFyY2g6IHRydWVcbiAgICAgICAgICAgIH1cbiAgICAgICAgfTtcbiAgICB9XG5cbiAgICBvcGVuU2xpZGVNZW51ID0gZSA9PiB7XG4gICAgICAgIC8vIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNzaWRlLW1lbnVcIikuc3R5bGUud2lkdGggPSBcIjI1MHB4XCI7XG4gICAgICAgLy8gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImJvZHlcIikuc3R5bGUubWFyZ2luTGVmdCA9IFwiMjUwcHhcIjtcbiAgICAgICAgXG4gICAgfVxuXG4gICAgY2xvc2VTbGlkZU1lbnUgPSBlID0+IHtcbiAgICAgICAgLy8gZS5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgIFxuICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiI3NpZGUtbWVudVwiKS5zdHlsZS53aWR0aCA9IFwiMHB4XCI7XG4gICAgICAgLy8gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcImJvZHlcIikuc3R5bGUubWFyZ2luTGVmdCA9IFwiMHB4XCI7XG4gICAgICAgIFxuICAgIH1cblxuXG4gICAgaGFuZGxlQ2hhbmdlID0gZSA9PntcbiAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgICBjb25zdCB7bmFtZSwgdmFsdWV9ID0gZS50YXJnZXQ7XG4gICAgICAgIFxuICAgICAgICBpZih2YWx1ZS5sZW5ndGggPiAwICYmIHZhbHVlLmxlbmd0aCA8IDY0KVxuICAgICAgICB7dGhpcy5zZXRTdGF0ZSh7U2VhcmNoOiBFZGl0UXVlcnkodmFsdWUpfSk7fVxuICAgICAgICBlbHNle1xuICAgICAgICAgICAgYWxlcnQoJ0ludmFsaWQgc2VhcmNoIGRhdGEnKTtcbiAgICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNzZWFyY2gnKS52YWx1ZSA9ICcnO1xuICAgICAgICB9XG4gICAgICAgIC8vY29uc29sZS5sb2codGhpcy5zdGF0ZS5TZWFyY2gpO1xuICAgIH1cblxuICAgIGhhbmRsZUNsaWNrID0gZSA9PntcbiAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgICB3aW5kb3cubG9jYXRpb24uaHJlZiA9ICcvU2VhcmNoUGFnZXMvJyArIHRoaXMuU2VhcmNoO1xuICAgIH1cblxuICAgIHJlbmRlcigpe1xuICAgICAgICByZXR1cm4oXG4gICAgICAgICAgICBcbiAgICAgICAgICAgIDxkaXYgPlxuICAgICAgICAgICAgICAgIDxuYXYgY2xhc3NOYW1lID0gJ25hdmJhcic+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lID0gJ2NvbnRhaW5lci1mbHVpZCc+XG4gICAgICAgICAgICAgICAgICAgIDxTaWRlTWVudSBvbkNsaWNrID0ge3RoaXMuY2xvc2VTbGlkZU1lbnV9Lz5cbiAgICAgICAgICAgICAgICAgICAgPEJ1cmdlciBvbkNsaWNrID0ge3RoaXMub3BlblNsaWRlTWVudX0vPlxuICAgICAgICAgICAgICAgICAgICA8TWVudS8+XG4gICAgICAgICAgICAgICAgICAgIHsvKiA8UmVmIGxpbmsgPSAnLi9hZGRzb25nJyB0ZXh0ID0gJ2FkZCBuZXcgc29uZycvPlxuICAgICAgICAgICAgICAgICAgICA8UmVmIGxpbmsgPSAnLi9sb2dpbicgdGV4dCA9ICdzaW5nIGluJy8+XG4gICAgICAgICAgICAgICAgICAgIDxSZWYgbGluayA9ICcuL3Npbmd1cCcgdGV4dCA9ICdzaW5nIHVwJy8+ICovfVxuICAgICAgICAgICAgICAgICAgICA8U2VhcmNoQm94IG9uQ2hhbmdlID0ge3RoaXMuaGFuZGxlQ2hhbmdlfSAgc2VhcmNoID0ge3RoaXMuc3RhdGUuU2VhcmNofSBvbkNsaWNrID0ge3RoaXMub25DbGlja30vPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L25hdj5cblxuICAgICAgICAgICAgICAgIDxzdHlsZSBqc3g+e2BcbiAgICAgICAgICAgICAgICAgICAgLm5hdmJhcntcbiAgICAgICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6ICM4MkEzQTE7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBgfTwvc3R5bGU+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgKTtcbiAgICB9XG59XG5cbmNvbnN0IFNpbmdlZE91dCA9IHByb3BzID0+KFxuICAgIDxkaXY+XG4gICAgICAgIDxSZWYgbGluayA9ICcuL2xvZ2luJyB0ZXh0ID0gJ3NpbmcgaW4nLz5cbiAgICAgICAgL1xuICAgICAgICA8UmVmIGxpbmsgPSAnLi9zaW5ndXAnIHRleHQgPSAnc2luZyB1cCcvPlxuICAgIDwvZGl2PlxuKTtcblxuY29uc3QgU2luZ091dCA9IHByb3BzID0+KFxuICAgIDxkaXY+XG4gICAgICAgIDxSZWYgbGluayA9ICcuL2FkZHNvbmcnIHRleHQgPSAnYWRkIG5ldyBzb25nJy8+XG4gICAgICAgIDxSZWYgbGluayA9ICcuL3Byb2ZpbGUnIHRleHQgPSAnc2luZyB1cCcvPlxuICAgICAgICA8UmVmIGxpbmsgPSAnLi8nIHRleHQgPSAnbG9nIG91dCcvPlxuICAgIDwvZGl2PlxuKTtcblxuY29uc3QgTG9nbyA9IHByb3BzID0+IChcbiAgICA8ZGl2IGNsYXNzTmFtZSA9ICcnPlxuICAgICAgICA8TGluayBocmVmID0gJyMnPlxuICAgICAgICAgICAgPGEgY2xhc3NOYW1lID0gJ25hdmJhci1icmFuZCc+XG4gICAgICAgICAgICAgICAgICAgICAgICA8aW1nIHNyYz17bG9nb30gYWx0ID0gJ2xvZ28nLz5cbiAgICAgICAgICAgIDwvYT5cbiAgICAgICAgPC9MaW5rPlxuXG4gICAgICAgIFxuICAgIDwvZGl2PlxuKTtcblxuY29uc3QgTWVudUJ1dHRvbiA9IHByb3BzID0+KFxuICAgIDxMaW5rIGhyZWYgPSB7YCR7cHJvcHMuaHJlZn1gfT5cbiAgICAgICAgPGxpIGNsYXNzTmFtZSA9ICduYXYtaXRlbSc+PGEgY2xhc3NOYW1lID0gJ25hdi1saW5rJz57YCR7cHJvcHMubmFtZX1gfTwvYT48L2xpPiAgICBcbiAgICA8L0xpbms+XG4pO1xuXG5jb25zdCBNZW51ID0gcHJvcHMgPT4oXG4gICAgPHVsIGNsYXNzTmFtZSA9ICduYXYnPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0luZm8nIGhyZWYgPSAnLycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ1NvbmdzJyBocmVmID0gJy9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJy9Db21wUGFnZXMvY29tcHMnLz5cbiAgICAgICAgey8qIDxNZW51QnV0dG9uIG5hbWUgPSAnQ2hvcmRzJyBocmVmID0gJyMnLz4gKi99XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnQXJ0aWNsZXMnIGhyZWYgPSAnL0FydGljbGVzL2FydGljbGVzJy8+XG4gICAgICAgIHsvKiA8TWVudUJ1dHRvbiBuYW1lID0gJ1NpbmcgaW4nIGhyZWYgPSAnL2xvZ2luJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnU2luZyB1cCcgaHJlZiA9ICcvc2luZ3VwJyAvPiAqL31cbiAgICA8L3VsPlxuXG4gICAgXG4pO1xuXG5jb25zdCBTZWFyY2hCb3ggPSBwcm9wcyA9PihcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNlYXJjaEJveFwiPlxuICAgICAgICBcbiAgICAgICAgPGRpdiBpZCA9ICdncm91cCcgY2xhc3NOYW1lPVwiaW5wdXQtZ3JvdXBcIj4gXG4gICAgICAgICAgICA8aW5wdXQgaWQgPSAnc2VhcmNoJyBvbkNoYW5nZSA9IHtwcm9wcy5vbkNoYW5nZX0gdHlwZT1cInRleHRcIiBjbGFzc05hbWU9XCJmb3JtLWNvbnRyb2xcIiBuYW1lPVwieFwiIHBsYWNlaG9sZGVyPVwiU2VhcmNoXCIvPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiaW5wdXQtZ3JvdXAtYnRuXCI+XG4gICAgICAgICAgICAgICAgPGJ1dHRvbiAgY2xhc3NOYW1lID0gJ3NlYXJjaEJ1dHRvbicgdHlwZT1cImJ1dHRvblwiIG9uQ2xpY2sgPSB7cHJvcHMub25DbGlja30+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImdseXBoaWNvbiBnbHlwaGljb24tc2VhcmNoXCI+PC9zcGFuPiAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgIHsvKiA8TGluayBocmVmPScvU2VhcmNoUGFnZXMvW3NlYXJjaF0nIGFzID0ge2AvU2VhcmNoUGFnZXMvJHtwcm9wcy5zZWFyY2h9YH0+XG4gICAgICAgICAgICAgICAgICAgICAgICA8YT5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW1nIGNsYXNzTmFtZSA9ICcubG9nbycgc3JjID0gJy4uLy4uL3N0YXRpYy9zZWFyY2gucG5nJyAvPlxuICAgICAgICAgICAgICAgICAgICAgICAgPC9hPlxuICAgICAgICAgICAgICAgICAgICA8L0xpbms+ICovfVxuICAgICAgICAgICAgICAgICAgICA8aW1nIGNsYXNzTmFtZSA9ICcubG9nbycgc3JjID0gJy4uLy4uL3N0YXRpYy9zZWFyY2gucG5nJyAvPlxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICA8L2Rpdj4gXG4gICAgPC9kaXY+XG5cbik7XG5cblxuXG5jb25zdCBCdXJnZXIgPSBwcm9wcyA9PihcbiAgICA8c3BhbiBjbGFzc05hbWUgPVwib3Blbi1zbGlkZVwiPlxuICAgICAgICA8YSBocmVmPVwiI1wiIG9uQ2xpY2sgPSB7cHJvcHMub25DbGlja30+XG4gICAgICAgICAgICA8c3ZnIHdpZHRoID0gXCIzMFwiIGhlaWdodCA9IFwiMzBcIj5cbiAgICAgICAgICAgICAgICA8cGF0aCBkID0gXCJNMCwgNSwgMzAsIDVcIiBzdHJva2UgPSBcIiNmZmZcIiBzdHJva2VXaWR0aD1cIjVcIi8+XG4gICAgICAgICAgICAgICAgPHBhdGggZCA9IFwiTTAsIDE0LCAzMCwgMTRcIiBzdHJva2UgPSBcIiNmZmZcIiBzdHJva2VXaWR0aD1cIjVcIi8+XG4gICAgICAgICAgICAgICAgPHBhdGggZCA9IFwiTTAsIDIzLCAzMCwgMjNcIiBzdHJva2UgPSBcIiNmZmZcIiBzdHJva2VXaWR0aD1cIjVcIi8+XG4gICAgICAgICAgICA8L3N2Zz5cbiAgICAgICAgPC9hPlxuICAgIDwvc3Bhbj5cbiAgICBcbik7XG5cbmNvbnN0IFNpZGVNZW51ID0gcHJvcHMgPT4oXG4gICAgPGRpdiBpZCA9IFwic2lkZS1tZW51XCIgY2xhc3NOYW1lID0gXCJzaWRlLW5hdlwiPlxuICAgICAgICA8YSBocmVmPVwiI1wiIGNsYXNzTmFtZSA9IFwiYnRuLWNsb3NlXCIgb25DbGljayA9IHtwcm9wcy5vbkNsaWNrfT4mdGltZXM7PC9hPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0luZm8nIGhyZWYgPSAnLycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ1NvbmdzJyBocmVmID0gJy9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJy9Db21wUGFnZXMvY29tcHMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdBcnRpY2xlcycgaHJlZiA9ICcvQXJ0aWNsZXMvYXJ0aWNsZXMnLz5cbiAgICAgICAgey8qIDxNZW51QnV0dG9uIG5hbWUgPSAnU2luZyBpbicgaHJlZiA9ICcvbG9naW4nLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdTaW5nIHVwJyBocmVmID0gJy9zaW5ndXAnIC8+ICovfVxuICAgIDwvZGl2PlxuKTtcblxuY29uc3QgUmVmID0gcHJvcHMgPT4oXG4gICAgPExpbmsgaHJlZiA9IHtgLyR7cHJvcHMubGlua31gfT5cbiAgICAgICAgPGE+e3Byb3BzLnRleHR9PC9hPlxuICAgIDwvTGluaz5cbilcblxuXG5leHBvcnQgZGVmYXVsdCBIZWFkZXI7XG5cblxuIl19 */\n/*@ sourceURL=/home/oem/Documents/Development/Courswork/guitarchords/components/Header/Header.jsx */"));
+      }, ".navbar.jsx-2081448487{background:#82A3A1;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ZsYWQvRG9jdW1lbnRzL0RldmVsb3BtZW50L3Byb2plY3RzL1lvdXJDaG9yZHMvZ3VpdGFyY2hvcmRzL2NvbXBvbmVudHMvSGVhZGVyL0hlYWRlci5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBa0U0QixBQUc0QyxtQkFDdkIiLCJmaWxlIjoiL2hvbWUvdmxhZC9Eb2N1bWVudHMvRGV2ZWxvcG1lbnQvcHJvamVjdHMvWW91ckNob3Jkcy9ndWl0YXJjaG9yZHMvY29tcG9uZW50cy9IZWFkZXIvSGVhZGVyLmpzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyBDb21wb25lbnQgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xuaW1wb3J0IGxvZ28gZnJvbSAnLi4vLi4vc3RhdGljL2xvZ28ucG5nJztcbmltcG9ydCAnYm9vdHN0cmFwL2Rpc3QvY3NzL2Jvb3RzdHJhcC5taW4uY3NzJztcbmltcG9ydCAnLi4vLi4vU3R5bGVzL0hlYWRlclN0eWxlL0hlYWRlclN0eWxlLmNzcyc7XG5pbXBvcnQgRWRpdFF1ZXJ5IGZyb20gJy4vRWRpdFF1ZXJ5L0VkaXRRdWVyeSc7XG5cblxuY2xhc3MgSGVhZGVyIGV4dGVuZHMgQ29tcG9uZW50e1xuICAgIGNvbnN0cnVjdG9yKHByb3BzKXtcbiAgICAgICAgc3VwZXIocHJvcHMpO1xuICAgICAgICB0aGlzLnN0YXRlID0ge1xuICAgICAgICAgICAgU2VhcmNoOiBcIlwiLFxuICAgICAgICAgICAgZm9ybUVycm9yczp7XG4gICAgICAgICAgICAgICAgc2VhcmNoOiB0cnVlXG4gICAgICAgICAgICB9XG4gICAgICAgIH07XG4gICAgfVxuXG4gICAgb3BlblNsaWRlTWVudSA9IGUgPT4ge1xuICAgICAgICAvLyBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjc2lkZS1tZW51XCIpLnN0eWxlLndpZHRoID0gXCIyNTBweFwiO1xuICAgICAgIC8vIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJib2R5XCIpLnN0eWxlLm1hcmdpbkxlZnQgPSBcIjI1MHB4XCI7XG4gICAgICAgIFxuICAgIH1cblxuICAgIGNsb3NlU2xpZGVNZW51ID0gZSA9PiB7XG4gICAgICAgIC8vIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICBcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNzaWRlLW1lbnVcIikuc3R5bGUud2lkdGggPSBcIjBweFwiO1xuICAgICAgIC8vIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJib2R5XCIpLnN0eWxlLm1hcmdpbkxlZnQgPSBcIjBweFwiO1xuICAgICAgICBcbiAgICB9XG5cblxuICAgIGhhbmRsZUNoYW5nZSA9IGUgPT57XG4gICAgICAgIFxuICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgIGNvbnN0IHtuYW1lLCB2YWx1ZX0gPSBlLnRhcmdldDtcbiAgICAgICAgXG4gICAgICAgIGlmKHZhbHVlLmxlbmd0aCA+IDAgJiYgdmFsdWUubGVuZ3RoIDwgNjQpXG4gICAgICAgIHt0aGlzLnNldFN0YXRlKHtTZWFyY2g6IEVkaXRRdWVyeSh2YWx1ZSl9KTt9XG4gICAgICAgIGVsc2V7XG4gICAgICAgICAgICBhbGVydCgnSW52YWxpZCBzZWFyY2ggZGF0YScpO1xuICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignI3NlYXJjaCcpLnZhbHVlID0gJyc7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICBoYW5kbGVDbGljayA9IGUgPT57XG4gICAgICAgIGUucHJldmVudERlZmF1bHQoKTtcbiAgICAgICAgd2luZG93LmxvY2F0aW9uLmhyZWYgPSAnL1NlYXJjaFBhZ2VzLycgKyB0aGlzLnN0YXRlLlNlYXJjaDtcbiAgICB9XG5cbiAgICByZW5kZXIoKXtcbiAgICAgICAgcmV0dXJuKFxuICAgICAgICAgICAgXG4gICAgICAgICAgICA8ZGl2ID5cbiAgICAgICAgICAgICAgICA8bmF2IGNsYXNzTmFtZSA9ICduYXZiYXInPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZSA9ICdjb250YWluZXItZmx1aWQnPlxuICAgICAgICAgICAgICAgICAgICA8U2lkZU1lbnUgb25DbGljayA9IHt0aGlzLmNsb3NlU2xpZGVNZW51fS8+XG4gICAgICAgICAgICAgICAgICAgIDxCdXJnZXIgb25DbGljayA9IHt0aGlzLm9wZW5TbGlkZU1lbnV9Lz5cbiAgICAgICAgICAgICAgICAgICAgPE1lbnUvPlxuICAgICAgICAgICAgICAgICAgICA8U2VhcmNoQm94IG9uQ2hhbmdlID0ge3RoaXMuaGFuZGxlQ2hhbmdlfSAgc2VhcmNoID0ge3RoaXMuc3RhdGUuU2VhcmNofSBvbkNsaWNrID0ge3RoaXMuaGFuZGxlQ2xpY2t9Lz5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9uYXY+XG5cbiAgICAgICAgICAgICAgICA8c3R5bGUganN4PntgXG4gICAgICAgICAgICAgICAgICAgIC5uYXZiYXJ7XG4gICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiAjODJBM0ExO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgYH08L3N0eWxlPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICk7XG4gICAgfVxufVxuXG5jb25zdCBTaW5nZWRPdXQgPSBwcm9wcyA9PihcbiAgICA8ZGl2PlxuICAgICAgICA8UmVmIGxpbmsgPSAnLi9sb2dpbicgdGV4dCA9ICdzaW5nIGluJy8+XG4gICAgICAgIC9cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vc2luZ3VwJyB0ZXh0ID0gJ3NpbmcgdXAnLz5cbiAgICA8L2Rpdj5cbik7XG5cbmNvbnN0IFNpbmdPdXQgPSBwcm9wcyA9PihcbiAgICA8ZGl2PlxuICAgICAgICA8UmVmIGxpbmsgPSAnLi9hZGRzb25nJyB0ZXh0ID0gJ2FkZCBuZXcgc29uZycvPlxuICAgICAgICA8UmVmIGxpbmsgPSAnLi9wcm9maWxlJyB0ZXh0ID0gJ3NpbmcgdXAnLz5cbiAgICAgICAgPFJlZiBsaW5rID0gJy4vJyB0ZXh0ID0gJ2xvZyBvdXQnLz5cbiAgICA8L2Rpdj5cbik7XG5cbmNvbnN0IExvZ28gPSBwcm9wcyA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWUgPSAnJz5cbiAgICAgICAgPExpbmsgaHJlZiA9ICcjJz5cbiAgICAgICAgICAgIDxhIGNsYXNzTmFtZSA9ICduYXZiYXItYnJhbmQnPlxuICAgICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9e2xvZ299IGFsdCA9ICdsb2dvJy8+XG4gICAgICAgICAgICA8L2E+XG4gICAgICAgIDwvTGluaz5cblxuICAgICAgICBcbiAgICA8L2Rpdj5cbik7XG5cbmNvbnN0IE1lbnVCdXR0b24gPSBwcm9wcyA9PihcbiAgICA8TGluayBocmVmID0ge2Ake3Byb3BzLmhyZWZ9YH0+XG4gICAgICAgIDxsaSBjbGFzc05hbWUgPSAnbmF2LWl0ZW0nPjxhIGNsYXNzTmFtZSA9ICduYXYtbGluayc+e2Ake3Byb3BzLm5hbWV9YH08L2E+PC9saT4gICAgXG4gICAgPC9MaW5rPlxuKTtcblxuY29uc3QgTWVudSA9IHByb3BzID0+KFxuICAgIDx1bCBjbGFzc05hbWUgPSAnbmF2Jz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdJbmZvJyBocmVmID0gJy8nLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdTb25ncycgaHJlZiA9ICcvc29uZ3MnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdDb21wb3NpdG9ycycgaHJlZiA9ICcvQ29tcFBhZ2VzL2NvbXBzJy8+XG4gICAgICAgIDxNZW51QnV0dG9uIG5hbWUgPSAnQXJ0aWNsZXMnIGhyZWYgPSAnL0FydGljbGVzL2FydGljbGVzJy8+XG4gICAgPC91bD5cblxuICAgIFxuKTtcblxuY29uc3QgU2VhcmNoQm94ID0gcHJvcHMgPT4oXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzZWFyY2hCb3hcIj5cbiAgICAgICAgXG4gICAgICAgIDxkaXYgaWQgPSAnZ3JvdXAnIGNsYXNzTmFtZT1cImlucHV0LWdyb3VwXCI+IFxuICAgICAgICAgICAgPGlucHV0IGlkID0gJ3NlYXJjaCcgb25DaGFuZ2UgPSB7cHJvcHMub25DaGFuZ2V9IHR5cGU9XCJ0ZXh0XCIgY2xhc3NOYW1lPVwiZm9ybS1jb250cm9sXCIgbmFtZT1cInhcIiBwbGFjZWhvbGRlcj1cIlNlYXJjaFwiLz5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImlucHV0LWdyb3VwLWJ0blwiPlxuICAgICAgICAgICAgICAgIDxidXR0b24gIGNsYXNzTmFtZSA9ICdzZWFyY2hCdXR0b24nIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrID0ge3Byb3BzLm9uQ2xpY2t9PlxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJnbHlwaGljb24gZ2x5cGhpY29uLXNlYXJjaFwiPjwvc3Bhbj4gICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICA8aW1nIGNsYXNzTmFtZSA9ICcubG9nbycgc3JjID0gJy4uLy4uL3N0YXRpYy9zZWFyY2gucG5nJyAvPlxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICA8L2Rpdj4gXG4gICAgPC9kaXY+XG5cbik7XG5cblxuXG5jb25zdCBCdXJnZXIgPSBwcm9wcyA9PihcbiAgICA8c3BhbiBjbGFzc05hbWUgPVwib3Blbi1zbGlkZVwiPlxuICAgICAgICA8YSBocmVmPVwiI1wiIG9uQ2xpY2sgPSB7cHJvcHMub25DbGlja30+XG4gICAgICAgICAgICA8c3ZnIHdpZHRoID0gXCIzMFwiIGhlaWdodCA9IFwiMzBcIj5cbiAgICAgICAgICAgICAgICA8cGF0aCBkID0gXCJNMCwgNSwgMzAsIDVcIiBzdHJva2UgPSBcIiNmZmZcIiBzdHJva2VXaWR0aD1cIjVcIi8+XG4gICAgICAgICAgICAgICAgPHBhdGggZCA9IFwiTTAsIDE0LCAzMCwgMTRcIiBzdHJva2UgPSBcIiNmZmZcIiBzdHJva2VXaWR0aD1cIjVcIi8+XG4gICAgICAgICAgICAgICAgPHBhdGggZCA9IFwiTTAsIDIzLCAzMCwgMjNcIiBzdHJva2UgPSBcIiNmZmZcIiBzdHJva2VXaWR0aD1cIjVcIi8+XG4gICAgICAgICAgICA8L3N2Zz5cbiAgICAgICAgPC9hPlxuICAgIDwvc3Bhbj5cbiAgICBcbik7XG5cbmNvbnN0IFNpZGVNZW51ID0gcHJvcHMgPT4oXG4gICAgPGRpdiBpZCA9IFwic2lkZS1tZW51XCIgY2xhc3NOYW1lID0gXCJzaWRlLW5hdlwiPlxuICAgICAgICA8YSBocmVmPVwiI1wiIGNsYXNzTmFtZSA9IFwiYnRuLWNsb3NlXCIgb25DbGljayA9IHtwcm9wcy5vbkNsaWNrfT4mdGltZXM7PC9hPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0luZm8nIGhyZWYgPSAnLycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ1NvbmdzJyBocmVmID0gJy9zb25ncycvPlxuICAgICAgICA8TWVudUJ1dHRvbiBuYW1lID0gJ0NvbXBvc2l0b3JzJyBocmVmID0gJy9Db21wUGFnZXMvY29tcHMnLz5cbiAgICAgICAgPE1lbnVCdXR0b24gbmFtZSA9ICdBcnRpY2xlcycgaHJlZiA9ICcvQXJ0aWNsZXMvYXJ0aWNsZXMnLz5cbiAgICA8L2Rpdj5cbik7XG5cbmNvbnN0IFJlZiA9IHByb3BzID0+KFxuICAgIDxMaW5rIGhyZWYgPSB7YC8ke3Byb3BzLmxpbmt9YH0+XG4gICAgICAgIDxhPntwcm9wcy50ZXh0fTwvYT5cbiAgICA8L0xpbms+XG4pXG5cblxuZXhwb3J0IGRlZmF1bHQgSGVhZGVyO1xuXG5cbiJdfQ== */\n/*@ sourceURL=/home/vlad/Documents/Development/projects/YourChords/guitarchords/components/Header/Header.jsx */"));
     }
   }]);
 
@@ -182,7 +181,7 @@ var SingedOut = function SingedOut(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 78
     },
     __self: this
   }, __jsx(Ref, {
@@ -190,7 +189,7 @@ var SingedOut = function SingedOut(props) {
     text: "sing in",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 79
     },
     __self: this
   }), "/", __jsx(Ref, {
@@ -198,7 +197,7 @@ var SingedOut = function SingedOut(props) {
     text: "sing up",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 81
     },
     __self: this
   }));
@@ -208,7 +207,7 @@ var SingOut = function SingOut(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 86
     },
     __self: this
   }, __jsx(Ref, {
@@ -216,7 +215,7 @@ var SingOut = function SingOut(props) {
     text: "add new song",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 87
     },
     __self: this
   }), __jsx(Ref, {
@@ -224,7 +223,7 @@ var SingOut = function SingOut(props) {
     text: "sing up",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 88
     },
     __self: this
   }), __jsx(Ref, {
@@ -232,7 +231,7 @@ var SingOut = function SingOut(props) {
     text: "log out",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 89
     },
     __self: this
   }));
@@ -243,21 +242,21 @@ var Logo = function Logo(props) {
     className: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97
+      lineNumber: 94
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98
+      lineNumber: 95
     },
     __self: this
   }, __jsx("a", {
     className: "navbar-brand",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 96
     },
     __self: this
   }, __jsx("img", {
@@ -265,7 +264,7 @@ var Logo = function Logo(props) {
     alt: "logo",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 97
     },
     __self: this
   }))));
@@ -276,21 +275,21 @@ var MenuButton = function MenuButton(props) {
     href: "".concat(props.href),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 106
     },
     __self: this
   }, __jsx("li", {
     className: "nav-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 107
     },
     __self: this
   }, __jsx("a", {
     className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 107
     },
     __self: this
   }, "".concat(props.name))));
@@ -301,7 +300,7 @@ var Menu = function Menu(props) {
     className: "nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 112
     },
     __self: this
   }, __jsx(MenuButton, {
@@ -309,7 +308,7 @@ var Menu = function Menu(props) {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116
+      lineNumber: 113
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -317,7 +316,7 @@ var Menu = function Menu(props) {
     href: "/songs",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117
+      lineNumber: 114
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -325,7 +324,7 @@ var Menu = function Menu(props) {
     href: "/CompPages/comps",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118
+      lineNumber: 115
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -333,7 +332,7 @@ var Menu = function Menu(props) {
     href: "/Articles/articles",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120
+      lineNumber: 116
     },
     __self: this
   }));
@@ -344,7 +343,7 @@ var SearchBox = function SearchBox(props) {
     className: "searchBox",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 123
     },
     __self: this
   }, __jsx("div", {
@@ -352,7 +351,7 @@ var SearchBox = function SearchBox(props) {
     className: "input-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131
+      lineNumber: 125
     },
     __self: this
   }, __jsx("input", {
@@ -364,14 +363,14 @@ var SearchBox = function SearchBox(props) {
     placeholder: "Search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132
+      lineNumber: 126
     },
     __self: this
   }), __jsx("span", {
     className: "input-group-btn",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133
+      lineNumber: 127
     },
     __self: this
   }, __jsx("button", {
@@ -380,14 +379,14 @@ var SearchBox = function SearchBox(props) {
     onClick: props.onClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134
+      lineNumber: 128
     },
     __self: this
   }, __jsx("span", {
     className: "glyphicon glyphicon-search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135
+      lineNumber: 129
     },
     __self: this
   }), __jsx("img", {
@@ -395,7 +394,7 @@ var SearchBox = function SearchBox(props) {
     src: "../../static/search.png",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141
+      lineNumber: 130
     },
     __self: this
   })))));
@@ -406,7 +405,7 @@ var Burger = function Burger(props) {
     className: "open-slide",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152
+      lineNumber: 141
     },
     __self: this
   }, __jsx("a", {
@@ -414,7 +413,7 @@ var Burger = function Burger(props) {
     onClick: props.onClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153
+      lineNumber: 142
     },
     __self: this
   }, __jsx("svg", {
@@ -422,7 +421,7 @@ var Burger = function Burger(props) {
     height: "30",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154
+      lineNumber: 143
     },
     __self: this
   }, __jsx("path", {
@@ -431,7 +430,7 @@ var Burger = function Burger(props) {
     strokeWidth: "5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
+      lineNumber: 144
     },
     __self: this
   }), __jsx("path", {
@@ -440,7 +439,7 @@ var Burger = function Burger(props) {
     strokeWidth: "5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 145
     },
     __self: this
   }), __jsx("path", {
@@ -449,7 +448,7 @@ var Burger = function Burger(props) {
     strokeWidth: "5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157
+      lineNumber: 146
     },
     __self: this
   }))));
@@ -461,7 +460,7 @@ var SideMenu = function SideMenu(props) {
     className: "side-nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165
+      lineNumber: 154
     },
     __self: this
   }, __jsx("a", {
@@ -470,7 +469,7 @@ var SideMenu = function SideMenu(props) {
     onClick: props.onClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166
+      lineNumber: 155
     },
     __self: this
   }, "\xD7"), __jsx(MenuButton, {
@@ -478,7 +477,7 @@ var SideMenu = function SideMenu(props) {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167
+      lineNumber: 156
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -486,7 +485,7 @@ var SideMenu = function SideMenu(props) {
     href: "/songs",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168
+      lineNumber: 157
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -494,7 +493,7 @@ var SideMenu = function SideMenu(props) {
     href: "/CompPages/comps",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169
+      lineNumber: 158
     },
     __self: this
   }), __jsx(MenuButton, {
@@ -502,7 +501,7 @@ var SideMenu = function SideMenu(props) {
     href: "/Articles/articles",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 170
+      lineNumber: 159
     },
     __self: this
   }));
@@ -513,13 +512,13 @@ var Ref = function Ref(props) {
     href: "/".concat(props.link),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177
+      lineNumber: 164
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178
+      lineNumber: 165
     },
     __self: this
   }, props.text));
@@ -543,7 +542,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Properties/ActiveLink.jsx";
+var _jsxFileName = "/home/vlad/Documents/Development/projects/YourChords/guitarchords/components/Properties/ActiveLink.jsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -586,175 +585,156 @@ function ActiveLink(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-int */ "./node_modules/@babel/runtime-corejs2/core-js/parse-int.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _Styles_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Styles/SongStyle/SongStyle.css */ "./Styles/SongStyle/SongStyle.css");
-/* harmony import */ var _Styles_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_Styles_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Styles_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Styles/SongStyle/SongStyle.css */ "./Styles/SongStyle/SongStyle.css");
+/* harmony import */ var _Styles_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Styles_SongStyle_SongStyle_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _urls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../urls */ "./components/urls.js");
+/* harmony import */ var react_loader_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-loader-spinner */ "./node_modules/react-loader-spinner/index.js");
+/* harmony import */ var react_loader_spinner__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_loader_spinner__WEBPACK_IMPORTED_MODULE_5__);
+
+var _jsxFileName = "/home/vlad/Documents/Development/projects/YourChords/guitarchords/components/Songs/song.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
 
 
-var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/components/Songs/song.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
+function Song(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
+      song = _useState[0],
+      setSong = _useState[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    var dir = window.location.pathname.substr(1);
 
+    var sId = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(dir, 10);
 
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_urls__WEBPACK_IMPORTED_MODULE_4__["SONG"] + sId + '').then(function (response) {
+      return setSong(response.data);
+    });
+  });
 
-
-var Song =
-/*#__PURE__*/
-function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Song, _Component);
-
-  function Song(props) {
-    var _this;
-
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Song);
-
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Song).call(this, props));
-    _this.state = {
-      song: [],
-      data: null
-    };
-    return _this;
+  if (song !== null) {
+    return __jsx(SongView, {
+      song: song,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    });
+  } else {
+    return __jsx(react_loader_spinner__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      type: "Puff",
+      color: "#00BFFF",
+      height: 100,
+      width: 100,
+      timeout: 3000,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    });
   }
+}
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Song, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var dir = window.location.pathname.substr(1);
-
-      var sId = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(dir, 10);
-
-      console.log();
-      axios__WEBPACK_IMPORTED_MODULE_8___default.a.get('http://localhost:3210/song', {
-        params: {
-          id: sId
-        }
-      }).then(function (response) {
-        _this2.setState({
-          song: response.data
-        }); //console.log(song.response.data);
-
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      // const router = useRouter()
-      //const {id} = router.query
-      return __jsx("div", {
-        className: "songText",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 40
-        },
-        __self: this
-      }, this.state.song.map(function (value) {
-        return __jsx("div", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 44
-          },
-          __self: this
-        }, __jsx(SongHead, {
-          compName: _this3.state.song[0].cname,
-          name: _this3.state.song[0].name,
-          capo: "".concat(_this3.state.song[0].capo),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 45
-          },
-          __self: this
-        }), __jsx(SongText, {
-          text: value.text,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 46
-          },
-          __self: this
-        }));
-      }), ";");
-    }
-  }]);
-
-  return Song;
-}(react__WEBPACK_IMPORTED_MODULE_6__["Component"]);
+function SongView(props) {
+  var songName = props.song.name;
+  var songCompositor = props.song.cname;
+  var songCapo = props.song.capo;
+  var songText = props.song.text;
+  return __jsx("div", {
+    className: "songText",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }, __jsx(SongHead, {
+    compName: songCompositor,
+    name: songName,
+    capo: songCapo,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
+    },
+    __self: this
+  }), __jsx(SongText, {
+    text: songText,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: this
+  }));
+}
 
 var SongHead = function SongHead(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 47
     },
     __self: this
   }, __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 48
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 48
     },
     __self: this
   }, props.compName), __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 49
     },
     __self: this
   }, props.name)), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 50
     },
     __self: this
   }, __jsx("h6", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 50
     },
     __self: this
   }, "Capo: ", props.capo)), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 51
     },
     __self: this
   }, "----------------------------"));
 };
 
 var SongText = function SongText(props) {
+  var text = props.text;
+  text = JSON.parse(text);
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 61
     },
     __self: this
-  }, props.text.map(function (value, index) {
+  }, text.map(function (value, index) {
     return __jsx(SongVerse, {
       verse: value,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 64
       },
       __self: this
     });
@@ -765,7 +745,7 @@ var SongVerse = function SongVerse(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 71
     },
     __self: this
   }, props.verse.map(function (value, index) {
@@ -773,20 +753,20 @@ var SongVerse = function SongVerse(props) {
       line: value,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 74
       },
       __self: this
     });
   }), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 77
     },
     __self: this
   }), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 77
     },
     __self: this
   }));
@@ -796,13 +776,13 @@ var SongLine = function SongLine(props) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 82
     },
     __self: this
   }, __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 83
     },
     __self: this
   }, props.line.map(function (value, index) {
@@ -811,14 +791,14 @@ var SongLine = function SongLine(props) {
       chord: value.chord,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 86
       },
       __self: this
     });
   })), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 91
     },
     __self: this
   }));
@@ -829,25 +809,60 @@ var WordBlock = function WordBlock(props) {
     className: "word",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 96
     },
     __self: this
   }, props.chord, __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107
+      lineNumber: 97
     },
     __self: this
   }), props.words, "\xA0", __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 99
     },
     __self: this
   }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Song);
+
+/***/ }),
+
+/***/ "./components/urls.js":
+/*!****************************!*\
+  !*** ./components/urls.js ***!
+  \****************************/
+/*! exports provided: SONG, ALL_SONGS, ADD_SONG, ALL_COMPOSITORS, ALL_SONGS_OF_COMPOSITOR, ARTICLE, ALL_ARTICLES, ADD_ARTICLE, SEARH_SONG, SEARCH_ARTICLE, SEARCH_COMPOSITOR */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SONG", function() { return SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_SONGS", function() { return ALL_SONGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_SONG", function() { return ADD_SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_COMPOSITORS", function() { return ALL_COMPOSITORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_SONGS_OF_COMPOSITOR", function() { return ALL_SONGS_OF_COMPOSITOR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ARTICLE", function() { return ARTICLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_ARTICLES", function() { return ALL_ARTICLES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_ARTICLE", function() { return ADD_ARTICLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARH_SONG", function() { return SEARH_SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_ARTICLE", function() { return SEARCH_ARTICLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_COMPOSITOR", function() { return SEARCH_COMPOSITOR; });
+var BASE_URL = 'http://127.0.0.1:8000/';
+var SONG = BASE_URL + 'song/';
+var ALL_SONGS = BASE_URL + 'allSongs/';
+var ADD_SONG = BASE_URL + 'addSong/';
+var ALL_COMPOSITORS = BASE_URL + 'allComp/';
+var ALL_SONGS_OF_COMPOSITOR = BASE_URL + 'allSongsOfC/';
+var ARTICLE = BASE_URL + 'article/';
+var ALL_ARTICLES = BASE_URL + 'ArticlesView/';
+var ADD_ARTICLE = BASE_URL + 'addArticle/';
+var SEARH_SONG = BASE_URL + 'searchS/';
+var SEARCH_ARTICLE = BASE_URL + 'searchA/';
+var SEARCH_COMPOSITOR = BASE_URL + 'searchC/';
 
 /***/ }),
 
@@ -7550,12 +7565,12 @@ var e,t=(e=__webpack_require__(/*! querystring */ "./node_modules/querystring-es
 
 /***/ "./node_modules/next/dist/build/polyfills/object-assign.js":
 /*!***********************************************************************************************************************!*\
-  !*** delegated ./node_modules/next/dist/build/polyfills/object-assign.js from dll-reference dll_ef0ff7c60362f24a921f ***!
+  !*** delegated ./node_modules/next/dist/build/polyfills/object-assign.js from dll-reference dll_5f137288facb1107b491 ***!
   \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f */ "dll-reference dll_ef0ff7c60362f24a921f"))("./node_modules/next/dist/build/polyfills/object-assign.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491 */ "dll-reference dll_5f137288facb1107b491"))("./node_modules/next/dist/build/polyfills/object-assign.js");
 
 /***/ }),
 
@@ -7571,10 +7586,10 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Foem%2FDocuments%2FDevelopment%2FCourswork%2Fguitarchords%2Fpages%2F%5Bsong%5D.js!./":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Foem%2FDocuments%2FDevelopment%2FCourswork%2Fguitarchords%2Fpages%2F%5Bsong%5D.js ***!
-  \*****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Fvlad%2FDocuments%2FDevelopment%2Fprojects%2FYourChords%2Fguitarchords%2Fpages%2F%5Bsong%5D.js!./":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Fvlad%2FDocuments%2FDevelopment%2Fprojects%2FYourChords%2Fguitarchords%2Fpages%2F%5Bsong%5D.js ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9641,12 +9656,12 @@ module.exports = exports['default'];
 
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!*********************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_ef0ff7c60362f24a921f ***!
+  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_5f137288facb1107b491 ***!
   \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f */ "dll-reference dll_ef0ff7c60362f24a921f"))("./node_modules/prop-types/checkPropTypes.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491 */ "dll-reference dll_5f137288facb1107b491"))("./node_modules/prop-types/checkPropTypes.js");
 
 /***/ }),
 
@@ -10281,12 +10296,12 @@ if (true) {
 
 /***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
 /*!*******************************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_ef0ff7c60362f24a921f ***!
+  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_5f137288facb1107b491 ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f */ "dll-reference dll_ef0ff7c60362f24a921f"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491 */ "dll-reference dll_5f137288facb1107b491"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 
 /***/ }),
 
@@ -10755,14 +10770,2126 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-loader-spinner/dist/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"), __webpack_require__(/*! ./loader */ "./node_modules/react-loader-spinner/dist/loader/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes, _loader) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Loader;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var _slicedToArray = function () {
+    function sliceIterator(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"]) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    return function (arr, i) {
+      if (Array.isArray(arr)) {
+        return arr;
+      } else if (Symbol.iterator in Object(arr)) {
+        return sliceIterator(arr, i);
+      } else {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }
+    };
+  }();
+
+  var componentNames = ["Audio", "BallTriangle", "Bars", "Circles", "Grid", "Hearts", "Oval", "Puff", "Rings", "TailSpin", "ThreeDots", "Watch", "RevolvingDot", "Triangle", "Plane", "MutatingDots", "CradleLoader"];
+
+  function componentName(type) {
+    if (componentNames.includes(type)) {
+      return _loader.Spinner[type];
+    }
+    return _loader.Spinner.Audio;
+  }
+
+  /**
+   * @return {null}
+   */
+  function Loader(props) {
+    var _useState = (0, _react.useState)(true),
+        _useState2 = _slicedToArray(_useState, 2),
+        display = _useState2[0],
+        setDisplay = _useState2[1];
+
+    (0, _react.useEffect)(function () {
+      var timer = void 0;
+      if (props.timeout && props.timeout > 0) {
+        timer = setTimeout(function () {
+          setDisplay(false);
+        }, props.timeout);
+      }
+
+      return function () {
+        if (timer) clearTimeout(timer);
+      };
+    });
+
+    if (!props.visible || props.visible === "false") {
+      return null;
+    }
+    return display ? _react2.default.createElement(
+      "div",
+      { "aria-busy": "true", className: props.className, style: props.style },
+      _react2.default.createElement(componentName(props.type), _extends({}, props))
+    ) : null;
+  }
+
+  Loader.propTypes = {
+    type: _propTypes2.default.oneOf([].concat(componentNames)),
+    style: _propTypes2.default.objectOf(_propTypes2.default.string),
+    className: _propTypes2.default.string,
+    visible: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.string]),
+    timeout: _propTypes2.default.number
+  };
+
+  Loader.defaultProps = {
+    type: "Audio",
+    style: {},
+    className: "",
+    visible: true,
+    timeout: 0
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Audio.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Audio.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Audio = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Audio = exports.Audio = function Audio(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        height: props.height,
+        width: props.width,
+        fill: props.color,
+        viewBox: "0 0 55 80",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "g",
+        { transform: "matrix(1 0 0 -1 0 80)" },
+        _react2.default.createElement(
+          "rect",
+          { width: "10", height: "20", rx: "3" },
+          _react2.default.createElement("animate", {
+            attributeName: "height",
+            begin: "0s",
+            dur: "4.3s",
+            values: "20;45;57;80;64;32;66;45;64;23;66;13;64;56;34;34;2;23;76;79;20",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        ),
+        _react2.default.createElement(
+          "rect",
+          { x: "15", width: "10", height: "80", rx: "3" },
+          _react2.default.createElement("animate", {
+            attributeName: "height",
+            begin: "0s",
+            dur: "2s",
+            values: "80;55;33;5;75;23;73;33;12;14;60;80",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        ),
+        _react2.default.createElement(
+          "rect",
+          { x: "30", width: "10", height: "50", rx: "3" },
+          _react2.default.createElement("animate", {
+            attributeName: "height",
+            begin: "0s",
+            dur: "1.4s",
+            values: "50;34;78;23;56;23;34;76;80;54;21;50",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        ),
+        _react2.default.createElement(
+          "rect",
+          { x: "45", width: "10", height: "30", rx: "3" },
+          _react2.default.createElement("animate", {
+            attributeName: "height",
+            begin: "0s",
+            dur: "2s",
+            values: "30;45;13;80;56;72;45;76;34;23;67;30",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        )
+      )
+    );
+  };
+
+  Audio.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string
+  };
+
+  Audio.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/BallTriangle.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/BallTriangle.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.BallTriangle = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var BallTriangle = exports.BallTriangle = function BallTriangle(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        height: props.height,
+        width: props.width,
+        stroke: props.color,
+        viewBox: "0 0 57 57",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "g",
+        { fill: "none", fillRule: "evenodd" },
+        _react2.default.createElement(
+          "g",
+          { transform: "translate(1 1)", strokeWidth: "2" },
+          _react2.default.createElement(
+            "circle",
+            { cx: "5", cy: "50", r: props.radius },
+            _react2.default.createElement("animate", {
+              attributeName: "cy",
+              begin: "0s",
+              dur: "2.2s",
+              values: "50;5;50;50",
+              calcMode: "linear",
+              repeatCount: "indefinite"
+            }),
+            _react2.default.createElement("animate", {
+              attributeName: "cx",
+              begin: "0s",
+              dur: "2.2s",
+              values: "5;27;49;5",
+              calcMode: "linear",
+              repeatCount: "indefinite"
+            })
+          ),
+          _react2.default.createElement(
+            "circle",
+            { cx: "27", cy: "5", r: props.radius },
+            _react2.default.createElement("animate", {
+              attributeName: "cy",
+              begin: "0s",
+              dur: "2.2s",
+              from: "5",
+              to: "5",
+              values: "5;50;50;5",
+              calcMode: "linear",
+              repeatCount: "indefinite"
+            }),
+            _react2.default.createElement("animate", {
+              attributeName: "cx",
+              begin: "0s",
+              dur: "2.2s",
+              from: "27",
+              to: "27",
+              values: "27;49;5;27",
+              calcMode: "linear",
+              repeatCount: "indefinite"
+            })
+          ),
+          _react2.default.createElement(
+            "circle",
+            { cx: "49", cy: "50", r: props.radius },
+            _react2.default.createElement("animate", {
+              attributeName: "cy",
+              begin: "0s",
+              dur: "2.2s",
+              values: "50;50;5;50",
+              calcMode: "linear",
+              repeatCount: "indefinite"
+            }),
+            _react2.default.createElement("animate", {
+              attributeName: "cx",
+              from: "49",
+              to: "49",
+              begin: "0s",
+              dur: "2.2s",
+              values: "49;5;27;49",
+              calcMode: "linear",
+              repeatCount: "indefinite"
+            })
+          )
+        )
+      )
+    );
+  };
+
+  BallTriangle.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  BallTriangle.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    radius: 5,
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Bars.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Bars.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Bars = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Bars = exports.Bars = function Bars(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        fill: props.color,
+        viewBox: "0 0 135 140",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "rect",
+        { y: "10", width: "15", height: "120", rx: "6" },
+        _react2.default.createElement("animate", {
+          attributeName: "height",
+          begin: "0.5s",
+          dur: "1s",
+          values: "120;110;100;90;80;70;60;50;40;140;120",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "y",
+          begin: "0.5s",
+          dur: "1s",
+          values: "10;15;20;25;30;35;40;45;50;0;10",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "rect",
+        { x: "30", y: "10", width: "15", height: "120", rx: "6" },
+        _react2.default.createElement("animate", {
+          attributeName: "height",
+          begin: "0.25s",
+          dur: "1s",
+          values: "120;110;100;90;80;70;60;50;40;140;120",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "y",
+          begin: "0.25s",
+          dur: "1s",
+          values: "10;15;20;25;30;35;40;45;50;0;10",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "rect",
+        { x: "60", width: "15", height: "140", rx: "6" },
+        _react2.default.createElement("animate", {
+          attributeName: "height",
+          begin: "0s",
+          dur: "1s",
+          values: "120;110;100;90;80;70;60;50;40;140;120",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "y",
+          begin: "0s",
+          dur: "1s",
+          values: "10;15;20;25;30;35;40;45;50;0;10",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "rect",
+        { x: "90", y: "10", width: "15", height: "120", rx: "6" },
+        _react2.default.createElement("animate", {
+          attributeName: "height",
+          begin: "0.25s",
+          dur: "1s",
+          values: "120;110;100;90;80;70;60;50;40;140;120",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "y",
+          begin: "0.25s",
+          dur: "1s",
+          values: "10;15;20;25;30;35;40;45;50;0;10",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "rect",
+        { x: "120", y: "10", width: "15", height: "120", rx: "6" },
+        _react2.default.createElement("animate", {
+          attributeName: "height",
+          begin: "0.5s",
+          dur: "1s",
+          values: "120;110;100;90;80;70;60;50;40;140;120",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "y",
+          begin: "0.5s",
+          dur: "1s",
+          values: "10;15;20;25;30;35;40;45;50;0;10",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      )
+    );
+  };
+
+  Bars.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string
+  };
+
+  Bars.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Circles.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Circles.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Circles = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Circles = exports.Circles = function Circles(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 135 135",
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "path",
+        { d: "M67.447 58c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm9.448 9.447c0 5.523 4.477 10 10 10 5.522 0 10-4.477 10-10s-4.478-10-10-10c-5.523 0-10 4.477-10 10zm-9.448 9.448c-5.523 0-10 4.477-10 10 0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zM58 67.447c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10z" },
+        _react2.default.createElement("animateTransform", {
+          attributeName: "transform",
+          type: "rotate",
+          from: "0 67 67",
+          to: "-360 67 67",
+          dur: "2.5s",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "path",
+        { d: "M28.19 40.31c6.627 0 12-5.374 12-12 0-6.628-5.373-12-12-12-6.628 0-12 5.372-12 12 0 6.626 5.372 12 12 12zm30.72-19.825c4.686 4.687 12.284 4.687 16.97 0 4.686-4.686 4.686-12.284 0-16.97-4.686-4.687-12.284-4.687-16.97 0-4.687 4.686-4.687 12.284 0 16.97zm35.74 7.705c0 6.627 5.37 12 12 12 6.626 0 12-5.373 12-12 0-6.628-5.374-12-12-12-6.63 0-12 5.372-12 12zm19.822 30.72c-4.686 4.686-4.686 12.284 0 16.97 4.687 4.686 12.285 4.686 16.97 0 4.687-4.686 4.687-12.284 0-16.97-4.685-4.687-12.283-4.687-16.97 0zm-7.704 35.74c-6.627 0-12 5.37-12 12 0 6.626 5.373 12 12 12s12-5.374 12-12c0-6.63-5.373-12-12-12zm-30.72 19.822c-4.686-4.686-12.284-4.686-16.97 0-4.686 4.687-4.686 12.285 0 16.97 4.686 4.687 12.284 4.687 16.97 0 4.687-4.685 4.687-12.283 0-16.97zm-35.74-7.704c0-6.627-5.372-12-12-12-6.626 0-12 5.373-12 12s5.374 12 12 12c6.628 0 12-5.373 12-12zm-19.823-30.72c4.687-4.686 4.687-12.284 0-16.97-4.686-4.686-12.284-4.686-16.97 0-4.687 4.686-4.687 12.284 0 16.97 4.686 4.687 12.284 4.687 16.97 0z" },
+        _react2.default.createElement("animateTransform", {
+          attributeName: "transform",
+          type: "rotate",
+          from: "0 67 67",
+          to: "360 67 67",
+          dur: "8s",
+          repeatCount: "indefinite"
+        })
+      )
+    );
+  };
+
+  Circles.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string
+  };
+
+  Circles.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/CradleLoader.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/CradleLoader.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.CradleLoader = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var CradleLoader = exports.CradleLoader = function CradleLoader(props) {
+    return _react2.default.createElement(
+      "div",
+      { "aria-label": props.label, role: "presentation", className: "container" },
+      _react2.default.createElement(
+        "div",
+        { className: "react-spinner-loader-swing" },
+        _react2.default.createElement("div", { className: "react-spinner-loader-swing-l" }),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", { className: "react-spinner-loader-swing-r" })
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "react-spinner-loader-shadow" },
+        _react2.default.createElement("div", { className: "react-spinner-loader-shadow-l" }),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", null),
+        _react2.default.createElement("div", { className: "react-spinner-loader-shadow-r" })
+      )
+    );
+  };
+
+  CradleLoader.propTypes = {
+    label: _propTypes2.default.string
+  };
+
+  CradleLoader.defaultProps = {
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Grid.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Grid.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Grid = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Grid = exports.Grid = function Grid(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 105 105",
+        fill: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "circle",
+        { cx: "12.5", cy: "12.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "0s",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "12.5", cy: "52.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "100ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "52.5", cy: "12.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "300ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "52.5", cy: "52.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "600ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "92.5", cy: "12.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "800ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "92.5", cy: "52.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "400ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "12.5", cy: "92.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "700ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "52.5", cy: "92.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "500ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "92.5", cy: "92.5", r: props.radius },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "200ms",
+          dur: "1s",
+          values: "1;.2;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      )
+    );
+  };
+
+  Grid.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  Grid.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    radius: 12.5,
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Hearts.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Hearts.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Hearts = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Hearts = exports.Hearts = function Hearts(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 140 64",
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "path",
+        {
+          d: "M30.262 57.02L7.195 40.723c-5.84-3.976-7.56-12.06-3.842-18.063 3.715-6 11.467-7.65 17.306-3.68l4.52 3.76 2.6-5.274c3.717-6.002 11.47-7.65 17.305-3.68 5.84 3.97 7.56 12.054 3.842 18.062L34.49 56.118c-.897 1.512-2.793 1.915-4.228.9z",
+          attributeName: "fill-opacity",
+          from: "0",
+          to: ".5"
+        },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "0s",
+          dur: "1.4s",
+          values: "0.5;1;0.5",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "path",
+        {
+          d: "M105.512 56.12l-14.44-24.272c-3.716-6.008-1.996-14.093 3.843-18.062 5.835-3.97 13.588-2.322 17.306 3.68l2.6 5.274 4.52-3.76c5.84-3.97 13.592-2.32 17.307 3.68 3.718 6.003 1.998 14.088-3.842 18.064L109.74 57.02c-1.434 1.014-3.33.61-4.228-.9z",
+          attributeName: "fill-opacity",
+          from: "0",
+          to: ".5"
+        },
+        _react2.default.createElement("animate", {
+          attributeName: "fill-opacity",
+          begin: "0.7s",
+          dur: "1.4s",
+          values: "0.5;1;0.5",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement("path", { d: "M67.408 57.834l-23.01-24.98c-5.864-6.15-5.864-16.108 0-22.248 5.86-6.14 15.37-6.14 21.234 0L70 16.168l4.368-5.562c5.863-6.14 15.375-6.14 21.235 0 5.863 6.14 5.863 16.098 0 22.247l-23.007 24.98c-1.43 1.556-3.757 1.556-5.188 0z" })
+    );
+  };
+
+  Hearts.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string
+  };
+
+  Hearts.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/MutatingDots.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/MutatingDots.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.MutatingDots = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var MutatingDots = exports.MutatingDots = function MutatingDots(props) {
+    return _react2.default.createElement(
+      "svg",
+      { id: "goo-loader", width: props.width, height: props.height, "aria-label": props.label },
+      _react2.default.createElement(
+        "filter",
+        { id: "fancy-goo" },
+        _react2.default.createElement("feGaussianBlur", { "in": "SourceGraphic", stdDeviation: "6", result: "blur" }),
+        _react2.default.createElement("feColorMatrix", {
+          "in": "blur",
+          mode: "matrix",
+          values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9",
+          result: "goo"
+        }),
+        _react2.default.createElement("feComposite", { "in": "SourceGraphic", in2: "goo", operator: "atop" })
+      ),
+      _react2.default.createElement(
+        "g",
+        { filter: "url(#fancy-goo)" },
+        _react2.default.createElement("animateTransform", {
+          id: "mainAnim",
+          attributeName: "transform",
+          attributeType: "XML",
+          type: "rotate",
+          from: "0 50 50",
+          to: "359 50 50",
+          dur: "1.2s",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement(
+          "circle",
+          { cx: "50%", cy: "40", r: props.radius, fill: props.color },
+          _react2.default.createElement("animate", {
+            id: "cAnim1",
+            attributeType: "XML",
+            attributeName: "cy",
+            dur: "0.6s",
+            begin: "0;cAnim1.end+0.2s",
+            calcMode: "spline",
+            values: "40;20;40",
+            keyTimes: "0;0.3;1",
+            keySplines: "0.175, 0.885, 0.320, 1.5; 0.175, 0.885, 0.320, 1.5"
+          })
+        ),
+        _react2.default.createElement(
+          "circle",
+          { cx: "50%", cy: "60", r: props.radius, fill: props.secondaryColor },
+          _react2.default.createElement("animate", {
+            id: "cAnim2",
+            attributeType: "XML",
+            attributeName: "cy",
+            dur: "0.6s",
+            begin: "0.4s;cAnim2.end+0.2s",
+            calcMode: "spline",
+            values: "60;80;60",
+            keyTimes: "0;0.3;1",
+            keySplines: "0.175, 0.885, 0.320, 1.5;0.175, 0.885, 0.320, 1.5"
+          })
+        )
+      )
+    );
+  };
+
+  MutatingDots.propTypes = {
+    width: _propTypes2.default.number,
+    secondaryColor: _propTypes2.default.string,
+    height: _propTypes2.default.number,
+    color: _propTypes2.default.string,
+    radius: _propTypes2.default.number,
+    label: _propTypes2.default.string
+  };
+
+  MutatingDots.defaultProps = {
+    width: 80,
+    height: 90,
+    color: "green",
+    radius: 11,
+    secondaryColor: "green",
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Oval.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Oval.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Oval = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Oval = exports.Oval = function Oval(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 38 38",
+        xmlns: "http://www.w3.org/2000/svg",
+        stroke: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "g",
+        { fill: "none", fillRule: "evenodd" },
+        _react2.default.createElement(
+          "g",
+          { transform: "translate(1 1)", strokeWidth: "2" },
+          _react2.default.createElement("circle", { strokeOpacity: ".5", cx: "18", cy: "18", r: props.radius }),
+          _react2.default.createElement(
+            "path",
+            { d: "M36 18c0-9.94-8.06-18-18-18" },
+            _react2.default.createElement("animateTransform", {
+              attributeName: "transform",
+              type: "rotate",
+              from: "0 18 18",
+              to: "360 18 18",
+              dur: "1s",
+              repeatCount: "indefinite"
+            })
+          )
+        )
+      )
+    );
+  };
+
+  Oval.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  Oval.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading",
+    radius: 18
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Plane.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Plane.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Plane = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Plane = exports.Plane = function Plane(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        className: "react-spinner-loader-svg-calLoader",
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "230",
+        height: "230",
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "desc",
+        null,
+        "Plane animation. Loading "
+      ),
+      _react2.default.createElement("path", {
+        className: "react-spinner-loader-cal-loader__path",
+        style: { stroke: props.secondaryColor },
+        d: "M86.429 40c63.616-20.04 101.511 25.08 107.265 61.93 6.487 41.54-18.593 76.99-50.6 87.643-59.46 19.791-101.262-23.577-107.142-62.616C29.398 83.441 59.945 48.343 86.43 40z",
+        fill: "none",
+        stroke: "#0099cc",
+        strokeWidth: "4",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeDasharray: "10 10 10 10 10 10 10 432",
+        strokeDashoffset: "77"
+      }),
+      _react2.default.createElement("path", {
+        className: "cal-loader__plane",
+        style: { fill: props.color },
+        d: "M141.493 37.93c-1.087-.927-2.942-2.002-4.32-2.501-2.259-.824-3.252-.955-9.293-1.172-4.017-.146-5.197-.23-5.47-.37-.766-.407-1.526-1.448-7.114-9.773-4.8-7.145-5.344-7.914-6.327-8.976-1.214-1.306-1.396-1.378-3.79-1.473-1.036-.04-2-.043-2.153-.002-.353.1-.87.586-1 .952-.139.399-.076.71.431 2.22.241.72 1.029 3.386 1.742 5.918 1.644 5.844 2.378 8.343 2.863 9.705.206.601.33 1.1.275 1.125-.24.097-10.56 1.066-11.014 1.032a3.532 3.532 0 0 1-1.002-.276l-.487-.246-2.044-2.613c-2.234-2.87-2.228-2.864-3.35-3.309-.717-.287-2.82-.386-3.276-.163-.457.237-.727.644-.737 1.152-.018.39.167.805 1.916 4.373 1.06 2.166 1.964 4.083 1.998 4.27.04.179.004.521-.076.75-.093.228-1.109 2.064-2.269 4.088-1.921 3.34-2.11 3.711-2.123 4.107-.008.25.061.557.168.725.328.512.72.644 1.966.676 1.32.029 2.352-.236 3.05-.762.222-.171 1.275-1.313 2.412-2.611 1.918-2.185 2.048-2.32 2.45-2.505.241-.111.601-.232.82-.271.267-.058 2.213.201 5.912.8 3.036.48 5.525.894 5.518.914 0 .026-.121.306-.27.638-.54 1.198-1.515 3.842-3.35 9.021-1.029 2.913-2.107 5.897-2.4 6.62-.703 1.748-.725 1.833-.594 2.286.137.46.45.833.872 1.012.41.177 3.823.24 4.37.085.852-.25 1.44-.688 2.312-1.724 1.166-1.39 3.169-3.948 6.771-8.661 5.8-7.583 6.561-8.49 7.387-8.702.233-.065 2.828-.056 5.784.011 5.827.138 6.64.09 8.62-.5 2.24-.67 4.035-1.65 5.517-3.016 1.136-1.054 1.135-1.014.207-1.962-.357-.38-.767-.777-.902-.893z",
+        fill: "#000033"
+      })
+    );
+  };
+
+  Plane.propTypes = {
+    secondaryColor: _propTypes2.default.string,
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string
+  };
+
+  Plane.defaultProps = {
+    secondaryColor: "grey",
+    color: "#FFA500",
+    label: "async-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Puff.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Puff.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Puff = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Puff = exports.Puff = function Puff(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 44 44",
+        xmlns: "http://www.w3.org/2000/svg",
+        stroke: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "g",
+        { fill: "none", fillRule: "evenodd", strokeWidth: "2" },
+        _react2.default.createElement(
+          "circle",
+          { cx: "22", cy: "22", r: props.radius },
+          _react2.default.createElement("animate", {
+            attributeName: "r",
+            begin: "0s",
+            dur: "1.8s",
+            values: "1; 20",
+            calcMode: "spline",
+            keyTimes: "0; 1",
+            keySplines: "0.165, 0.84, 0.44, 1",
+            repeatCount: "indefinite"
+          }),
+          _react2.default.createElement("animate", {
+            attributeName: "strokeOpacity",
+            begin: "0s",
+            dur: "1.8s",
+            values: "1; 0",
+            calcMode: "spline",
+            keyTimes: "0; 1",
+            keySplines: "0.3, 0.61, 0.355, 1",
+            repeatCount: "indefinite"
+          })
+        ),
+        _react2.default.createElement(
+          "circle",
+          { cx: "22", cy: "22", r: props.radius },
+          _react2.default.createElement("animate", {
+            attributeName: "r",
+            begin: "-0.9s",
+            dur: "1.8s",
+            values: "1; 20",
+            calcMode: "spline",
+            keyTimes: "0; 1",
+            keySplines: "0.165, 0.84, 0.44, 1",
+            repeatCount: "indefinite"
+          }),
+          _react2.default.createElement("animate", {
+            attributeName: "strokeOpacity",
+            begin: "-0.9s",
+            dur: "1.8s",
+            values: "1; 0",
+            calcMode: "spline",
+            keyTimes: "0; 1",
+            keySplines: "0.3, 0.61, 0.355, 1",
+            repeatCount: "indefinite"
+          })
+        )
+      )
+    );
+  };
+
+  Puff.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  Puff.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading",
+    radius: 1
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/RevolvingDot.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/RevolvingDot.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.RevolvingDot = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var RevolvingDot = exports.RevolvingDot = function RevolvingDot(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        version: "1.1",
+        width: props.width,
+        height: props.height,
+        xmlns: "http://www.w3.org/2000/svg",
+        x: "0px",
+        y: "0px",
+        "aria-label": props.label
+      },
+      _react2.default.createElement("circle", {
+        fill: "none",
+        stroke: props.color,
+        strokeWidth: "4",
+        cx: "50",
+        cy: "50",
+        r: props.radius + 38,
+        style: { opacity: 0.5 }
+      }),
+      _react2.default.createElement(
+        "circle",
+        { fill: props.color, stroke: props.color, strokeWidth: "3", cx: "8", cy: "54", r: props.radius },
+        _react2.default.createElement("animateTransform", {
+          attributeName: "transform",
+          dur: "2s",
+          type: "rotate",
+          from: "0 50 48",
+          to: "360 50 52",
+          repeatCount: "indefinite"
+        })
+      )
+    );
+  };
+
+  RevolvingDot.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  RevolvingDot.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading",
+    radius: 6
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Rings.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Rings.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Rings = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Rings = exports.Rings = function Rings(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 45 45",
+        xmlns: "http://www.w3.org/2000/svg",
+        stroke: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "g",
+        { fill: "none", fillRule: "evenodd", transform: "translate(1 1)", strokeWidth: "2" },
+        _react2.default.createElement(
+          "circle",
+          { cx: "22", cy: "22", r: props.radius, strokeOpacity: "0" },
+          _react2.default.createElement("animate", {
+            attributeName: "r",
+            begin: "1.5s",
+            dur: "3s",
+            values: "6;22",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          }),
+          _react2.default.createElement("animate", {
+            attributeName: "stroke-opacity",
+            begin: "1.5s",
+            dur: "3s",
+            values: "1;0",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          }),
+          _react2.default.createElement("animate", {
+            attributeName: "stroke-width",
+            begin: "1.5s",
+            dur: "3s",
+            values: "2;0",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        ),
+        _react2.default.createElement(
+          "circle",
+          { cx: "22", cy: "22", r: props.radius, strokeOpacity: "0" },
+          _react2.default.createElement("animate", {
+            attributeName: "r",
+            begin: "3s",
+            dur: "3s",
+            values: "6;22",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          }),
+          _react2.default.createElement("animate", {
+            attributeName: "strokeOpacity",
+            begin: "3s",
+            dur: "3s",
+            values: "1;0",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          }),
+          _react2.default.createElement("animate", {
+            attributeName: "strokeWidth",
+            begin: "3s",
+            dur: "3s",
+            values: "2;0",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        ),
+        _react2.default.createElement(
+          "circle",
+          { cx: "22", cy: "22", r: props.radius + 2 },
+          _react2.default.createElement("animate", {
+            attributeName: "r",
+            begin: "0s",
+            dur: "1.5s",
+            values: "6;1;2;3;4;5;6",
+            calcMode: "linear",
+            repeatCount: "indefinite"
+          })
+        )
+      )
+    );
+  };
+
+  Rings.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  Rings.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    radius: 6,
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/TailSpin.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/TailSpin.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.TailSpin = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var TailSpin = exports.TailSpin = function TailSpin(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 38 38",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "defs",
+        null,
+        _react2.default.createElement(
+          "linearGradient",
+          { x1: "8.042%", y1: "0%", x2: "65.682%", y2: "23.865%", id: "a" },
+          _react2.default.createElement("stop", { stopColor: props.color, stopOpacity: "0", offset: "0%" }),
+          _react2.default.createElement("stop", { stopColor: props.color, stopOpacity: ".631", offset: "63.146%" }),
+          _react2.default.createElement("stop", { stopColor: props.color, offset: "100%" })
+        )
+      ),
+      _react2.default.createElement(
+        "g",
+        { fill: "none", fillRule: "evenodd" },
+        _react2.default.createElement(
+          "g",
+          { transform: "translate(1 1)" },
+          _react2.default.createElement(
+            "path",
+            { d: "M36 18c0-9.94-8.06-18-18-18", id: "Oval-2", stroke: props.color, strokeWidth: "2" },
+            _react2.default.createElement("animateTransform", {
+              attributeName: "transform",
+              type: "rotate",
+              from: "0 18 18",
+              to: "360 18 18",
+              dur: "0.9s",
+              repeatCount: "indefinite"
+            })
+          ),
+          _react2.default.createElement(
+            "circle",
+            { fill: "#fff", cx: "36", cy: "18", r: props.radius },
+            _react2.default.createElement("animateTransform", {
+              attributeName: "transform",
+              type: "rotate",
+              from: "0 18 18",
+              to: "360 18 18",
+              dur: "0.9s",
+              repeatCount: "indefinite"
+            })
+          )
+        )
+      )
+    );
+  };
+
+  TailSpin.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  TailSpin.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    radius: 1,
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/ThreeDots.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/ThreeDots.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.ThreeDots = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var ThreeDots = exports.ThreeDots = function ThreeDots(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        viewBox: "0 0 120 30",
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: props.color,
+        "aria-label": props.label
+      },
+      _react2.default.createElement(
+        "circle",
+        { cx: "15", cy: "15", r: props.radius + 6 },
+        _react2.default.createElement("animate", {
+          attributeName: "r",
+          from: "15",
+          to: "15",
+          begin: "0s",
+          dur: "0.8s",
+          values: "15;9;15",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "fillOpacity",
+          from: "1",
+          to: "1",
+          begin: "0s",
+          dur: "0.8s",
+          values: "1;.5;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        {
+          cx: "60",
+          cy: "15",
+          r: props.radius,
+          attributeName: "fillOpacity",
+          from: "1",
+          to: "0.3"
+        },
+        _react2.default.createElement("animate", {
+          attributeName: "r",
+          from: "9",
+          to: "9",
+          begin: "0s",
+          dur: "0.8s",
+          values: "9;15;9",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "fillOpacity",
+          from: "0.5",
+          to: "0.5",
+          begin: "0s",
+          dur: "0.8s",
+          values: ".5;1;.5",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "circle",
+        { cx: "105", cy: "15", r: props.radius + 6 },
+        _react2.default.createElement("animate", {
+          attributeName: "r",
+          from: "15",
+          to: "15",
+          begin: "0s",
+          dur: "0.8s",
+          values: "15;9;15",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        }),
+        _react2.default.createElement("animate", {
+          attributeName: "fillOpacity",
+          from: "1",
+          to: "1",
+          begin: "0s",
+          dur: "0.8s",
+          values: "1;.5;1",
+          calcMode: "linear",
+          repeatCount: "indefinite"
+        })
+      )
+    );
+  };
+
+  ThreeDots.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  ThreeDots.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading",
+    radius: 9
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Triangle.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Triangle.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Triangle = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Triangle = exports.Triangle = function Triangle(props) {
+    return _react2.default.createElement(
+      "div",
+      { className: "react-spinner-loader-svg" },
+      _react2.default.createElement(
+        "svg",
+        {
+          id: "triangle",
+          width: props.width,
+          height: props.height,
+          viewBox: "-3 -4 39 39",
+          "aria-label": props.label
+        },
+        _react2.default.createElement("polygon", { fill: "transparent", stroke: props.color, strokeWidth: "1", points: "16,0 32,32 0,32" })
+      )
+    );
+  };
+
+  Triangle.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string
+  };
+
+  Triangle.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading"
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/Watch.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/Watch.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _react, _propTypes) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Watch = undefined;
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var Watch = exports.Watch = function Watch(props) {
+    return _react2.default.createElement(
+      "svg",
+      {
+        width: props.width,
+        height: props.height,
+        version: "1.1",
+        id: "L2",
+        xmlns: "http://www.w3.org/2000/svg",
+        x: "0px",
+        y: "0px",
+        viewBox: "0 0 100 100",
+        enableBackground: "new 0 0 100 100",
+        xmlSpace: "preserve",
+        "aria-label": props.label
+      },
+      _react2.default.createElement("circle", {
+        fill: "none",
+        stroke: props.color,
+        strokeWidth: "4",
+        strokeMiterlimit: "10",
+        cx: "50",
+        cy: "50",
+        r: props.radius
+      }),
+      _react2.default.createElement(
+        "line",
+        {
+          fill: "none",
+          strokeLinecap: "round",
+          stroke: props.color,
+          strokeWidth: "4",
+          strokeMiterlimit: "10",
+          x1: "50",
+          y1: "50",
+          x2: "85",
+          y2: "50.5"
+        },
+        _react2.default.createElement("animateTransform", {
+          attributeName: "transform",
+          dur: "2s",
+          type: "rotate",
+          from: "0 50 50",
+          to: "360 50 50",
+          repeatCount: "indefinite"
+        })
+      ),
+      _react2.default.createElement(
+        "line",
+        {
+          fill: "none",
+          strokeLinecap: "round",
+          stroke: props.color,
+          strokeWidth: "4",
+          strokeMiterlimit: "10",
+          x1: "50",
+          y1: "50",
+          x2: "49.5",
+          y2: "74"
+        },
+        _react2.default.createElement("animateTransform", {
+          attributeName: "transform",
+          dur: "15s",
+          type: "rotate",
+          from: "0 50 50",
+          to: "360 50 50",
+          repeatCount: "indefinite"
+        })
+      )
+    );
+  };
+
+  Watch.propTypes = {
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    color: _propTypes2.default.string,
+    label: _propTypes2.default.string,
+    radius: _propTypes2.default.number
+  };
+
+  Watch.defaultProps = {
+    height: 80,
+    width: 80,
+    color: "green",
+    label: "audio-loading",
+    radius: 48
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/dist/loader/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-loader-spinner/dist/loader/index.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! ./Circles */ "./node_modules/react-loader-spinner/dist/loader/Circles.js"), __webpack_require__(/*! ./Watch */ "./node_modules/react-loader-spinner/dist/loader/Watch.js"), __webpack_require__(/*! ./Audio */ "./node_modules/react-loader-spinner/dist/loader/Audio.js"), __webpack_require__(/*! ./BallTriangle */ "./node_modules/react-loader-spinner/dist/loader/BallTriangle.js"), __webpack_require__(/*! ./Bars */ "./node_modules/react-loader-spinner/dist/loader/Bars.js"), __webpack_require__(/*! ./CradleLoader */ "./node_modules/react-loader-spinner/dist/loader/CradleLoader.js"), __webpack_require__(/*! ./Grid */ "./node_modules/react-loader-spinner/dist/loader/Grid.js"), __webpack_require__(/*! ./Hearts */ "./node_modules/react-loader-spinner/dist/loader/Hearts.js"), __webpack_require__(/*! ./MutatingDots */ "./node_modules/react-loader-spinner/dist/loader/MutatingDots.js"), __webpack_require__(/*! ./Oval */ "./node_modules/react-loader-spinner/dist/loader/Oval.js"), __webpack_require__(/*! ./Plane */ "./node_modules/react-loader-spinner/dist/loader/Plane.js"), __webpack_require__(/*! ./Puff */ "./node_modules/react-loader-spinner/dist/loader/Puff.js"), __webpack_require__(/*! ./RevolvingDot */ "./node_modules/react-loader-spinner/dist/loader/RevolvingDot.js"), __webpack_require__(/*! ./Rings */ "./node_modules/react-loader-spinner/dist/loader/Rings.js"), __webpack_require__(/*! ./TailSpin */ "./node_modules/react-loader-spinner/dist/loader/TailSpin.js"), __webpack_require__(/*! ./ThreeDots */ "./node_modules/react-loader-spinner/dist/loader/ThreeDots.js"), __webpack_require__(/*! ./Triangle */ "./node_modules/react-loader-spinner/dist/loader/Triangle.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _Circles, _Watch, _Audio, _BallTriangle, _Bars, _CradleLoader, _Grid, _Hearts, _MutatingDots, _Oval, _Plane, _Puff, _RevolvingDot, _Rings, _TailSpin, _ThreeDots, _Triangle) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Spinner = undefined;
+  var Spinner = exports.Spinner = {
+    Circles: _Circles.Circles,
+    Audio: _Audio.Audio,
+    BallTriangle: _BallTriangle.BallTriangle,
+    Bars: _Bars.Bars,
+    CradleLoader: _CradleLoader.CradleLoader,
+    Grid: _Grid.Grid,
+    Hearts: _Hearts.Hearts,
+    MutatingDots: _MutatingDots.MutatingDots,
+    Oval: _Oval.Oval,
+    Plane: _Plane.Plane,
+    Puff: _Puff.Puff,
+    RevolvingDot: _RevolvingDot.RevolvingDot,
+    Rings: _Rings.Rings,
+    TailSpin: _TailSpin.TailSpin,
+    ThreeDots: _ThreeDots.ThreeDots,
+    Triangle: _Triangle.Triangle,
+    Watch: _Watch.Watch
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-loader-spinner/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-loader-spinner/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/index */ "./node_modules/react-loader-spinner/dist/index.js");
+
+/***/ }),
+
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_ef0ff7c60362f24a921f ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_5f137288facb1107b491 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f */ "dll-reference dll_ef0ff7c60362f24a921f"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491 */ "dll-reference dll_5f137288facb1107b491"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -12224,7 +14351,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/home/oem/Documents/Development/Courswork/guitarchords/pages/[song].js";
+var _jsxFileName = "/home/vlad/Documents/Development/projects/YourChords/guitarchords/pages/[song].js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
@@ -12287,28 +14414,28 @@ module.exports = "/_next/static/images/logo-a86f20959cb6de789db36527fa4d2120.png
 
 /***/ }),
 
-/***/ 13:
-/*!*********************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Foem%2FDocuments%2FDevelopment%2FCourswork%2Fguitarchords%2Fpages%2F%5Bsong%5D.js ***!
-  \*********************************************************************************************************************************************************************/
+/***/ 15:
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Fvlad%2FDocuments%2FDevelopment%2Fprojects%2FYourChords%2Fguitarchords%2Fpages%2F%5Bsong%5D.js ***!
+  \**********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Foem%2FDocuments%2FDevelopment%2FCourswork%2Fguitarchords%2Fpages%2F%5Bsong%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Foem%2FDocuments%2FDevelopment%2FCourswork%2Fguitarchords%2Fpages%2F%5Bsong%5D.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Fvlad%2FDocuments%2FDevelopment%2Fprojects%2FYourChords%2Fguitarchords%2Fpages%2F%5Bsong%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bsong%5D&absolutePagePath=%2Fhome%2Fvlad%2FDocuments%2FDevelopment%2Fprojects%2FYourChords%2Fguitarchords%2Fpages%2F%5Bsong%5D.js!./");
 
 
 /***/ }),
 
-/***/ "dll-reference dll_ef0ff7c60362f24a921f":
+/***/ "dll-reference dll_5f137288facb1107b491":
 /*!*******************************************!*\
-  !*** external "dll_ef0ff7c60362f24a921f" ***!
+  !*** external "dll_5f137288facb1107b491" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_ef0ff7c60362f24a921f;
+module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[13,"static/runtime/webpack.js","styles"]]]);
+},[[15,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[song].js.map

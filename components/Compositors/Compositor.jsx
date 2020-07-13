@@ -5,27 +5,24 @@ import Link from 'next/link';
 import EditDir from '../Search/EditDir/EditDir';
 import '../../Styles/SearchStyle/SearchResault.css'
 import '../../Styles/global.css';
-
+import {ALL_SONGS_OF_COMPOSITOR} from '../urls';
 class SongList extends Component{
     constructor(props){
         super(props)
         this.state = {
-          songs: [],
-          comp: []
+          songs: []
         }
     }     
     componentDidMount(){
         var dir = EditDir(window.location.pathname);
         
-        Axios.get('http://localhost:3210/allSongsOfC',{params:{id: dir}}).then ((response) => { this.setState({songs: response.data})
-        //console.log(this.state.songs[0].cname);
+        Axios.get(ALL_SONGS_OF_COMPOSITOR + dir).then ((response) => { this.setState({songs: response.data})
     });
         
     }
     render(){
         return(
             <div>
-                {/* <h1>{this.state.songs.cname}</h1> */}
                 <div>
                     
                     <ul className = 'searchResults'>
@@ -52,10 +49,6 @@ class SongList extends Component{
     
     
 }
-
-const NoSongs = props =>(
-    <h1>No songs out hear</h1>
-);
 
 const SongRef = props =>(
     <Link href = '/[song]/' as ={`/${props.id}`}>

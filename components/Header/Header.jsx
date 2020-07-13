@@ -34,6 +34,7 @@ class Header extends Component{
 
 
     handleChange = e =>{
+        
         e.preventDefault();
         const {name, value} = e.target;
         
@@ -43,12 +44,11 @@ class Header extends Component{
             alert('Invalid search data');
             document.querySelector('#search').value = '';
         }
-        //console.log(this.state.Search);
     }
 
     handleClick = e =>{
         e.preventDefault();
-        window.location.href = '/SearchPages/' + this.Search;
+        window.location.href = '/SearchPages/' + this.state.Search;
     }
 
     render(){
@@ -60,10 +60,7 @@ class Header extends Component{
                     <SideMenu onClick = {this.closeSlideMenu}/>
                     <Burger onClick = {this.openSlideMenu}/>
                     <Menu/>
-                    {/* <Ref link = './addsong' text = 'add new song'/>
-                    <Ref link = './login' text = 'sing in'/>
-                    <Ref link = './singup' text = 'sing up'/> */}
-                    <SearchBox onChange = {this.handleChange}  search = {this.state.Search} onClick = {this.onClick}/>
+                    <SearchBox onChange = {this.handleChange}  search = {this.state.Search} onClick = {this.handleClick}/>
                     </div>
                 </nav>
 
@@ -116,10 +113,7 @@ const Menu = props =>(
         <MenuButton name = 'Info' href = '/'/>
         <MenuButton name = 'Songs' href = '/songs'/>
         <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
-        {/* <MenuButton name = 'Chords' href = '#'/> */}
         <MenuButton name = 'Articles' href = '/Articles/articles'/>
-        {/* <MenuButton name = 'Sing in' href = '/login'/>
-        <MenuButton name = 'Sing up' href = '/singup' /> */}
     </ul>
 
     
@@ -133,11 +127,6 @@ const SearchBox = props =>(
             <span className="input-group-btn">
                 <button  className = 'searchButton' type="button" onClick = {props.onClick}>
                     <span className="glyphicon glyphicon-search"></span>                    
-                    {/* <Link href='/SearchPages/[search]' as = {`/SearchPages/${props.search}`}>
-                        <a>
-                            <img className = '.logo' src = '../../static/search.png' />
-                        </a>
-                    </Link> */}
                     <img className = '.logo' src = '../../static/search.png' />
                 </button>
             </span>
@@ -168,8 +157,6 @@ const SideMenu = props =>(
         <MenuButton name = 'Songs' href = '/songs'/>
         <MenuButton name = 'Compositors' href = '/CompPages/comps'/>
         <MenuButton name = 'Articles' href = '/Articles/articles'/>
-        {/* <MenuButton name = 'Sing in' href = '/login'/>
-        <MenuButton name = 'Sing up' href = '/singup' /> */}
     </div>
 );
 
